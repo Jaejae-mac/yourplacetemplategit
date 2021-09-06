@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--JQuery 추가-->
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!--부트스트랩 추가 -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      .input-file-button {
+        width: 100px;
+        height: 30px;
+        padding: 6px 25px;
+        background-color: #ff6600;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+      }
+      #file-name {
+        display: inline;
+        width: 200px;
+      }
+      .file-name-div {
+        border: 1px solid black;
+        width: 200px;
+        height: 30px;
+      }
+      .form-group {
+        display: inline;
+      }
+      ul {
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <td>
+            <div class="file-name-div">
+              <ul id="file-name"></ul>
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <label for="input-file" class="input-file-button">UPLOAD</label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="input-file"
+                accept="image/*"
+                multiple
+                onchange="processSelectedFiles(this)"
+                style="display: none"
+              />
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script defer>
+      var counter = 0;
+      var tag = {};
+      function addTag(value) {
+        tag[counter] = value;
+        counter++; // del-btn 의 고유 id 가 된다.
+      }
+      function processSelectedFiles(fileInput) {
+        counter = 1;
+        var files = fileInput.files;
+        $(".file-name-div").css({ height: "auto" });
+        $("#file-name").text("");
+        if (files.length > 3) {
+          alert("최대 등록 가능 사진은 3장입니다.");
+        } else {
+          for (var i = 0; i < files.length; i++) {
+            $("#file-name").append(
+              "<li class='tag-item'>" +
+                files[i].name +
+                "<span class='del-btn' idx='" +
+                counter +
+                "'> X</span></li>"
+            );
+            addTag(files[i].name);
+          }
+        }
+      }
+      $(document).on("click", ".del-btn", function (e) {
+        var index = $(this).attr("idx");
+        tag[index] = "";
+        $(this).parent().remove();
+        console.log($(".file-name-div").css("height"));
+        if ($(".file-name").css("height") == 2) {
+          console.log("hellog");
+          $(".file-name-div").css({ height: "30" });
+        }
+      });
+    </script>
+  </body>
+</html>

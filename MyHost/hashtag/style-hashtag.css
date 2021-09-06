@@ -1,0 +1,21 @@
+#tag {
+  border-radius: 10px;
+  border: 2px solid black;
+}
+#tag-list > .tag-item {
+  list-style-type: none;
+  float: left;
+
+  background-color: rgb(160, 169, 212);
+  margin-right: 5px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: white;
+}
+#tag-list > .tag-item > .del-btn {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.clear {
+  clear: left;
+}

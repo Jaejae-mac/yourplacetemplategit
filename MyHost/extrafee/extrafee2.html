@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <style>
+      .labl {
+        display: block;
+        width: 400px;
+      }
+      .labl > input {
+        /* HIDE RADIO */
+        visibility: hidden; /* Makes input not-clickable */
+        position: absolute; /* Remove input from document flow */
+      }
+      .labl > input + div {
+        /* DIV STYLES */
+        cursor: pointer;
+        border: 2px solid transparent;
+      }
+      .labl > input:checked + div {
+        /* (RADIO CHECKED) DIV STYLES */
+        background-color: #ffd6bb;
+        border: 1px solid #ff6600;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <label class="labl">
+      <input
+        type="radio"
+        name="radioname"
+        value="one_value"
+        checked="checked"
+      />
+      <div>
+          <label
+        class="form-check-label extra-fee-sub-title"
+        for="flexRadioDefault1"
+      >
+        기본 할증
+      </label>
+  
+      <label
+        class="form-check-label extra-fee-content"
+        for="flexRadioDefault1"
+      >
+        인원 초과 시 : 50% 할증 자동 적용 (예: 10명 기준 11~19명) </br>
+        인원 2배부터 : 100% 할증 자동 적용 (예: 10명 기준 20명~29명) </br>
+        인원 3배부터 : 150% 할증 자동 적용 (예: 10명 기준 30명~)
+      </label>
+    </div>
+    </label>
+    <label class="labl">
+      <input type="radio" name="radioname" value="another" />
+      <div>Small</div>
+    </label>
+  </body>
+</html>

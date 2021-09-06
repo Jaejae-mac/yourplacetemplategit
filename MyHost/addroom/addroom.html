@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--JQuery 추가-->
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!--부트스트랩 추가 -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <style>
+      /* div 태그 가장 바깥 */
+      .add-extra-room {
+        width: 40%;
+        outline: 1px solid black;
+      }
+
+      .table {
+        text-align: center;
+        margin-bottom: 0px;
+      }
+      .table>tbody>tr > td{
+        padding: 5px;
+        vertical-align: middle;
+      }
+      .table > thead > tr > th {
+        text-align: center;
+        margin-bottom: 0px;
+      }
+
+      /* #btn1 {
+        border-radius: 50px;
+        background-color: rgb(160, 169, 212, 0.5);
+        padding: 2px 5px;
+      } */
+      .btn-primary{
+        margin: 0 auto;
+        border-radius: 10px;
+      }
+      .del-btn {
+        border-radius: 10px;
+      }
+      .base_num{
+        vertical-align: middle;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="add-extra-room">
+      <table class="table table-added-item">
+        <colgroup>
+          <col width="50" scope="col" />
+          <col width="100" scope="col" />
+          <col width="100" scope="col" />
+          <col width="100" scope="col" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>세부 이름</th>
+            <th>기본 인원</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody class="detail_tbody">
+        </tbody>
+      </table>
+      <table class="table table-input-item">
+        <colgroup>
+          <col width="100" />
+          <col width="100" />
+          <col width="100" />
+          <col width="100" />
+          <col width="100" />
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>방 이름</td>
+            <td><input type="text" class="room_title" size="10" /></td>
+            <td>기본인원</td>
+            <td><input type="text" class="base_num" size="5" /> 명</td>
+            <td>
+              <!-- 장소 추가 버튼 -->
+              <button type="button" class="btn btn-primary"" id="btn1">추가</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      var num = 1;
+      //세부 방 타이틀
+      var room_title = null;
+      //기본 인원
+      var base_num = null;
+
+      var tag = {};
+      var counter = 0;
+
+      // 입력한 값을 태그로 생성한다.
+      function addTag(value) {
+        tag[counter] = value;
+        counter++; // del-btn 의 고유 id 가 된다.
+      }
+
+      $(document).ready(function () {
+        $("#btn1").parent().css({"text-align":"left","margin-left":"10px"});
+        $(".base_num").parent().css({"text-align":"left"});
+        $("#btn1").click(function () {
+          room_title = $(".room_title").val();
+          base_num = $(".base_num").val();
+          var html =
+            "<tr><td>" +
+            num +
+            "</td><td>" +
+            room_title +
+            "</td><td>" +
+            base_num +
+            "</td>" +
+            "<td><button class='del-btn btn btn-danger' idx='" +
+            counter +
+            "'> X </button></td></tr>";
+          $(".detail_tbody").append(html);
+          addTag(room_title);
+          $(".room_title").val("");
+          $(".base_num").val("");
+
+          num++;
+        });
+
+        // 삭제 버튼
+        // 인덱스 검사 후 삭제
+        $(document).on("click", ".del-btn", function (e) {
+          var index = $(this).attr("idx");
+          console.log(index);
+          tag[index] = "";
+          $(this).parent().parent().remove();
+        });
+      });
+    </script>
+  </body>
+</html>
