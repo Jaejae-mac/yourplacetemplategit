@@ -5,14 +5,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="chrome">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>YourPlace</title>
         <link rel="stylesheet" type="text/css" href="sample.css">
 
     </head>
 
 
     <!-- Header -->
-    <!-- position fixed 또는 absolute 주고 상단헤더값(height: 100px) 만큼 vue 에서 빼주기 -->
+    <!-- position fixed 또는 absolute 주고 상단헤더값(height: 100px) 만큼  main 에서 빼주기 -->
     <div class="h_column_center" id="header"
         style="position: fixed; width: 100% ;top:0 ; background:white; z-index: 1000;-webkit-transform: translateZ(0);"
         xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
@@ -159,7 +159,8 @@
 
 
 
-    <div id="main_vue">
+    <!-- Banner -->
+    <div id="main">
         <div
             style="position: absolute; height: 100px; top: 0px; left: 0; right: 0; background-color: #fafbfb; z-index: -1;">
         </div>
@@ -183,7 +184,7 @@
 
                     <div style="position: absolute; top: 100px; right: 0; width: 100%; height: 100%;">
                         <div class="h_column_center" style="width: 100%; height: 100%;">
-                            <div style="position: relative; width: 1050px;height: 100%; cursor: pointer; z-index: 3; "
+                            <div style="position: relative; width: 1050px; height: 100%; cursor: pointer; z-index: 3; "
                                 onclick="hourplace_v2.userLog('W', '/', 'click', 'banner', 'main', 0, 9);window.location.href='/event/9';">
                             </div>
                         </div>
@@ -197,17 +198,17 @@
 
 
 
-    <!-- test body -->
-    <div style="flex-direction: row; display: flex; justify-content: center; background-color: wheat;">
-        <div class="h_row_center" id="test_body" style="width: 1160px; height: 2400px;">
-            <div style="position:relative;min-width: 300px;padding-top: 40px;height: 100%;"></div>
+    <!-- Main body -->
+    <div style="flex-direction: row; display: flex; justify-content: center; background-color: wheat; margin-top: 100px">
+        <div class="h_center" id="test_body" style="width: 1160px; height: 2400px; padding-top: 100px;">
+            <div style="position: absolute; min-width: 300px; padding-top: 40px; height: 100%;"></div>
             <p
                 style="font-size: 13px; font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;">
                 테스트 바디 생성
             </p>
         </div>
     </div>
-    </div>
+
 
     <!--footer-->
     <div style="flex-direction: row;display: flex;justify-content: center;background-color: #fafbfb;">
@@ -270,8 +271,9 @@
                 </div>
             </div>
         </div>
-        <!--푸터 끝-->
+        <!--footer 끝-->
 
+        <!-- script 시작 -->
         <script>
 
 
