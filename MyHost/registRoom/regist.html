@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <link rel="stylesheet" href="style-regist.css">
+    <!--부트스트랩 추가 -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="registjs.js"></script>
+  </head>
+  <body>
+      <div class="regist-div">
+    <div class="add-extra-room">
+        <table class="table table-added-item">
+          <colgroup>
+            <col width="50" scope="col" />
+            <col width="100" scope="col" />
+            <col width="100" scope="col" />
+            <col width="100" scope="col" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>세부 이름</th>
+              <th>기본 인원</th>
+              <th>삭제</th>
+            </tr>
+          </thead>
+          <tbody class="detail_tbody"></tbody>
+        </table>
+        <table class="table table-input-item">
+          <colgroup>
+            <col width="100" />
+            <col width="100" />
+            <col width="100" />
+            <col width="100" />
+            <col width="100" />
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>방 이름</td>
+              <td><input type="text" class="room_title" size="10" /></td>
+              <td>기본인원</td>
+              <td><input type="text" class="base_num" size="5" /> 명</td>
+              <td>
+                <!-- 장소 추가 버튼 -->
+                <button type="button" class="btn btn-primary btn-add" id="btn1">
+                  추가
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+    <!-- 파일전송 시작. -->
+    <form method="POST" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <td>
+            <div class="file-name-div">
+              <ul id="file-name"></ul>
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <label for="input-file" class="input-file-button">업로드</label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="input-file"
+                accept="image/*"
+                multiple
+                onchange="processSelectedFiles(this)"
+                style="display: none"
+              />
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <hr>
+       <!--인원할증유형-->
+       <form class="extra-fee" id="extra-fee">
+        <div class="extra-fee-title">인원 할증 유형</div>
+        <div class="form-check default-fee">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+            checked
+          />
+          <div class="fee-content">
+          <label
+            class="form-check-label extra-fee-sub-title"
+            for="flexRadioDefault1"
+          >
+            기본 할증
+          </label>
+      
+          <label
+            class="form-check-label extra-fee-content"
+            for="flexRadioDefault1"
+          >
+            인원 초과 시 : 50% 할증 자동 적용 (예: 10명 기준 11~19명) </br>
+            인원 2배부터 : 100% 할증 자동 적용 (예: 10명 기준 20명~29명) </br>
+            인원 3배부터 : 150% 할증 자동 적용 (예: 10명 기준 30명~)
+          </label>
+          </div>
+        </div>
+        <div class="form-check add-one">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault2"
+          />
+          <label
+            class="form-check-label extra-fee-sub-title"
+            for="flexRadioDefault2"
+          >
+            1인 추가 시 시간당 5,500원
+          </label>
+          <label
+          class="form-check-label extra-fee-content"
+          for="flexRadioDefault2"
+        >
+         설정 인원 초과 시 : 1인 추가 시 시간당 5,500원 할증 자동 적용(부가세 포함)
+        </label>
+        </div>
+        <div class="form-check add-one-double">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault3"
+          />
+          <label
+            class="form-check-label extra-fee-sub-title"
+            for="flexRadioDefault3"
+          >
+            1인 추가 시 시간당 11,000원
+          </label>
+          <label
+          class="form-check-label extra-fee-content"
+          for="flexRadioDefault3"
+        >
+         설정 인원 초과 시 : 1인 추가 시 시간당 11,000원 할증 자동 적용(부가세 포함)
+        </label>
+        </div>
+      </form>
+      <hr>
+    <!-- 다음 API 시작. -->
+    <div class="find-address">
+      <input
+        type="text"
+        id="roadAddress"
+        class="roadAddress"
+        placeholder="도로명주소"
+        size="50"
+        readonly
+      />
+      <!-- <input type="text" id="sample4_postcode" placeholder="우편번호" /> -->
+      <input
+        type="button"
+        onclick="execDaumPostcode()"
+        class="btn btn-primary"
+        value="우편번호 찾기"
+        style="width: 100px; height: 35px"
+      />
+    </div>
+    <hr>
+    <!-- 해시태그 시작 -->
+    <div class="tr_hashTag_area">
+      <p><strong>HashTag</strong></p>
+      <div class="form-group">
+        <input type="hidden" value="" name="tag" id="rdTag" />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="tag"
+          size="7"
+          placeholder="엔터로 해시태그를 등록하기"
+          style="width: 300px"
+        />
+      </div>
+      <ul id="tag-list"></ul>
+      <div class="clear"></div>
+    </div>
+</div>
+  </body>
+</html>

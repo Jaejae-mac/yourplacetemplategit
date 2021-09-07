@@ -1,0 +1,152 @@
+.regist-div {
+  outline: 1px solid black;
+  width: 100%;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+hr {
+  border: 2px solid black;
+  margin-bottom: 5px;
+}
+#tag {
+  border-radius: 10px;
+  border: 2px solid black;
+}
+#tag-list > .tag-item {
+  list-style-type: none;
+  float: left;
+
+  background-color: rgb(160, 169, 212);
+  margin-right: 5px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: white;
+}
+#tag-list > .tag-item > .del-btn {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.clear {
+  clear: left;
+}
+/* ----- */
+btn,
+.btn-primary {
+  padding: 0 0;
+  margin: 0 0;
+  border-radius: 10px;
+}
+.find-address {
+  vertical-align: middle;
+}
+.roadAddress {
+  padding: 0 5;
+  margin-top: 5px;
+  height: 35px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+/* ------- */
+body {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.input-file-button {
+  width: 100px;
+  height: 30px;
+  padding: 6px 25px;
+  background-color: #ff6600;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+#file-name {
+  display: inline;
+  width: 200px;
+}
+.file-name-div {
+  border: 1px solid black;
+  width: 200px;
+  height: 30px;
+}
+.form-group {
+  display: inline;
+}
+ul {
+  padding: 0;
+}
+
+/* ------ */
+
+.fee-content {
+  display: inline;
+}
+.extra-fee {
+  margin: 5px 5px;
+  width: 44%;
+  border: 1px solid black;
+  padding: 5px 5px;
+  border-radius: 10px;
+}
+.default-fee,
+.add-one,
+.add-one-double {
+  margin: 10px 5px;
+  border: 1px solid black;
+  padding: 5px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.extra-fee-sub-title {
+  font-size: large;
+}
+.extra-fee-content {
+  display: block;
+  color: lightslategray;
+  font-size: small;
+  font-family: Arial, sans-serif;
+}
+.default-fee:hover,
+.add-one:hover,
+.add-one-double:hover {
+  border: 1px solid rgb(0, 0, 255);
+  background-color: rgb(0, 0, 255, 0.03);
+}
+/* -------- */
+/* div 태그 가장 바깥 */
+.add-extra-room {
+  width: 40%;
+  outline: 1px solid black;
+}
+
+.table {
+  text-align: center;
+  margin-bottom: 0px;
+}
+.table > tbody > tr > td {
+  padding: 5px;
+  vertical-align: middle;
+}
+.table > thead > tr > th {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+/* #btn1 {
+  border-radius: 50px;
+  background-color: rgb(160, 169, 212, 0.5);
+  padding: 2px 5px;
+} */
+.btn-add {
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.del-btn,
+.del-btn-file,
+.del-btn-room {
+  border-radius: 10px;
+}
+.base_num {
+  vertical-align: middle;
+}
