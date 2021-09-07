@@ -8,15 +8,21 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="sample.css">
     <script src="viewRoom.js"></script>
- 
+    <!--달력 script-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
 
-   
 </head>
 
 <body>
-   
 
-    <div class="h_row_center" style="position: relative;width: 1160px;height: 100px; margin:auto;"><img
+
+    <div class="h_row_center" style="position: relative;width: 1160px; height: 100px; margin:auto;"><img
             src="https://s3.hourplace.co.kr/web/images/icon/logo_b.svg"
             onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'tab', 'home');window.location.href='/'"
             style="width: 130px; height: 32px; cursor: pointer;">
@@ -93,114 +99,134 @@
     </div>
     <!--이름-->
     <div style="position: relative; left: 200px;">
-    <p
-        style="margin-top: 5px; font-size: 32px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.31; letter-spacing: -0.3px; color: rgb(27, 29, 31);">
-        샘플 장소 이름
-    </p>
-    <!--리뷰별점 , 리뷰 보기-->
-    <!--onclick -- 별점 불러오는 메서드-->
-    <div onclick="go_feedback()" class="h_row_center" style="cursor: pointer;">
-        <div class="review_star_big" style="margin-left: -2px;"><span style="width: 98%;">별점 평균</span></div>
-        <div style="position: relative; left: 80px; top: 4px;">
         <p
-            style="margin-left: 12px; font-style: normal; font-weight: 500; font-size: 15px; line-height: 24px; letter-spacing: -0.1px; text-decoration-line: underline; color: rgb(27, 29, 31);">
-            n개 리뷰보기
+            style="margin-top: 5px; font-size: 32px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.31; letter-spacing: -0.3px; color: rgb(27, 29, 31);">
+            샘플 장소 이름
         </p>
+        <!--리뷰별점 , 리뷰 보기-->
+        <!--onclick -- 별점 불러오는 메서드-->
+        <div onclick="go_feedback()" class="h_row_center" style="cursor: pointer;">
+            <div class="review_star_big" style="margin-left: -2px;"><span style="width: 98%;">별점 평균</span></div>
+            <div style="position: relative; left: 80px; top: 4px;">
+                <p
+                    style="margin-left: 12px; font-style: normal; font-weight: 500; font-size: 15px; line-height: 24px; letter-spacing: -0.1px; text-decoration-line: underline; color: rgb(27, 29, 31);">
+                    n개 리뷰보기
+                </p>
+            </div>
         </div>
     </div>
-</div>
-<!--장소 이미지-->
-<div class="flipsnap_container"
-        style="margin-top: 50px; overflow: hidden; display: flex; width: 720px; height: 480px; border-radius: 6px; position:relative; left: 200px;" >
+    <!--장소 이미지-->
+    <div class="flipsnap_container"
+        style="margin-top: 50px; overflow: hidden; display: flex; width: 720px; height: 480px; border-radius: 6px; position:relative; left: 200px;">
         <!--720px X 480px-->
         <div class="flipsnap_list"
             style="display: flex; width: 100%; min-width: 100%; transition-property: transform; transition-timing-function: cubic-bezier(0, 0, 0.25, 1); transition-duration: 350ms; transform: translate3d(0px, 0px, 0px);">
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="https://img.hourplace.co.kr/temp/images/2019/05/13/52980499-0a22-3d0a-9545-e324879c9c19.jpg?s=1440x960&t=cover&q=80"
-                    style="width: 100%;height: 100%;object-fit: cover;"></div>
+                    style="width: 100%;height: 100%;object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/13/eac757fa-801d-3de4-9b6e-04532816ffd6.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/13/424ca485-0edc-3ebb-aee0-c34a689a6166.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/place/user/1017/2021/06/05/9308486f-bacc-34b0-ac3f-587ba04a7bd1?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/13/364f8bd3-f6bd-39c6-a212-c3f8b6f01538.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/20/62a82469-bcc4-3b3a-9035-5d6c8105c3c2.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/23/f578a436-280b-3f73-8af2-269a5d7b6b39.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/23/8eb8ccf0-84c4-3a39-85b6-ed0466a22129.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/23/4b34c334-aa6d-3b1d-81f4-96720e205542.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/06/17/9b8ac58f-07e7-3023-8bd4-8ee986e5599d.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/23/dc736664-ba13-3dde-92ca-f9ca6d1845c6.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/05/23/4c270b3c-8683-3db7-bb67-834412ef79f1.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/06/04/539a8fe0-cfe9-3d75-bb43-c37bc8ec5097.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/06/04/f7987a98-00b5-314a-b4b8-70665f1b6edb.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/temp/images/2019/06/04/f29c02c9-7dfb-36fe-963f-e1f6b97c851e.jpg?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/place/user/1017/2021/06/05/0a8a57b9-7366-3800-953a-a872e4d04c98?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/place/user/1017/2021/06/05/7bfa50d5-5af3-3a49-a25b-20e6a99c94d8?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/place/user/1017/2021/06/05/bf6f719e-dfb6-3257-85f6-6e0350e1b03a?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/place/user/1017/2021/06/05/bd269f4c-8aec-31ee-9515-6967696e9d77?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <div class="h_row_center"
                 style="width: 100%; position: relative; transform: translate3d(0px, 0px, 0px); backface-visibility: hidden; flex-shrink: 0;">
                 <img src="//img.hourplace.co.kr/place/user/1017/2021/06/05/01e49b66-498c-32c5-b63a-3ddfab51d8de?s=1440x960&amp;t=cover&amp;q=80"
-                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
         </div>
     </div>
-    
+
     <div style="width: 400px; position: absolute; top: 255px; left: 950px;">
         <!--예약 시작-->
- 
+
         <div style="width: 100%; margin-top: 40px;">
             <div
                 style="border-radius: 10px; border: 1px solid rgb(223, 226, 231); background-color: rgb(255, 255, 255);">
@@ -250,219 +276,242 @@
 
 
                     </div>
-                    
+
                     <!--라디오 버튼 (세부 방 선택 시작)-->
                     <!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-<!-- 부트 스트랩 CDN -->    
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"><!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"><!-- 부가적인 테마 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script><!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<div>
-<input type="radio" id="room1" name="room" value="1" onchange="setDisplay()"> n번룸 <br>
-<br>
-</div>
-<input type="radio" id="room2" name="room" value="2" onchange="setDisplay()"> n번룸2
+                    <!-- 부트 스트랩 CDN -->
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+                    <!-- 합쳐지고 최소화된 최신 CSS -->
+                    <link rel="stylesheet"
+                        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+                    <!-- 부가적인 테마 -->
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+                    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 
-<!--라디오버튼 눌러야만 값 보이게끔 하기 위해서 style-->
+                    <div>
+                        <input type="radio" id="room1" name="room" value="1" onchange="setDisplay()"> n번룸 <br>
+                        <br>
+                    </div>
+                    <input type="radio" id="room2" name="room" value="2" onchange="setDisplay()"> n번룸2
 
-<div id="divId" style="display: none;">
+                    <!--라디오버튼 눌러야만 값 보이게끔 하기 위해서 style-->
 
-    <div id="divId">
-        <div class="meetspace-info">
-           <!--장소 룸 이미지 -->
-                </div>
-            <p class="meetspace-info-desc">4m(가로) x 5m(세로) x 3m(높이)<br><br>블랙톤의 다크룸 입니다. 배치되어 있는 소품들은 제거 후 자유롭게 사용
-                가능합니다.</p>
-        </div>
-        <ul class="list_detail">
-            <li><span class="tit">공간유형</span> <span class="data"><span>촬영스튜디오 </span><span>호리존 </span><span>라이브방송
-                    </span></span></li>
-            <li><span class="tit">예약시간</span> <span class="data">최소 1시간 부터</span></li>
-            <li><span class="tit">수용인원</span> <span class="data">최소 1명 ~ 최대 15명</span></li>
-            <!---->
-        </ul>
-        <div class="facility_wrap">
-            <ul class="facility_list">
-                <li><i class="sp_icon ico_alchole"></i> <span class="txt_name">
-                        주류반입
-                        <em class="br">가능</em></span></li>
-                <li><i class="sp_icon ico_table"></i> <span class="txt_name">
-                        의자/
-                      테이블</span></li>
-                <li><i class="sp_icon ico_fittingroom"></i> <span class="txt_name">
-                        탈의실
-                        <!---->
-                    </span></li>
-                <li><i class="sp_icon ico_food"></i> <span class="txt_name">
-                        음식물
-                     반입가능</span></li>
-                <li><i class="sp_icon ico_toilet"></i> <span class="txt_name">
-                        내부
-                      화장실</span></li>
-                <li><i class="sp_icon ico_nonsmocking"></i> <span class="txt_name">
-                        금연
-                        <!---->
-                    </span></li>
-                <li><i class="sp_icon ico_parking"></i> <span class="txt_name">
-                        주차
-                        <!---->
-                    </span></li>
-                <li><i class="sp_icon ico_wifi"></i> <span class="txt_name">
-                        인터넷/
-                      WIFI</span></li>
-            </ul>
-        </div>
+                    <div id="divId" style="display: none;">
 
-
-        <h2 class="meetspace-heading">예약선택</h2>
-        <div class="meetspace-radio">
-            <div class="meetspace-radio-item"><input type="radio" id="89143" value="TIME" class="radio" onchange="setDisplay()> <label
-                    for="89143">시간 단위 예약하기(최소 1시간 부터)</label>
-                <!---->
-   
-            </div>
-          
-        </div>
-    </div>
-</li>
-</div>
-</div>
-
-
-<div id="divId2" style="display: none;">
-    <div id="divId">
-        <div class="meetspace-info">
-            <!--장소 룸 이미지 -->
-                 </div>
-             <p class="meetspace-info-desc">4m(가로) x 5m(세로) x 3m(높이)<br><br>블랙톤의 다크룸 입니다. 배치되어 있는 소품들은 제거 후 자유롭게 사용
-                 가능합니다.</p>
-         </div>
-         <ul class="list_detail">
-             <li><span class="tit">공간유형</span> <span class="data"><span>촬영스튜디오 </span><span>호리존 </span><span>라이브방송
-                     </span></span></li>
-             <li><span class="tit">예약시간</span> <span class="data">최소 1시간 부터</span></li>
-             <li><span class="tit">수용인원</span> <span class="data">최소 1명 ~ 최대 15명</span></li>
-             <!---->
-         </ul>
-         <div class="facility_wrap">
-             <ul class="facility_list">
-                 <li><i class="sp_icon ico_alchole"></i> <span class="txt_name">
-                         주류반입
-                        가능</span></li>
-                 <li><i class="sp_icon ico_table"></i> <span class="txt_name">
-                         의자/
-                        테이블</span></li>
-                 <li><i class="sp_icon ico_fittingroom"></i> <span class="txt_name">
-                         탈의실
-                         <!---->
-                     </span></li>
-                 <li><i class="sp_icon ico_food"></i> <span class="txt_name">
-                         음식물
-                         반입가능</span></li>
-                 <li><i class="sp_icon ico_toilet"></i> <span class="txt_name">
-                         내부
-                         화장실</span></li>
-                 <li><i class="sp_icon ico_nonsmocking"></i> <span class="txt_name">
-                         금연
-                         <!---->
-                     </span></li>
-                 <li><i class="sp_icon ico_parking"></i> <span class="txt_name">
-                         주차
-                         <!---->
-                     </span></li>
-                 <li><i class="sp_icon ico_wifi"></i> <span class="txt_name">
-                         인터넷/
-                         WIFI</span></li>
-             </ul>
-         </div>
-         <h2 class="meetspace-heading">예약선택</h2>
-         <div class="meetspace-radio">
-             <div class="meetspace-radio-item"><input type="radio" id="89143" value="TIME" class="radio"> <label
-                     for="89143">시간 단위 예약하기(최소 1시간 부터)</label>
-                 <!---->
-               </div>
-           
-        </div>
-        </div>
-        </div>
-      </div>
-    
-
-<!--radio button 값에 따라서 다른 룸 보여주기 위한 jquery-->
-<script>
-$('input[type=radio][name=room]').on('click', function(){
-    var checkValue = $('input[type=radio][name=room]:checked').val();
-
-if(checkValue=='1'){
-    $('#divId').css('display','block');
-    $('#divId2').css('display', 'none');
-}else if(checkValue=='2'){
-    $('#divId').css('display','none');
-    $('#divId2').css('display', 'block');
-   
-}
-
-});
-
-
-</script>
-
-            
-
-<div class="h_row_center" style="margin-top: 20px; display: none;">
-    <div style="width: 235px;">
-        <div class="request" style="margin-top: 0px;">
-            <div style="position: relative;">
-                <div class="request">
-                    <p>
-                        지금 예약 하기
-                    </p>
-                </div>
-                <div class="h_row_center" style="margin-top: 20px; display: none;">
-                    <div style="width: 235px;">
-                        <div class="request" style="margin-top: 0px;">
-                            <p>
-                                지금 예약하기
-                            </p>
+                        <div id="divId">
+                            <div class="meetspace-info">
+                                <!--장소 룸 이미지 -->
+                            </div>
+                            <p class="meetspace-info-desc">4m(가로) x 5m(세로) x 3m(높이)<br><br>블랙톤의 다크룸 입니다. 배치되어 있는 소품들은 제거
+                                후 자유롭게 사용
+                                가능합니다.</p>
                         </div>
-                    </div>
-                    <div style="margin-left: 10px; width: 95px; height: 52px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(239, 243, 245); cursor: pointer;">
-                        <p style="font-style: normal; font-weight: 500; font-size: 16px; line-height: 22px; text-align: center; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
+                        <ul class="list_detail">
+                            <li><span class="tit">공간유형</span> <span class="data"><span>촬영스튜디오 </span><span>호리존
+                                    </span><span>라이브방송
+                                    </span></span></li>
+                            <li><span class="tit">예약시간</span> <span class="data">최소 1시간 부터</span></li>
+                            <li><span class="tit">수용인원</span> <span class="data">최소 1명 ~ 최대 15명</span></li>
+                            <!---->
+                        </ul>
+                        <div class="facility_wrap">
+                            <ul class="facility_list">
+                                <li><i class="sp_icon ico_alchole"></i> <span class="txt_name">
+                                        주류반입
+                                        <em class="br">가능</em></span></li>
+                                <li><i class="sp_icon ico_table"></i> <span class="txt_name">
+                                        의자/
+                                        테이블</span></li>
+                                <li><i class="sp_icon ico_fittingroom"></i> <span class="txt_name">
+                                        탈의실
+                                        <!---->
+                                    </span></li>
+                                <li><i class="sp_icon ico_food"></i> <span class="txt_name">
+                                        음식물
+                                        반입가능</span></li>
+                                <li><i class="sp_icon ico_toilet"></i> <span class="txt_name">
+                                        내부
+                                        화장실</span></li>
+                                <li><i class="sp_icon ico_nonsmocking"></i> <span class="txt_name">
+                                        금연
+                                        <!---->
+                                    </span></li>
+                                <li><i class="sp_icon ico_parking"></i> <span class="txt_name">
+                                        주차
+                                        <!---->
+                                    </span></li>
+                                <li><i class="sp_icon ico_wifi"></i> <span class="txt_name">
+                                        인터넷/
+                                        WIFI</span></li>
+                            </ul>
+                        </div>
 
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div
-        style="margin-left: 10px; width: 95px; height: 52px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(239, 243, 245); cursor: pointer;">
 
-    </div>
+                        <h2 class="meetspace-heading">예약선택</h2>
+                        <div class="meetspace-radio">
+                            <div class="meetspace-radio-item"><input type="radio" id="89143" value="TIME" class="radio">
+                                <label for="89143">시간 단위 예약하기(최소 1시간 부터)</label>
                             </div>
 
+
+                            <!--예약 캘린더-->
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker1').datetimepicker();
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                            <input type="submit" value="예약 선택"/>
+
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-            <div class="h_column_center"
-                style="position:relative; left: px; bottom: -16px; width: 193px;">
+
+                    <div id="divId2" style="display: none;">
+                        <div id="divId">
+                            <div class="meetspace-info">
+                                <!--장소 룸 이미지 -->
+                            </div>
+                            <p class="meetspace-info-desc">7m(가로) x 5m(세로) x 3m(높이)<br><br>블랙톤의 다크룸 입니다. 배치되어 있는 소품들은 제거
+                                후 자유롭게 사용
+                                가능합니다.</p>
+                        </div>
+                        <ul class="list_detail">
+                            <li><span class="tit">공간유형</span> <span class="data"><span>촬영스튜디오 </span><span>호리존
+                                    </span><span>라이브방송
+                                    </span></span></li>
+                            <li><span class="tit">예약시간</span> <span class="data">최소 1시간 부터</span></li>
+                            <li><span class="tit">수용인원</span> <span class="data">최소 1명 ~ 최대 15명</span></li>
+                            <!---->
+                        </ul>
+                        <div class="facility_wrap">
+                            <ul class="facility_list">
+                                <li><i class="sp_icon ico_alchole"></i> <span class="txt_name">
+                                        주류반입
+                                        가능</span></li>
+                                <li><i class="sp_icon ico_table"></i> <span class="txt_name">
+                                        의자/
+                                        테이블</span></li>
+                                <li><i class="sp_icon ico_fittingroom"></i> <span class="txt_name">
+                                        탈의실
+                                        <!---->
+                                    </span></li>
+                                <li><i class="sp_icon ico_food"></i> <span class="txt_name">
+                                        음식물
+                                        반입가능</span></li>
+                                <li><i class="sp_icon ico_toilet"></i> <span class="txt_name">
+                                        내부
+                                        화장실</span></li>
+                                <li><i class="sp_icon ico_nonsmocking"></i> <span class="txt_name">
+                                        금연
+                                        <!---->
+                                    </span></li>
+                                <li><i class="sp_icon ico_parking"></i> <span class="txt_name">
+                                        주차
+                                        <!---->
+                                    </span></li>
+                                <li><i class="sp_icon ico_wifi"></i> <span class="txt_name">
+                                        인터넷/
+                                        WIFI</span></li>
+                            </ul>
+                        </div>
+                        <h2 class="meetspace-heading">예약선택</h2>
+                        <div class="meetspace-radio">
+                            <div class="meetspace-radio-item"><input type="radio" id="89143" value="TIME" class="radio">
+                                <label for="89143">시간 단위 예약하기(최소 1시간 부터)</label>
+                                <!---->
+                            </div>
+                            <!-- datetime picker-->
+
+                            <!--radio button 값에 따라서 다른 룸 보여주기 위한 jquery-->
+                            <script>
+                                $('input[type=radio][name=room]').on('click', function () {
+                                    var checkValue = $('input[type=radio][name=room]:checked').val();
+
+                                    if (checkValue == '1') {
+                                        $('#divId').css('display', 'block');
+                                        $('#divId2').css('display', 'none');
+                                     
+                                    } else if (checkValue == '2') {
+                                        $('#divId').css('display', 'none');
+                                        $('#divId2').css('display', 'block');
+
+                                    }
+
+                                });
+
+
+                            </script>
+                        </div>
+
+
+                        <div class="h_row_center" style="margin-top: 20px; display: none;">
+                            <div style="width: 235px;">
+                                <div class="request" style="margin-top: 0px;">
+                                    <div style="position: relative;">
+                                        <div class="request">
+                                            <p>
+                                                지금 예약 하기
+                                            </p>
+                                        </div>
+                                        <div class="h_row_center" style="margin-top: 20px; display: none;">
+                                            <div style="width: 235px;">
+                                                <div class="request" style="margin-top: 0px;">
+                                                    <p>
+                                                        지금 예약하기
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin-left: 10px; width: 95px; height: 52px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(239, 243, 245); cursor: pointer;">
+                                                <p
+                                                    style="font-style: normal; font-weight: 500; font-size: 16px; line-height: 22px; text-align: center; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                style="margin-left: 10px; width: 95px; height: 52px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(239, 243, 245); cursor: pointer;">
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="triangle-with-shadow-down blue" style="margin-top: -1px;"></div>
             </div>
         </div>
+    </div>
 
-            </div>
-        </div>
-<!--관심장소 공유하기 버튼 추가-->
+    <div class="h_column_center" style="position:relative; left: px; bottom: -16px; width: 193px;">
+    </div>
+    </div>
+    <div class="triangle-with-shadow-down blue" style="margin-top: -1px;"></div>
+    </div>
+    </div>
 
-       
+    </div>
+    </div>
+    <!--관심장소 공유하기 버튼 추가-->
+
+
     </div>
     <!--예약 버튼-->
     <form method="POST" name="form_booking" action="/place/29464/booking"><input type="hidden" name="_token"
@@ -473,39 +522,40 @@ if(checkValue=='1'){
     </div>
     </div>
 
-                <!--호스트 이미지 들어가는 곳-->
-                <div style="width: 60px; height: 60px; margin-right: 20px;"><img src="#"
-                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"></div>
-                <div style="max-width: 513px; margin-right: 20px; width: fit-content;">
-                    <div style="width: fit-content;">
-<div style="position: relative; left: 200px;"
-                        <p style="font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.43; letter-spacing: normal; color: rgb(114, 120, 127);">
-                            호스트
-                        </p>
-                        <!--호스트 이름-->
-                        <p
-                            style="margin-top: 2px; font-size: 16px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.38; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
-                            샘플 호스트 이름
-                        </p>
-                    </div>
-                </div>
+    <!--호스트 이미지 들어가는 곳-->
+    <div style="width: 60px; height: 100px; margin-right: 20px;">
+        <!-- <img src="#"  style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">-->
+    </div>
+    <div style="max-width: 513px; margin-right: 20px; width: fit-content;">
+        <div style="width: fit-content;">
+            <div style="position: relative; left: 200px;" <p
+                style="font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.43; letter-spacing: normal; color: rgb(114, 120, 127);">
+                호스트
+                </p>
+                <!--호스트 이름-->
+                <p
+                    style="margin-top: 2px; font-size: 16px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.38; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
+                    샘플 호스트 이름
+                </p>
             </div>
-            <div style="position: relative; left: 800px;">
-            <div class="h_center"
+        </div>
+    </div>
+    <div style="position: relative; left: 800px;">
+        <div class="h_center"
             style="margin-top: 8px; border-radius: 14px; border: 1px solid rgb(37, 113, 255); width: 107px; height: 28px;">
             <p
                 style="font-size: 12px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.17; letter-spacing: -0.1px; color: rgb(36, 111, 248); text-align: center;">
                 장소번호 00000
             </p>
         </div>
-     
-            </div>
-        </div>
+
+    </div>
+    </div>
     </div>
     <div style="position: relative; left: 200px;">
         <div style="margin-top: 30px; width: 100%; height: 1px; background-color: rgb(231, 234, 238);"></div>
         <p
-            style="margin-top: 40px; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: -0.3px; color: rgb(27, 29, 31);">
+            style="margin-top: 80px; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: -0.3px; color: rgb(27, 29, 31);">
             장소 소개
         </p>
         <div style="margin-top: 12px; width: 100%; display: flex; flex-wrap: wrap;">
@@ -539,7 +589,7 @@ if(checkValue=='1'){
                 </p>
             </div>
         </div>
-       
+
         <!--태그 끝-->
         <!--장소 소개 컨텐츠-->
         <p
@@ -693,7 +743,7 @@ if(checkValue=='1'){
                     style="margin-left: 4px; font-style: normal; font-weight: bold; font-size: 15px; line-height: 24px; letter-spacing: -0.1px; color: rgb(38, 40, 43);">
                     4.9
                 </p>
-                <div class="h_row_center" style="position: absolute; right: 0px;">
+                <div class="h_row_center" style="margin: auto;;">
                     <!--정렬 기준 시작-->
                     <p
                         style="font-style: normal; font-weight: bold; font-size: 14px; line-height: 20px; cursor: pointer; color: rgb(36, 111, 248);">
@@ -752,125 +802,126 @@ if(checkValue=='1'){
                     </div>
                 </div>
 
-</div>
+            </div>
 
 
 
-<!--푸터-->
+            <!--푸터-->
 
-                <div style="flex-direction: row;display: flex;justify-content: center;background-color: #fafbfb;">
-                    <div class="h_row_center" style="width: 1160px; height: 310px; position:relative; margin:10px; right: 150px;">
+            <div style="flex-direction: row;display: flex;justify-content: center;background-color: #fafbfb;">
+                <div class="h_row_center"
+                    style="width: 1160px; height: 310px; position:relative; margin:10px; right: 150px;">
 
-                        <div style="position:relative;min-width: 300px;padding-top: 40px;height: 100%;">
-                            <p style="font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'business');window.open('http://www.ftc.go.kr/www/bizCommView.do?key=232&amp;apv_perm_no=2018322016230204057&amp;pageUnit=10&amp;searchCnd=wrkr_no&amp;searchKrwd=4948100558&amp;pageIndex=1')">
-                                사업자정보확인
-                            </p>
-                            <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'personal');window.location.href='/policy/personal'">
-                                개인정보처리방침
-                            </p>
-                            <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'service');window.location.href='/policy/service'">
-                                이용약관
-                            </p>
-                            <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'service');window.location.href='/service'">
-                                고객센터
-                            </p>
-                            <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'hr');window.open('https://www.notion.so/hourplace/fae9ceaf4a174479bf52a44305283045')">
-                                인재채용
-                            </p>
+                    <div style="position:relative;min-width: 300px;padding-top: 40px;height: 100%;">
+                        <p style="font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
+                            onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'business');window.open('http://www.ftc.go.kr/www/bizCommView.do?key=232&amp;apv_perm_no=2018322016230204057&amp;pageUnit=10&amp;searchCnd=wrkr_no&amp;searchKrwd=4948100558&amp;pageIndex=1')">
+                            사업자정보확인
+                        </p>
+                        <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
+                            onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'personal');window.location.href='/policy/personal'">
+                            개인정보처리방침
+                        </p>
+                        <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
+                            onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'service');window.location.href='/policy/service'">
+                            이용약관
+                        </p>
+                        <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
+                            onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'service');window.location.href='/service'">
+                            고객센터
+                        </p>
+                        <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
+                            onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'hr');window.open('https://www.notion.so/hourplace/fae9ceaf4a174479bf52a44305283045')">
+                            인재채용
+                        </p>
 
-                            <div style="position:absolute; bottom: 50px; margin: auto;">
-                                <p
-                                    style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.47;letter-spacing: -0.1px;color: #454b50;">
-                                    team@hourplace.co.kr</p>
-                            </div>
+                        <div style="position:absolute; bottom: 50px; margin: auto;">
+                            <p
+                                style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.47;letter-spacing: -0.1px;color: #454b50;">
+                                team@hourplace.co.kr</p>
                         </div>
+                    </div>
 
-                        <div style="position:relative; width: 860px;padding-top: 40px; height: 100%">
+                    <div style="position:relative; width: 860px;padding-top: 40px; height: 100%">
 
-                            <p
-                                style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;color: #9ea4aa;">
-                                (주)먼치팩토리 사업자 정보
-                            </p>
-                            <p
-                                style="margin-top: 16px;font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.67;letter-spacing: normal;color: #9ea4aa;">
-                                대표 서영석<br>
-                                주소 서울특별시 강남구 압구정로2길 62 대성빌딩 202호<br>
-                                사업자 등록번호 494-81-00558<br>
-                                통신판매업신고번호 2018-서울강남-04057<br>
-                                (주)먼치팩토리는 통신판매중개자로서, 통신판매의 당사자가 아니라는 사실을 고지하며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게
-                                있습니다.
-                            </p>
+                        <p
+                            style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;color: #9ea4aa;">
+                            (주)먼치팩토리 사업자 정보
+                        </p>
+                        <p
+                            style="margin-top: 16px;font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.67;letter-spacing: normal;color: #9ea4aa;">
+                            대표 서영석<br>
+                            주소 서울특별시 강남구 압구정로2길 62 대성빌딩 202호<br>
+                            사업자 등록번호 494-81-00558<br>
+                            통신판매업신고번호 2018-서울강남-04057<br>
+                            (주)먼치팩토리는 통신판매중개자로서, 통신판매의 당사자가 아니라는 사실을 고지하며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게
+                            있습니다.
+                        </p>
 
-                            <p
-                                style="position:absolute; bottom: 50px;font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #9ea4aa;">
-                                © munchfactory Inc.
-                            </p>
+                        <p
+                            style="position:absolute; bottom: 50px;font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #9ea4aa;">
+                            © munchfactory Inc.
+                        </p>
 
-                            <div class="h_row_center" style="position:absolute; bottom: 50px; right: 0;">
-                                <div class="h_column_center" style="width: 32px;height: 32px;cursor: pointer;"
-                                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'instagram');window.open('http://instagram.com/hourplace/?hl=ko')">
-                                    <div class="h_center"
-                                        style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
-                                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_instagram_dark.svg"
-                                            style="width: 20px;height: 20px">
-                                    </div>
+                        <div class="h_row_center" style="position:absolute; bottom: 50px; right: 0;">
+                            <div class="h_column_center" style="width: 32px;height: 32px;cursor: pointer;"
+                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'instagram');window.open('http://instagram.com/hourplace/?hl=ko')">
+                                <div class="h_center"
+                                    style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                                    <img src="//s3.hourplace.co.kr/web/images/icon/sns_instagram_dark.svg"
+                                        style="width: 20px;height: 20px">
                                 </div>
-                                <div class="h_column_center"
-                                    style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
-                                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'blog');window.open('https://blog.naver.com/hourplace')">
-                                    <div class="h_center"
-                                        style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
-                                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_blog_dark.svg"
-                                            style="width: 20px;height: 20px">
-                                    </div>
+                            </div>
+                            <div class="h_column_center"
+                                style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
+                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'blog');window.open('https://blog.naver.com/hourplace')">
+                                <div class="h_center"
+                                    style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                                    <img src="//s3.hourplace.co.kr/web/images/icon/sns_blog_dark.svg"
+                                        style="width: 20px;height: 20px">
                                 </div>
-                                <div class="h_column_center"
-                                    style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
-                                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'brunch');window.open('https://brunch.co.kr/@hourplace#articles')">
-                                    <div class="h_center"
-                                        style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
-                                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_brunch_dark.svg"
-                                            style="width: 20px;height: 20px">
-                                    </div>
+                            </div>
+                            <div class="h_column_center"
+                                style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
+                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'brunch');window.open('https://brunch.co.kr/@hourplace#articles')">
+                                <div class="h_center"
+                                    style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                                    <img src="//s3.hourplace.co.kr/web/images/icon/sns_brunch_dark.svg"
+                                        style="width: 20px;height: 20px">
                                 </div>
-                                <div class="h_column_center"
-                                    style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
-                                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'facebook');window.open('http://facebook.com/Hourplace-1170061373140648')">
-                                    <div class="h_center"
-                                        style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
-                                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_facebook_dark.svg"
-                                            style="width: 20px;height: 20px">
-                                    </div>
+                            </div>
+                            <div class="h_column_center"
+                                style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
+                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'facebook');window.open('http://facebook.com/Hourplace-1170061373140648')">
+                                <div class="h_center"
+                                    style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                                    <img src="//s3.hourplace.co.kr/web/images/icon/sns_facebook_dark.svg"
+                                        style="width: 20px;height: 20px">
                                 </div>
-                                <div class="h_column_center"
-                                    style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
-                                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'app', 'ios');window.open('https://itunes.apple.com/kr/app/id1481552760?mt=8')">
-                                    <div class="h_center"
-                                        style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
-                                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_apple_dark.svg"
-                                            style="width: 20px;height: 20px">
-                                    </div>
+                            </div>
+                            <div class="h_column_center"
+                                style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
+                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'app', 'ios');window.open('https://itunes.apple.com/kr/app/id1481552760?mt=8')">
+                                <div class="h_center"
+                                    style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                                    <img src="//s3.hourplace.co.kr/web/images/icon/sns_apple_dark.svg"
+                                        style="width: 20px;height: 20px">
                                 </div>
-                                <div class="h_column_center"
-                                    style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
-                                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'app', 'android');window.open('https://play.google.com/store/apps/details?id=com.munchfactory.hourplace')">
-                                    <div class="h_center"
-                                        style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
-                                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_google_dark.svg"
-                                            style="width: 20px;height: 20px">
-                                    </div>
+                            </div>
+                            <div class="h_column_center"
+                                style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;"
+                                onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'app', 'android');window.open('https://play.google.com/store/apps/details?id=com.munchfactory.hourplace')">
+                                <div class="h_center"
+                                    style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                                    <img src="//s3.hourplace.co.kr/web/images/icon/sns_google_dark.svg"
+                                        style="width: 20px;height: 20px">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!--푸터 끝-->
+            <!--푸터 끝-->
 
 </body>
 
