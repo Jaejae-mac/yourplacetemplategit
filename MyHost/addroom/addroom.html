@@ -23,7 +23,7 @@
         text-align: center;
         margin-bottom: 0px;
       }
-      .table>tbody>tr > td{
+      .table > tbody > tr > td {
         padding: 5px;
         vertical-align: middle;
       }
@@ -37,17 +37,16 @@
         background-color: rgb(160, 169, 212, 0.5);
         padding: 2px 5px;
       } */
-      .btn-primary{
+      .btn-add {
         margin: 0 auto;
         border-radius: 10px;
       }
       .del-btn {
         border-radius: 10px;
       }
-      .base_num{
+      .base_num {
         vertical-align: middle;
       }
-      
     </style>
   </head>
   <body>
@@ -67,8 +66,7 @@
             <th>삭제</th>
           </tr>
         </thead>
-        <tbody class="detail_tbody">
-        </tbody>
+        <tbody class="detail_tbody"></tbody>
       </table>
       <table class="table table-input-item">
         <colgroup>
@@ -86,7 +84,9 @@
             <td><input type="text" class="base_num" size="5" /> 명</td>
             <td>
               <!-- 장소 추가 버튼 -->
-              <button type="button" class="btn btn-primary"" id="btn1">추가</button>
+              <button type="button" class="btn btn-primary btn-add" id="btn1">
+                추가
+              </button>
             </td>
           </tr>
         </tbody>
@@ -99,18 +99,20 @@
       //기본 인원
       var base_num = null;
 
-      var tag = {};
-      var counter = 0;
+      var tagRoom = {};
+      var counterRoom = 0;
 
       // 입력한 값을 태그로 생성한다.
       function addTag(value) {
-        tag[counter] = value;
-        counter++; // del-btn 의 고유 id 가 된다.
+        tagRoom[counterRoom] = value;
+        counterRoom++; // del-btn 의 고유 id 가 된다.
       }
 
       $(document).ready(function () {
-        $("#btn1").parent().css({"text-align":"left","margin-left":"10px"});
-        $(".base_num").parent().css({"text-align":"left"});
+        $("#btn1")
+          .parent()
+          .css({ "text-align": "left", "margin-left": "10px" });
+        $(".base_num").parent().css({ "text-align": "left" });
         $("#btn1").click(function () {
           room_title = $(".room_title").val();
           base_num = $(".base_num").val();
@@ -123,7 +125,7 @@
             base_num +
             "</td>" +
             "<td><button class='del-btn btn btn-danger' idx='" +
-            counter +
+            counterRoom +
             "'> X </button></td></tr>";
           $(".detail_tbody").append(html);
           addTag(room_title);
@@ -135,10 +137,10 @@
 
         // 삭제 버튼
         // 인덱스 검사 후 삭제
-        $(document).on("click", ".del-btn", function (e) {
+        $(document).on("click", ".del-btn-room", function (e) {
           var index = $(this).attr("idx");
           console.log(index);
-          tag[index] = "";
+          tagRoom[index] = "";
           $(this).parent().parent().remove();
         });
       });
