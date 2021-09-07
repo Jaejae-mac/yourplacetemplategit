@@ -17,6 +17,7 @@
         style="position: fixed; width: 100% ;top:0 ; background:white; z-index: 1000;-webkit-transform: translateZ(0);"
         xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
+        <!-- 실제 header 에 포함되는 내용들 -->
         <div class="h_row_center" style="position: relative;width: 1160px; height: 100px;">
 
             <!-- 로고 클릭시, 메인 페이지로 이동. hourplace_v2.userLog('W', '/', 'click', 'tab', 'home');window.location.href='/' -->
@@ -25,7 +26,7 @@
 
             <!-- 모든 장소 보여주기 hourplace_v2.userLog('W', '/', 'click', 'tab', 'all');toggle_category_all() -->
             <div class="h_row_center" style="position: absolute; right: 0px; cursor: pointer;">
-                <div onclick="window.toggle_category_all()" class="h_center h_header_button"
+                <div onclick="toggle_category_all()" class="h_center h_header_button"
                     style="padding: 0px 13px; height: 50px;">
                     <p
                         style="font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31);">
@@ -119,20 +120,22 @@
 
         </div>
 
-    </div>
+        <!-- all toggle -->
 
-    <div class="category_all"
+        <div class="category_all"
         style="position: fixed;top: 100px;left: 0;width: 100%;height: 100%;display: none;z-index: 9999;background-color: rgba(0, 0, 0, 0.2);"
         onclick="toggle_category_all()">
         <div class="h_column_center" style="background-color: #FFFFFF; width: 100%; position:relative;">
             <div style="padding-top: 10px; padding-bottom: 40px;width: 1160px;display: flex; flex-direction: row;">
 
-                <div v-for="category in categories" style="flex: 1">
+                <!-- 메인 카테고리 시작 -->
+                <div v-for="category in categories" style="flex: 1 1 0%;">
                     <p class="h_hover_button"
                         style="font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;color: #454b50; padding: 7px 12px 5px 8px; margin-bottom: 10px;"
                         v-on:click="click_category_main(category.id)">
-                        {{ category.title }}
+                        가정집
                     </p>
+                    <!-- 상세 카테고리 시작 -->
                     <div class="h_hover_button h_row_center"
                         style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
                         v-on:click="click_category_main(category.id)">
@@ -141,20 +144,67 @@
                             전체
                         </p>
                     </div>
+                    <!-- 상세 카테고리 끝 -->
+                    <!-- 상세 카테고리 시작 -->
                     <div class="h_hover_button h_row_center" v-for="sub in category.subs"
                         style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
                         v-on:click="click_category_sub(category.id, sub.id)">
                         <p
                             style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
-                            {{ sub.title }}
+                            아파트
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            주택
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            빌라
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            원룸
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            한옥
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            홈오피스
                         </p>
                     </div>
                 </div>
+                <!-- 메인 카테고리 끝 -->
 
             </div>
         </div>
     </div>
     </div>
+
+    </div>
+
+    
 
 
 
@@ -195,6 +245,8 @@
         </div>
     </div>
 
+
+    <!-- 모든 카테고리-->
 
 
 

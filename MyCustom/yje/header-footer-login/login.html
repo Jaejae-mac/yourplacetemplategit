@@ -32,8 +32,8 @@
                             
                             <form id="form_login" method="POST" action="/login">
                                 <input type="hidden" name="_token" value="CO5NSkoOWiPrEihilmn86B2BXu2M6ulfg3KoaUuk">
-                                <div class="input_container2 bottom" style="width: 480px; margin-left: 50px;" v-bind:class="{'focus':email_focus===true}">
-                                    <input type="id" placeholder="아이디" value="" id="id_" name="id" v-model="id"
+                                <div class="input_container2 bottom" style="width: 480px; margin-left: 50px;" v-bind:class="{'focus':idfocus===true}">
+                                    <input type="id" placeholder="아이디" value="" id="id" name="id" v-model="id"
                                     required>
                                     <div class="delete"
                                     v-show="id.length > 0" v-on:click="id" = ''">
@@ -41,8 +41,8 @@
                                     </div>
                                 </div>
             
-                                <div class="input_container2 bottom" style="width: 480px; margin-top: 10px; margin-left: 50px;" v-bind:class="{'focus':password_focus===true}">
-                                    <input type="password" placeholder="비밀번호" value="" id="password_" name="password" v-model="password"
+                                <div class="input_container2 bottom" style="width: 480px; margin-top: 10px; margin-left: 50px;" v-bind:class="{'focus':passwordfocus===true}">
+                                    <input type="password" placeholder="비밀번호" value="" id="password" name="password" v-model="password"
                                     required>
                                     <div class="delete" style="margin-left: 50px;"
                                     v-show="password.length > 0" v-on:click="password = ''">
@@ -84,7 +84,7 @@
                             <!-- original : "window.location.href='/password/email'" -->
                             <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
                                 <p style="margin-left: 8px; margin-right: 8px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-050); cursor: pointer;"
-                                onclick="window.location.href='/find/account.html'">
+                                onclick="window.location.href='findaccount.html'">
                                     아이디 찾기
                                 </p>
                                 <div style="width: 10px;height: 1px;transform: rotate(90deg);background-color: var(--grey-020);"></div>
