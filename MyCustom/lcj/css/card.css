@@ -11,20 +11,22 @@
   flex-flow: row wrap;
 }
 .card_layout {
-  width: calc((100% - 60px) / 4);
+  width: calc((100% - 100px) / 4);
   margin-bottom: 40px;
   margin-right: 7.5px;
   margin-left: 7.5px;
   /* margin-right: (((places.indexOf(place) + 1) % 4 === 0) ? '0' : '20px'); */
+  /* 여백 문제로 인해 위치 조정탓에 수정함. 60px->100px*/
 }
 .card {
   position: relative;
   height: 346px;
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
   cursor: pointer;
 }
+/* 모서리 픽셀 수정 -LCJ 2021 09 09*/
 .card_header {
   width: 275px;
   height: 182px;
