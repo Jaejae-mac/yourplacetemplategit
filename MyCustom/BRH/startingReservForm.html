@@ -170,7 +170,7 @@
 <!--장소 기본 옵션 들어가야할 곳-->
 
 <div data-v-3e4269ab="" class="heading" style="position: relative; left: 180px; top: 40px;">
-    <h3 data-v-3e4269ab="">예약 정보</h3> <span data-v-3e4269ab="" class="option">
+    <h3 data-v-3e4269ab="">예약 정보</h3> <span data-v-3e4269ab="" class="option"></span>
 </div>
 <br><br><br>
 <hr color="#2E9AFE" style="position: relative; left: 50px; width:900px;">
@@ -206,16 +206,17 @@
         <dt data-v-3e4269ab="" class="flex tit"><label data-v-3e4269ab="" for="name">예약자</label> <span
                 data-v-3e4269ab="" class="ico_required">*</span></dt>
         <dd data-v-3e4269ab="" class="flex">
-            <div data-v-3e4269ab="" class="input"><input data-v-3e4269ab="" id="name" type="text"></div>
+            <div data-v-3e4269ab="" class="input" style="position: relative; left: 100px;"><input data-v-3e4269ab="" id="name" type="text"></div>
         </dd>
     </dl>
-    <dl data-v-3e4269ab="" class="flex_box">
+    <dl data-v-3e4269ab="" class="flex_box" >
         <dt data-v-3e4269ab="" class="flex tit"><label data-v-3e4269ab="" for="phone1">연락처</label> <span
                 data-v-3e4269ab="" class="ico_required">*</span></dt>
         <dd data-v-3e4269ab="" class="flex mobile">
             <div data-v-3e4269ab="" class="row">
+            <div data-v-3e4269ab="" class="row" style="position: relative; left: 100px;">
                 <div data-v-3e4269ab="" class="col4">
-                    <div data-v-3e4269ab="" class="select"><select data-v-3e4269ab="" id="phone1" title="휴대폰 앞자리">
+                    <div data-v-3e4269ab="" class="select" ><select data-v-3e4269ab="" id="phone1" title="휴대폰 앞자리">
                             <option data-v-3e4269ab="" value="010">010</option>
                             <option data-v-3e4269ab="" value="011">011</option>
                             <option data-v-3e4269ab="" value="016">016</option>
@@ -224,9 +225,9 @@
                             <option data-v-3e4269ab="" value="019">019</option>
                         </select></div>
                 </div>
-                <div data-v-3e4269ab="" class="col4"><input data-v-3e4269ab="" id="phone2" type="tel" title="휴대폰 중간자리"
+                <div data-v-3e4269ab="" class="col4"><input data-v-3e4269ab="" id="phone2" type="tel" title="휴대폰 중간자리" style="position: relative; left: 65px; top: -20px;"
                         required="required" maxlength="4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"></div>
-                <div data-v-3e4269ab="" class="col4"><input data-v-3e4269ab="" id="phone3" type="tel" title="휴대폰 뒷자리"
+                <div data-v-3e4269ab="" class="col4"><input data-v-3e4269ab="" id="phone3" type="tel" title="휴대폰 뒷자리" style="position: relative; left: 235px; top:-39px;"
                         required="required" maxlength="4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"></div>
             </div>
         </dd>
@@ -235,14 +236,14 @@
         <dt data-v-3e4269ab="" class="flex tit"><label data-v-3e4269ab="" for="email">이메일</label> <span
                 data-v-3e4269ab="" class="ico_required">*</span></dt>
         <dd data-v-3e4269ab="" class="flex">
-            <div data-v-3e4269ab="" class="input"><input data-v-3e4269ab="" id="email" type="email"
+            <div data-v-3e4269ab="" class="input" style="position: relative; left: 99px; top: -20px;"><input data-v-3e4269ab="" id="email" type="email"
                     placeholder="이메일 주소를 입력해 주세요."></div>
         </dd>
     </dl>
     <dl data-v-3e4269ab="" class="flex_box">
         <dt data-v-3e4269ab="" class="flex tit"><label data-v-3e4269ab="" for="reservationPurpose">사용목적</label></dt>
         <dd data-v-3e4269ab="" class="flex">
-            <div data-v-3e4269ab="" class="input"><input data-v-3e4269ab="" id="reservationPurpose" type="text"
+            <div data-v-3e4269ab="" class="input" style="position: relative; left: 100px; top: -17px;"><input data-v-3e4269ab="" id="reservationPurpose" type="text"
                     placeholder="촬영, 파티, 모임, 수업 등 공간의 사용 목적을 입력해주세요."></div>
         </dd>
     </dl>
@@ -250,7 +251,7 @@
         <dt data-v-3e4269ab="" class="flex tit"><label data-v-3e4269ab="" for="request">요청사항</label></dt>
         <dd data-v-3e4269ab="" class="flex">
             <div data-v-3e4269ab="" class="input"><textarea data-v-3e4269ab="" id="request" name=""
-                    placeholder="남기고 싶은말을 적어주세요. (최대 500자)" maxlength="500"></textarea></div>
+                    placeholder="남기고 싶은말을 적어주세요. (최대 500자)" cols="70" rows="10"  maxlength="500"></textarea></div>
         </dd>
     </dl>
 </div>
@@ -407,9 +408,6 @@
         
 
                     </div>
-
-
-
 
                 </div>
 
