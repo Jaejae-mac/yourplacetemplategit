@@ -1,0 +1,165 @@
+:root{-webkit-text-size-adjust: 100%;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+--blue: #007bff;
+--indigo: #6610f2;
+--purple: #6f42c1;
+--pink: #e83e8c;
+--orange: #fd7e14;
+--teal: #20c997;
+--cyan: #17a2b8;
+--white: #fff;
+--gray: #6c757d;
+--gray-dark: #343a40;
+--primary: #007bff;
+--secondary: #6c757d;
+--success: #28a745;
+--info: #17a2b8;
+--warning: #ffc107;
+--danger: #dc3545;
+--light: #f8f9fa;
+--dark: #343a40;
+--breakpoint-xs: 0;
+--breakpoint-sm: 576px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 992px;
+--breakpoint-xl: 1200px;
+--font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+--font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+--swiper-theme-color: #007aff;
+--swiper-navigation-size: 44px;
+--opacity-blue-40: rgba(36, 111, 248, 0.4);
+--red: #ff4b3e;
+--grey-050: #72787f;
+--grey-080: #1b1d1f;
+--grey-040: #9ea4aa;
+--grey-035: #aeb3b8;
+--grey-030: #c9cdd2;
+--grey-055: #535960;
+--grey-070: #26282b;
+--grey-065: #35383c;
+--grey-060: #454b50;
+--grey-025: #dfe2e7;
+--grey-020: #e7eaee;
+--grey-010: #f5f7f8;
+--grey-005: #fafbfb;
+--grey-085: #141618;
+--grey-090: #131415;
+--blue-050: #0046f0;
+--blue-040: #195bfa;
+--blue-030: #246ff8;
+--blue-020: #3c82fa;
+--blue-060: #0f3dde;
+--blue-070: #0038c1;
+--grey-015: #eff3f5;
+--blue-010: #609bff;
+--opacity-black-06: rgba(0, 0, 0, 0.06);
+--opacity-black-20: rgba(0, 0, 0, 0.2);
+--opacity-black-40: rgba(0, 0, 0, 0.4);
+--opacity-black-60: rgba(0, 0, 0, 0.6);
+--opacity-black-85: rgba(0, 0, 0, 0.85);
+--opacity-white-20: rgba(255, 255, 255, 0.2);
+--opacity-white-60: rgba(255, 255, 255, 0.6);
+--opacity-blue-05: rgba(36, 111, 248, 0.05);
+--green: #5cc566;
+--yellow: #ffc428;
+--i-os-system-tints-system-blue-light: #007aff;
+--i-os-system-tints-system-blue-dark: #0a84ff;
+--light-red: #ffb8be;
+--blue-005: #75adff;
+--opacity-white-80: rgba(255, 255, 255, 0.8);
+--i-os-system-tints-system-green-light: #34c759;
+--i-os-system-fills-light-2-secondary: rgba(120, 120, 128, 0.16);
+--grey-095: #050505;
+--gold: #c19f63;
+--opacity-blue-10: rgba(36, 111, 248, 0.1);
+--hourblue: #0056ff;
+--i-os-system-backgrounds-grouped-ligh: #ffffff;
+--i-os-system-separators-light-separat: rgba(60, 60, 67, 0.29);
+font-weight: 400;
+text-align: left;
+color: #3b3e4d;
+font-size: 14px;
+line-height: 1.1;
+font-family: "-apple-system",BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+-webkit-font-smoothing: antialiased;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: 1000px;
+}
+.h_row_center {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.h_booking_select_button {
+    width: 286px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.h_center {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, label, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+body, button, html, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.1;
+    font-family: "-apple-system",BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+.h_info_container_title {
+    margin-left: 40px;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: -0.3px;
+    color: #1b1d1f;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.h_info_sub_button p {
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #1b1d1f;
+}
+.h_info_sub_button {
+    border-radius: 4px;
+    height: 40px;
+    padding: 0 13px;
+    cursor: pointer;
+}
+element.style {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    background-color: #fafbfb;
+}
