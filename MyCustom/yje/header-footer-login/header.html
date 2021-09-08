@@ -8,6 +8,16 @@
         <title>YourPlace</title>
         <link rel="stylesheet" type="text/css" href="sample.css">
 
+                <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#nav ul.sub").hide();
+                $("#nav ul.menu li").click(function(){
+                    $("ul",this).slideToggle("fast");
+                });
+            });
+        </script>
+
     </head>
 
 
@@ -110,7 +120,7 @@
                     style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
                     <ul class="menu"
                         style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
-                        <li>My page</a>
+                        <li> My page</a>
                             <ul class="sub"> 
                                 
                                 <li><a href="#" onclick="window.location.href='guest/userNum.html'">프로필</a></li> <!-- guest/user번호로 -->
@@ -149,6 +159,7 @@
         <div class="h_column_center" style="background-color: #FFFFFF; width: 100%; position:relative;">
             <div style="padding-top: 10px; padding-bottom: 40px;width: 1160px;display: flex; flex-direction: row;">
 
+                <!-- 가정집 -->
                 <!-- 메인 카테고리 시작 -->
                 <div v-for="category in categories" style="flex: 1 1 0%;">
                     <p class="h_hover_button"
@@ -217,6 +228,508 @@
                     </div>
                 </div>
                 <!-- 메인 카테고리 끝 -->
+
+
+                <!-- 스튜디오 -->
+                <!-- 메인 카테고리 시작 -->
+                <div v-for="category in categories" style="flex: 1 1 0%;">
+                    <p class="h_hover_button"
+                        style="font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;color: #454b50; padding: 7px 12px 5px 8px; margin-bottom: 10px;"
+                        v-on:click="click_category_main(category.id)">
+                        스튜디오
+                    </p>
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_main(category.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            전체
+                        </p>
+                    </div>
+                    <!-- 상세 카테고리 끝 -->
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            자연광
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            호리존
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            유튜브
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            원룸
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            단독주택형
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            빈티지
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            키친
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            무대형
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            세트장
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            기타공간
+                        </p>
+                    </div>
+                </div>
+                <!-- 메인 카테고리 끝 -->
+
+
+                <!-- 상업공간 -->
+                <!-- 메인 카테고리 시작 -->
+                <div v-for="category in categories" style="flex: 1 1 0%;">
+                    <p class="h_hover_button"
+                        style="font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;color: #454b50; padding: 7px 12px 5px 8px; margin-bottom: 10px;"
+                        v-on:click="click_category_main(category.id)">
+                        상업공간
+                    </p>
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_main(category.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            전체
+                        </p>
+                    </div>
+                    <!-- 상세 카테고리 끝 -->
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            카페
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            식당
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            바/술집
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            원룸
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            헬스장
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            요가/필라테스
+                        </p>
+                    </div>
+                </div>
+                <!-- 메인 카테고리 끝 -->
+
+                <!-- 편의시설 -->
+                <!-- 메인 카테고리 시작 -->
+                <div v-for="category in categories" style="flex: 1 1 0%;">
+                    <p class="h_hover_button"
+                        style="font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;color: #454b50; padding: 7px 12px 5px 8px; margin-bottom: 10px;"
+                        v-on:click="click_category_main(category.id)">
+                        편의시설
+                    </p>
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_main(category.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            전체
+                        </p>
+                    </div>
+                    <!-- 상세 카테고리 끝 -->
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            편의점
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            빨래방
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            헤어샵
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            PC방
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            노래방
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            오락실
+                        </p>
+                    </div>
+
+                </div>
+                <!-- 메인 카테고리 끝 -->
+
+
+                <!-- 문화공간 -->
+                <!-- 메인 카테고리 시작 -->
+                <div v-for="category in categories" style="flex: 1 1 0%;">
+                    <p class="h_hover_button"
+                        style="font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;color: #454b50; padding: 7px 12px 5px 8px; margin-bottom: 10px;"
+                        v-on:click="click_category_main(category.id)">
+                        문화공간
+                    </p>
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_main(category.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            전체
+                        </p>
+                    </div>
+                    <!-- 상세 카테고리 끝 -->
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            복합문화공간
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            갤러리
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            공방/작업실
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            책방
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            공연장
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            강당
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            강의실
+                        </p>
+                    </div>
+
+                </div>
+                <!-- 메인 카테고리 끝 -->
+
+
+                <!-- 특수공간 -->
+                <!-- 메인 카테고리 시작 -->
+                <div v-for="category in categories" style="flex: 1 1 0%;">
+                    <p class="h_hover_button"
+                        style="font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;color: #454b50; padding: 7px 12px 5px 8px; margin-bottom: 10px;"
+                        v-on:click="click_category_main(category.id)">
+                        특수공간
+                    </p>
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_main(category.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            전체
+                        </p>
+                    </div>
+                    <!-- 상세 카테고리 끝 -->
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            사무실
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            병원/약국
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            학교
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            학원
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            클럽
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            웨딩
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            호텔펜션
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            기타 특수 공간
+                        </p>
+                    </div>
+
+                </div>
+                <!-- 메인 카테고리 끝 -->
+
+
+
+                <!-- 대형공간/야외 -->
+                <!-- 메인 카테고리 시작 -->
+                <div v-for="category in categories" style="flex: 1 1 0%;">
+                    <p class="h_hover_button"
+                        style="font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;color: #454b50; padding: 7px 12px 5px 8px; margin-bottom: 10px;"
+                        v-on:click="click_category_main(category.id)">
+                        대형공간/야외
+                    </p>
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_main(category.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            전체
+                        </p>
+                    </div>
+                    <!-- 상세 카테고리 끝 -->
+                    <!-- 상세 카테고리 시작 -->
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            공장
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            창고
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            지하실
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            빈 공간
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            옥상
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            정원
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            캠핑장
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            기타 야외 공간
+                        </p>
+                    </div>
+
+                </div>
+                <!-- 메인 카테고리 끝 -->
+                
 
             </div>
         </div>
@@ -347,16 +860,6 @@
         <!--footer 끝-->
 
         <!-- script 시작 -->
-
-        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("#nav ul.sub").hide();
-                $("#nav ul.menu li").click(function(){
-                    $("ul",this).slideToggle("fast");
-                });
-            });
-        </script>
 
         <script>
             var message_id = ''
