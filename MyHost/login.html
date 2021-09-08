@@ -15,6 +15,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
     <style>
       main,
       #layoutAuthentication_content {
@@ -45,7 +46,7 @@
                           type="text"
                           placeholder="name@example.com"
                         />
-                        <label for="inputEmail">ID</label>
+                        <label for="hostId">ID</label>
                       </div>
                       <div class="form-floating mb-3">
                         <input
@@ -55,19 +56,21 @@
                           type="password"
                           placeholder="Password"
                         />
-                        <label for="inputPassword">Password</label>
+                        <label for="hostPassword">Password</label>
                       </div>
                       <div class="form-check mb-3">
                         <input
                           class="form-check-input"
                           id="inputRememberPassword"
                           type="checkbox"
+                          name="rememberChk"
                           value=""
                         />
                         <label
                           class="form-check-label"
                           for="inputRememberPassword"
-                          >Remember Password</label
+                          style="font-size: 15px"
+                          >비밀번호 기억하기</label
                         >
                       </div>
                       <div
@@ -79,8 +82,8 @@
                           mb-0
                         "
                       >
-                        <a class="small" href="password.html"
-                          >Forgot Password?</a
+                        <a class="small" href="forget_password.html"
+                          >비밀번호 찾기</a
                         >
                         <a class="btn btn-primary" href="index.html">Login</a>
                       </div>
@@ -88,7 +91,7 @@
                   </div>
                   <div class="card-footer text-center py-3">
                     <div class="small">
-                      <a href="register.html">Need an account? Sign up!</a>
+                      <a href="register.html">호스트 회원가입 하러가기</a>
                     </div>
                   </div>
                 </div>
