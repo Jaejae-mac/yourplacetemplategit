@@ -9,7 +9,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>yourplace host page</title>
     <link
       href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
       rel="stylesheet"
@@ -19,316 +19,257 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- )))))))))))))))))))) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+    <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/scroller/2.0.5/js/dataTables.scroller.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/scroller/2.0.5/css/scroller.bootstrap5.min.css"
+    />
+
+    <!-- <link
+      href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.4.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"
+    ></script> -->
+    <script>
+      $(document).ready(function () {
+        var lang_kor = {
+          decimal: "",
+          emptyTable: "데이터가 없습니다.",
+          info: "_START_ - _END_ (총 _TOTAL_ 개)",
+          infoEmpty: "0명",
+          infoFiltered: "(전체 _MAX_ 명 중 검색결과)",
+          infoPostFix: "",
+          thousands: ",",
+          lengthMenu: "_MENU_ 개씩 보기",
+          loadingRecords: "로딩중...",
+          processing: "처리중...",
+          search: "검색 : ",
+          zeroRecords: "검색된 데이터가 없습니다.",
+          paginate: {
+            first: "첫 페이지",
+            last: "마지막 페이지",
+            next: "다음",
+            previous: "이전",
+          },
+          aria: {
+            sortAscending: " :  오름차순 정렬",
+            sortDescending: " :  내림차순 정렬",
+          },
+        };
+        var col_kor = [
+          { title: "장소명" },
+          { title: "예약번호" },
+          { title: "예약자" },
+          { title: "예약일" },
+          { title: "입실" },
+          { title: "퇴실" },
+          { title: "인원" },
+          { title: "금액" },
+        ];
+        $("#mainPageTable").dataTable({
+          // data: dataSet,
+          ajax: "data/textdata.json",
+          deferRender: true,
+          columns: col_kor, //or col_eng
+          language: lang_kor, //or lang_eng
+        });
+      });
+    </script>
   </head>
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="admin.html">Space Cloud Admin</a>
-        <!-- Sidebar Toggle-->
-        <button
-          class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-          id="sidebarToggle"
-          href="#!"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-        <!-- Navbar Search-->
-        <form
-          class="
-            d-none d-md-inline-block
-            form-inline
-            ms-auto
-            me-0 me-md-3
-            my-2 my-md-0
-          "
-        >
-          <div class="input-group">
-            <input
-              class="form-control"
-              type="text"
-              placeholder="Search for..."
-              aria-label="Search for..."
-              aria-describedby="btnNavbarSearch"
-            />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              id="navbarDropdown"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              ><i class="fas fa-user fa-fw"></i
-            ></a>
-            <ul
-              class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdown"
-            >
-              <li><a class="dropdown-item" href="#!">Settings</a></li>
-              <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#!">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-          <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <!--사이드바 nav태그(사이드메뉴) 시작-->
-            <div class="sb-sidenav-menu">
-              <div class="nav">
-                <div class="sb-sidenav-menu-heading">Menu</div>
-                <a
-                  class="nav-link collapsed"
-                  href="#"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseAdmin"
-                  aria-expanded="false"
-                  aria-controls="collapseAdmin"
-                >
-                  <div class="sb-nav-link-icon">
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  호스트 관리
-                  <div class="sb-sidenav-collapse-arrow">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </a>
-                <div
-                  class="collapse"
-                  id="collapseAdmin"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#sidenavAccordion"
-                >
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="tablesAdmin.html">관리자 계정 관리</a>
-                  </nav>
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-3" href="admin.html">Yourplace Host</a>
+      <!-- Sidebar Toggle-->
+      <button
+        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+        id="sidebarToggle"
+        href="#!"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Navbar Search-->
+      <form
+        class="
+          d-none d-md-inline-block
+          form-inline
+          ms-auto
+          me-0 me-md-3
+          my-2 my-md-0
+        "
+      >
+        <div class="input-group"></div>
+      </form>
+      <!-- Navbar-->
+      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fas fa-user fa-fw"></i
+          ></a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li><a class="dropdown-item" href="#!">로그아웃</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <!--사이드바 nav태그(사이드메뉴) 시작-->
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <div class="sb-sidenav-menu-heading">Menu</div>
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseHost"
+                aria-expanded="false"
+                aria-controls="collapseHost"
+              >
+                <div class="sb-nav-link-icon">
+                  <i class="fa fa-user-circle"></i>
                 </div>
-                <a
-                  class="nav-link collapsed"
-                  href="#"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseMember"
-                  aria-expanded="false"
-                  aria-controls="collapseMember"
-                >
-                  <div class="sb-nav-link-icon">
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  회원 관리
-                  <div class="sb-sidenav-collapse-arrow">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </a>
-                <div
-                  class="collapse"
-                  id="collapseMember"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#sidenavAccordion"
-                >
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="tablesHost.html">호스트 관리</a>
-                    <a class="nav-link" href="tablesMembers.html"
-                      >회원 관리</a
-                    >
-                    <a class="nav-link" href="tablesMembers.html"
-                      >신고 회원 관리</a
-                    >
-                    <a class="nav-link" href="tablesCoupon.html"
-                      >쿠폰 관리</a
-                    >
-                  </nav>
+                호스트 관리
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
                 </div>
-                <a
-                  class="nav-link collapsed"
-                  href="#"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapsePayManagement"
-                  aria-expanded="false"
-                  aria-controls="collapsePayManagement"
-                >
-                  <div class="sb-nav-link-icon">
-                    <i class="fas fa-money-bill-alt"></i>
-                  </div>
-                  결제/예약/매출 관리
-                  <div class="sb-sidenav-collapse-arrow">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </a>
-                <div
-                  class="collapse"
-                  id="collapsePayManagement"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#sidenavAccordion"
-                >
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">결제 관리</a>
-                    <a class="nav-link" href="layout-sidenav-light.html"
-                      >예약 관리</a
-                    >
-                    <a class="nav-link" href="chartsAdmin.html"
-                      >매출 현황</a
-                    >
-                  </nav>
+              </a>
+              <div
+                class="collapse"
+                id="collapseHost"
+                aria-labelledby="headingOne"
+                data-bs-parent="#sidenavAccordion"
+              >
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="tablesAdmin.html">내 프로필 관리</a>
+                </nav>
+              </div>
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsePlace"
+                aria-expanded="false"
+                aria-controls="collapsePlace"
+              >
+                <div class="sb-nav-link-icon">
+                  <i class="fa fa-cloud"></i>
                 </div>
-                <a
-                  class="nav-link collapsed"
-                  href="#"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseAnnounce"
-                  aria-expanded="false"
-                  aria-controls="collapseAnnounce"
-                >
-                  <div class="sb-nav-link-icon">
-                    <i class="fas fa-bullhorn"></i>
-                  </div>
-                  공지사항 관리
-                  <div class="sb-sidenav-collapse-arrow">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </a>
-                <div
-                  class="collapse"
-                  id="collapseAnnounce"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#sidenavAccordion"
-                >
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">공지사항관리</a>
-                  </nav>
+                장소 관리
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
                 </div>
-                <a
-                  class="nav-link collapsed"
-                  href="#"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseFAQ"
-                  aria-expanded="false"
-                  aria-controls="collapseFAQ"
-                >
-                  <div class="sb-nav-link-icon">
-                    <i class="fas fa-question-circle"></i>
-                  </div>
-                  FAQ
-                  <div class="sb-sidenav-collapse-arrow">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </a>
-                <div
-                  class="collapse"
-                  id="collapseFAQ"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#sidenavAccordion"
-                >
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">FAQ</a>
+              </a>
+              <div
+                class="collapse"
+                id="collapsePlace"
+                aria-labelledby="headingOne"
+                data-bs-parent="#sidenavAccordion"
+              >
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="tablesAdmin.html">내 장소 관리</a>
+                  <a class="nav-link" href="tablesAdmin.html">내 장소 등록</a>
+                  <a class="nav-link" href="tablesAdmin.html">리뷰 관리</a>
+                </nav>
+              </div>
+
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseMember"
+                aria-expanded="false"
+                aria-controls="collapseMember"
+              >
+                <div class="sb-nav-link-icon">
+                  <i class="fa fa-calendar-check"></i>
                 </div>
-                <a
-                  class="nav-link collapsed"
-                  href="#"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapsePages"
-                  aria-expanded="false"
-                  aria-controls="collapsePages"
-                >
-                  <div class="sb-nav-link-icon">
-                    <i class="fas fa-book-open"></i>
-                  </div>
-                  Pages
-                  <div class="sb-sidenav-collapse-arrow">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </a>
-                <div
-                  class="collapse"
-                  id="collapsePages"
-                  aria-labelledby="headingTwo"
-                  data-bs-parent="#sidenavAccordion"
-                >
-                  <nav
-                    class="sb-sidenav-menu-nested nav accordion"
-                    id="sidenavAccordionPages"
-                  >
-                    <a
-                      class="nav-link collapsed"
-                      href="#"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#pagesCollapseAuth"
-                      aria-expanded="false"
-                      aria-controls="pagesCollapseAuth"
-                    >
-                      Authentication
-                      <div class="sb-sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                      </div>
-                    </a>
-                    <div
-                      class="collapse"
-                      id="pagesCollapseAuth"
-                      aria-labelledby="headingOne"
-                      data-bs-parent="#sidenavAccordionPages"
-                    >
-                      <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="login.html">Login</a>
-                        <a class="nav-link" href="register.html">Register</a>
-                        <a class="nav-link" href="password.html"
-                          >Forgot Password</a
-                        >
-                      </nav>
-                    </div>
-                    <a
-                      class="nav-link collapsed"
-                      href="#"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#pagesCollapseError"
-                      aria-expanded="false"
-                      aria-controls="pagesCollapseError"
-                    >
-                      Error
-                      <div class="sb-sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                      </div>
-                    </a>
-                    <div
-                      class="collapse"
-                      id="pagesCollapseError"
-                      aria-labelledby="headingOne"
-                      data-bs-parent="#sidenavAccordionPages"
-                    >
-                      <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="401.html">401 Page</a>
-                        <a class="nav-link" href="404.html">404 Page</a>
-                        <a class="nav-link" href="500.html">500 Page</a>
-                      </nav>
-                    </div>
-                  </nav>
+                예약 관리
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
                 </div>
-                <div class="sb-sidenav-menu-heading">Addons</div>
-                <a class="nav-link" href="chartsHost.html">
-                  <div class="sb-nav-link-icon">
-                    <i class="fas fa-chart-area"></i>
-                  </div>
-                  Charts
-                </a>
-                <a class="nav-link" href="tablesAdmin.html">
-                  <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                  Tables
-                </a>
+              </a>
+              <div
+                class="collapse"
+                id="collapseMember"
+                aria-labelledby="headingOne"
+                data-bs-parent="#sidenavAccordion"
+              >
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="tablesHost.html">예약 현황</a>
+                </nav>
+              </div>
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsePayManagement"
+                aria-expanded="false"
+                aria-controls="collapsePayManagement"
+              >
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-money-bill-alt"></i>
+                </div>
+                결제/매출 관리
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+              </a>
+              <div
+                class="collapse"
+                id="collapsePayManagement"
+                aria-labelledby="headingOne"
+                data-bs-parent="#sidenavAccordion"
+              >
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="layout-static.html">결제 정보</a>
+                  <a class="nav-link" href="chartsAdmin.html">매출 현황</a>
+                </nav>
               </div>
             </div>
-            <div class="sb-sidenav-footer">
-              <div class="small">Logged in as:</div>
-              Start Bootstrap
-            </div>
-          </nav>
-          <!--사이드바 nav태그((사이드메뉴)) 끝-->
+          </div>
+          <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            ID 넣을 곳(호스트 아이디)
+          </div>
+        </nav>
+        <!--사이드바 nav태그((사이드메뉴)) 끝-->
       </div>
       <div id="layoutSidenav_content">
         <main>
@@ -446,46 +387,55 @@
             <div class="card mb-4">
               <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                DataTable Example
+                최근 예약 현황
               </div>
               <div class="card-body">
-                <table id="datatablesSimple">
+                <!-- <table id="datatablesSimple" class="table table-bordered"> -->
+                <table id="mainPageTable" class="table table-bordered">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>장소명</th>
+                      <th>예약번호</th>
+                      <th>예약자</th>
+                      <th>예약일</th>
+                      <th>입실</th>
+                      <th>퇴실</th>
+                      <th>인원</th>
+                      <th>금액</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>장소명</th>
+                      <th>예약번호</th>
+                      <th>예약자</th>
+                      <th>예약일</th>
+                      <th>입실</th>
+                      <th>퇴실</th>
+                      <th>인원</th>
+                      <th>금액</th>
                     </tr>
                   </tfoot>
                   <tbody>
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
+                      <td>카페</td>
+                      <td>123412</td>
+                      <td>이승재</td>
+                      <td>2021-09-10</td>
+                      <td>13:00</td>
+                      <td>15:00</td>
+                      <td>10</td>
+                      <td>100,000₩</td>
                     </tr>
                     <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
+                      <td>카페</td>
+                      <td>214123</td>
+                      <td>Tommy</td>
+                      <td>2021-09-14</td>
+                      <td>16:00</td>
+                      <td>19:00</td>
+                      <td>2</td>
+                      <td>20,000₩</td>
                     </tr>
                   </tbody>
                 </table>
