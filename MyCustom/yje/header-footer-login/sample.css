@@ -972,8 +972,6 @@
   animation-delay: 1.2s;
 }
 
-//toggle
-
 #nav {
   font-size: 15px;
 }
@@ -991,7 +989,6 @@
 }
 #nav ul.menu li a {
   display: block;
-  float: none;
   width: 100%;
   height: 70%;
   line-height: 50px;
@@ -1016,6 +1013,30 @@
 #nav ul.menu li .sub a:hover {
   background: #75adff;
   color: #fff;
+}
+
+.h_my_menu_switch_button .h_my_menu_switch {
+  display: none;
+}
+
+.h_my_menu_switch_button:hover .h_my_menu_switch {
+  display: block;
+}
+
+.h_my_menu_switch:hover {
+  display: block;
+}
+
+.h_my_menu_setting_button .h_my_menu_setting {
+  display: none;
+}
+
+.h_my_menu_setting_button:hover .h_my_menu_setting {
+  display: block;
+}
+
+.h_my_menu_setting:hover {
+  display: block;
 }
 
 @-webkit-keyframes opaque {

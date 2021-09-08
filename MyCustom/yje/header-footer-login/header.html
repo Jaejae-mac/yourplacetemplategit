@@ -8,7 +8,8 @@
         <title>YourPlace</title>
         <link rel="stylesheet" type="text/css" href="sample.css">
 
-                <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        
         <script type="text/javascript">
             $(document).ready(function(){
                 $("#nav ul.sub").hide();
@@ -32,7 +33,7 @@
         <div class="h_row_center" style="position: relative;width: 1160px; height: 100px;">
 
             <!-- 로고 클릭시, 메인 페이지로 이동. hourplace_v2.userLog('W', '/', 'click', 'tab', 'home');window.location.href='/' -->
-            <img src="img\logo\logo_examp.png" style="width: 130px; height: 32px; cursor: pointer;"
+            <img src="\img\logo\logo_examp.png" style="width: 130px; height: 32px; cursor: pointer;"
                 onclick="window.location.href='header.html'">
 
             <!-- 모든 장소 보여주기 hourplace_v2.userLog('W', '/', 'click', 'tab', 'all');toggle_category_all() -->
@@ -92,8 +93,9 @@
                     </p>
                 </div>
 
-                <div class="h_center h_header_button"
-                    style="margin-left: 8px; width: 1px; height: 30px; background: rgb(201, 205, 210);"></div>
+                <div
+                    style="width: 1px; height: 30px; background-color: rgb(201, 205, 210); margin-right: 10px; margin-left: 20px;">
+                </div>
 
                 <!-- 호스트 페이지로 이동, 장소등록 hourplace_v2.userLog('W', '/place/29464', 'click', 'tab', 'hosting');window.location.href='/info/hosting -->
                 <div onclick="window.location.href='hostLogin.html'" class="h_center h_header_button"
@@ -114,25 +116,23 @@
                 </div>
                 <!-- 로그인 기능 끝 -->
 
+
                 <!-- Toggle test 용 마이 페이지 -->
-                <div id="nav">
-                <div class="h_center h_header_button"
-                    style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
-                    <ul class="menu"
-                        style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
-                        <li> My page</a>
-                            <ul class="sub"> 
-                                
-                                <li><a href="#" onclick="window.location.href='guest/userNum.html'">프로필</a></li> <!-- guest/user번호로 -->
-                                <li><a href="#" onclick="window.location.href='booking.html'">예약 조회</a></li> <!-- booking -->
-                                <li><a href="#" onclick="window.location.href='coupon.html'">쿠폰</a></li> <!-- coupon -->
-                                <li><a href="#" onclick="window.location.href='coupon.html'">설정</a></li> <!-- user edit -->
-                                <li><a href="#">로그아웃</a></li> <!-- Logout -->
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                <div class="h_my_menu"
+                style="display: none; z-index: 9999; position: absolute;top: 80px;right: 0;width: 220px;border-radius: 8px;box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);border: solid 1px #eff3f5;background-color: #ffffff;">
+                <div class="h_row_center h_my_menu_switch_button"  style="margin-top: 10px; height: 40px; width: 100%; padding-top: 8px; padding-left: 30px; padding-right: 30px;">
+                    <p class="h_ellipsis_1" style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                        {{guest.name}}
+                    </p>
+                        <div style="height: 100%; width: 8px; position:relative;"> 
+                            <div style="position:absolute; top: 6px; right: 0; width: 5px;height: 5px;background-color: #ff4b3e;border-radius: 2.5px;overflow: hidden;">
+                            </div>
+                        </div>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/chevron_right_b.svg" style="width: 16px; height: 16px; position: absolute; right: 30px;">
+                        <p style="padding-left: 30px; font-size: 10px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: normal;color: #9ea4aa;">
+                            게스트 계정
+                        </p>
+
 
                 <div
                     style="width: 1px; height: 30px; background-color: rgb(201, 205, 210); margin-right: 10px; margin-left: 20px;">
@@ -744,43 +744,118 @@
 
 
     <!-- Banner -->
-    <div id="main">
-        <div
-            style="position: absolute; height: 100px; top: 0px; left: 0; right: 0; background-color: #fafbfb; z-index: -1;">
+    <!-- <div id="main_vue">
+        <div style="position: absolute; height: 100px; top: 0; left: 0; right: 0; background-color: #fafbfb; z-index: -1;">
+
         </div>
+
         <div class="swiper-container_big_banner_container" style="width: 100%;height: 400px;position: relative;">
-            <div class="swiper-container swiper-container_big_banner"
-                style="position:relative;height: 100%; width: 100%; overflow: hidden;">
-                <div class="swiper-wrapper">
+    <div class="swiper-container swiper-container_big_banner"
+        style="position:relative;height: 100%; width: 100%; overflow: hidden;">
+        <div class="swiper-wrapper">
+                            <div class="swiper-slide h_column_center"
+                    style="width: 100%; height: 100%; position: relative;background-color: #184367;">
+                    <div class="" style="position: relative;min-width: 1440px; width: 100%; height: 100%;">
+                        <div class="h_center" style="position: absolute; left: calc((100% - 1160px) / 2 + 300px); width: calc(100% - ((100% - 1160px) / 2 + 300px)); height: 100%; overflow: hidden;">
+                            <img src="https://s3.hourplace.co.kr/temp/images/event/2021/09/01/83246ad9-de7e-3cf7-9077-9286c21f7d73.jpg" style="position: absolute; bottom: 0; width: 100%; height: calc(100% + 50px); object-fit: cover;">
+                        </div>
+                        <div style="position: absolute; left: calc((100% - 1160px) / 2 + 300px); top: 0; width: 275px; height: 100%; background-image: linear-gradient(to right, rgba(24, 67, 103, 1), rgba(24, 67, 103, 0) 100%);">
+
+                        </div>
+                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 64px; background-color: rgba(24, 67, 103, 0.4);z-index: -1;"></div>
+                        <div style="position: absolute; top: 64px; left: 0; right: 0; height: 200px; background-image: linear-gradient(to bottom, rgba(24, 67, 103, 0.4), rgba(24, 67, 103, 0));z-index: -1;"></div>
+                        <div class="h_column_center" style="width: 100%;height: 100%;">
+                            <div style="position: relative; width: 1050px;height: 100%;">
+                                <p style="margin-top: 134px;margin-left: 100px;font-size: 32px;font-weight: 700;font-stretch: normal;font-style: normal;line-height: 1.46;letter-spacing: -0.3px;color: #ffffff;">
+                                    반려동물<br />
+                                    스냅 이벤트
+                                </p>
+                                <div class="h_row_center" style="margin-top: 8px;margin-left: 100px;cursor: pointer;">
+                                    <p style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.46;letter-spacing: -0.3px;color: #ffffff;">
+                                        반려동물 스냅 장소를 지원해 드립니다
+                                    </p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 0; right: 0; width: 100%;height: 100%;">
+                        <div class="h_column_center" style="width: 100%;height: 100%;">
+                            <div style="position: relative; width: 1050px;height: 100%; cursor: pointer; z-index: 3;"
+                            onclick="hourplace_v2.userLog('W', '/', 'click', 'banner', 'main', 0, 9);window.location.href='/event/9';"
+                            >
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <div class="swiper-slide h_column_center"
-                        style="width: 100%; height: 100%; position: relative;background-color: #184367;">
-                        <div class="" style="position: relative;min-width: 1440px; width: 100%; height: 100%;">
-                            <div class="h_center"
-                                style="position: absolute; left: calc((100% - 1160px) / 2 + 300px); width: calc(100% - ((100% - 1160px) / 2 + 300px)); height: 100%; overflow: hidden;">
-                                <img src="https://s3.hourplace.co.kr/temp/images/event/2021/09/01/83246ad9-de7e-3cf7-9077-9286c21f7d73.jpg"
-                                    style="position: absolute; bottom: 0; width: 100%; height: calc(100% + 50px); object-fit: cover;">
-                            </div>
-                            <div
-                                style="position: absolute; left: calc((100% - 1160px) / 2 + 300px); top: 0; width: 275px; height: 100%; background-image: linear-gradient(to right, rgba(24, 67, 103, 1), rgba(24, 67, 103, 0) 100%);">
+                    style="width: 100%; height: 100%; position: relative;background-color: #3C6B6E;">
+                    <div class="" style="position: relative;min-width: 1440px; width: 100%; height: 100%;">
+                        <div class="h_center" style="position: absolute; left: calc((100% - 1160px) / 2 + 300px); width: calc(100% - ((100% - 1160px) / 2 + 300px)); height: 100%; overflow: hidden;">
+                            <img src="https://s3.hourplace.co.kr/temp/images/event/2021/08/09/b053d3cb-9692-31f5-aa9b-5ff864d0fe08.jpg" style="position: absolute; bottom: 0; width: 100%; height: calc(100% + 50px); object-fit: cover;">
+                        </div>
+                        <div style="position: absolute; left: calc((100% - 1160px) / 2 + 300px); top: 0; width: 275px; height: 100%; background-image: linear-gradient(to right, rgba(60, 107, 110, 1), rgba(60, 107, 110, 0) 100%);">
+
+                        </div>
+                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 64px; background-color: rgba(60, 107, 110, 0.4);z-index: -1;"></div>
+                        <div style="position: absolute; top: 64px; left: 0; right: 0; height: 200px; background-image: linear-gradient(to bottom, rgba(60, 107, 110, 0.4), rgba(60, 107, 110, 0));z-index: -1;"></div>
+                        <div class="h_column_center" style="width: 100%;height: 100%;">
+                            <div style="position: relative; width: 1050px;height: 100%;">
+                                <p style="margin-top: 134px;margin-left: 100px;font-size: 32px;font-weight: 700;font-stretch: normal;font-style: normal;line-height: 1.46;letter-spacing: -0.3px;color: #ffffff;">
+                                    내가 찾던 촬영장소,<br />
+                                    모두 여기에.
+                                </p>
+                                <div class="h_row_center" style="margin-top: 8px;margin-left: 100px;cursor: pointer;">
+                                    <p style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.46;letter-spacing: -0.3px;color: #ffffff;">
+                                        모든 장소 둘러보기
+                                    </p>
+                                    <img src="https://s3.hourplace.co.kr/web/images/icon/chevron_right_w.svg" style="width: 16px;height: 16px;">
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div style="position: absolute; top: 100px; right: 0; width: 100%; height: 100%;">
-                        <div class="h_column_center" style="width: 100%; height: 100%;">
-                            <div style="position: relative; width: 1050px; height: 100%; cursor: pointer; z-index: 3; "
-                                onclick="hourplace_v2.userLog('W', '/', 'click', 'banner', 'main', 0, 9);window.location.href='/event/9';">
+                    <div style="position: absolute; top: 0; right: 0; width: 100%;height: 100%;">
+                        <div class="h_column_center" style="width: 100%;height: 100%;">
+                            <div style="position: relative; width: 1050px;height: 100%; cursor: pointer; z-index: 3;"
+                            onclick="hourplace_v2.userLog('W', '/', 'click', 'banner', 'main', 1, '/category');window.location.href='/category';"
+                                    >
                             </div>
                         </div>
                     </div>
-
+                </div>
+                    </div>
+        <div class="swiper-pagination" style="z-index: 2; left: calc((100% - 1160px) / 2 + 2px);width: 30px;"></div>
+    </div>
+            <div class="swiper-container_big_banner_button" style="position: absolute; top: 0; right: 0; width: 100%;height: 100%;">
+            <div class="h_column_center" style="width: 100%;height: 100%;">
+                <div class="h_row_center" style="position: relative; width: 1160px;height: 100%;">
+                    <div class="h_row_center" style="position: absolute; right: 0; z-index: 1;">
+                        <div>
+                            <div class="h_center" style="width: 40px;height: 40px;background-color: rgba(0, 0, 0, 0.2);border-radius: 20px;cursor:pointer;"
+                                onclick="prev()">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/chevron_right_w.svg" style="width: 16px; height: 16px;-webkit-transform:rotate(270deg)" />
+                            </div>
+                            <div class="h_center" style="margin-top: 16px; width: 40px;height: 40px;background-color: rgba(0, 0, 0, 0.2);border-radius: 20px;cursor:pointer;"
+                                onclick="next()">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/chevron_right_w.svg" style="width: 16px; height: 16px;-webkit-transform:rotate(90deg);" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Banner 끝 -->
 
-    <!-- 모든 카테고리-->
+<style>
+    .swiper-container_big_banner_container .swiper-container_big_banner_button {
+        display: none;
+    }
+
+    .swiper-container_big_banner_container:hover .swiper-container_big_banner_button {
+        display: block;
+    }
+</style> -->
+
+    <!-- Banner 끝 -->
 
 
 
@@ -814,7 +889,7 @@
                     이용약관
                 </p>
                 <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'service');window.location.href='/service'">
+                    onclick="window.location.href='/service.html'"> <!-- hourplace_v2.userLog('W', '/place/29464', 'click', 'service');window.location.href='/service' -->
                     고객센터
                 </p>
                 <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
@@ -907,9 +982,57 @@
                 // $('.h_noti').hide()
             }
             }
+        </script>
 
+        <script> 
+
+            var swiper
+
+            $(document).ready(function() {
+            swiper = new Swiper('.swiper-container_big_banner', {
+                direction: 'vertical',
+                mousewheel: true,
+                pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                },
+                autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+                },
+                loop: true,
+            })
+
+            swiper.on('transitionEnd', function() {
+                swiper.loopFix()
+            })
+
+            })
+
+            function next () {
+            swiper.slideNext()
+            }
+
+            function prev () {
+            swiper.slidePrev()
+            }
 
         </script>
+
+        <script>
+            function toggle_h_my_menu () {
+            if ($('.h_my_menu').css('display') === 'none') {
+            h_show_popup('.h_my_menu')
+            // $('.h_my_menu').show()
+            close_search_container()
+            close_category_all()
+            } else {
+            h_hide_popup('h_my_menu')
+            // $('.h_my_menu').hide()
+            }
+        }
+        </script>
+
         <!-- script 끝 -->
 
 
