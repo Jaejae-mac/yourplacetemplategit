@@ -1,0 +1,52 @@
+.wrap_center {
+  width: 1750px;
+  height: 450px;
+}
+.container {
+  margin: 0 auto;
+  width: 1700px;
+  height: 100%;
+  overflow: hidden;
+}
+.img_wrap {
+  width: 1700px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+/* 롤링 이미지 UL */
+.rollimgs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rollimgs li {
+  position: absolute;
+  width: 1700px;
+  height: 100%;
+  left: 1700px;
+}
+.rollimgs li img {
+  width: 100%;
+  height: 100%;
+}
+.rollimgs li.currentroll {
+  left: 0;
+  transition: left 0.5s ease-in-out, right 0.5s ease-in-out;
+}
+.rollimgs li.prevroll {
+  left: -1700px;
+  transition: left 0.5s ease-in-out, right 0.5s ease-in-out;
+}
+.rollimgs.reverse li.prevroll {
+  transition: none;
+}
+.rollimgs li.nextroll {
+  left: 1700px;
+  display: block;
+  transition: none;
+}
+.rollimgs.reverse li.nextroll {
+  transition: left 0.5s ease-in-out, right 0.5s ease-in-out;
+}
