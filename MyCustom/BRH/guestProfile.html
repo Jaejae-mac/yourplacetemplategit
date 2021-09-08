@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="guestProfile.css">
+</head>
+
+<body>
+    <div class="h_row_center" style="position: relative;width: 1160px;height: 100px; position: relative; left: 200px;">
+        <img src="https://s3.hourplace.co.kr/web/images/icon/logo_b.svg"
+            onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'tab', 'home');window.location.href='/'"
+            style="width: 130px; height: 32px; cursor: pointer;">
+        <div class="h_row_center" style="position: absolute; right: 0px;">
+            <div onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'tab', 'all');toggle_category_all()"
+                class="h_center h_header_button" style="padding: 0px 13px; height: 40px;">
+                <p
+                    style="font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31);">
+                    모든 장소
+                </p>
+            </div>
+            <div class="h_center h_header_button" style="padding: 0px 13px; height: 40px; margin-left: 8px;">
+                <p
+                    style="font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31);">
+                    가성비 스튜디오
+                </p>
+            </div>
+            <div class="h_center h_header_button" style="padding: 0px 13px; height: 40px; margin-left: 8px;">
+                <p
+                    style="font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31);">
+                    신규
+                </p>
+            </div>
+            <div class="h_center h_header_button" style="padding: 0px 13px; height: 40px; margin-left: 8px;">
+                <p
+                    style="font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31);">
+                    장르별
+                </p>
+            </div>
+            <div class="h_center h_header_button" style="padding: 0px 13px; height: 40px; margin-left: 8px;">
+                <p
+                    style="font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31);">
+                    컨셉별
+                </p>
+            </div>
+            <div class="h_center h_header_button" style="padding: 0px 13px; height: 40px; margin-left: 8px;">
+                <p
+                    style="font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31);">
+                    공간별
+                </p>
+            </div>
+            <div class="h_center h_header_button"
+                style="margin-left: 8px; width: 1px; height: 16px; background: rgb(201, 205, 210);"></div>
+            <div onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'tab', 'hosting');window.location.href='/info/hosting'"
+                class="h_center h_header_button" style="padding: 0px 13px; height: 40px; margin-left: 8px;">
+                <p
+                    style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
+                    장소 등록
+                </p>
+            </div>
+            <div onclick="show_login()" class="h_center h_header_button"
+                style="padding: 0px 13px; height: 40px; margin-left: 8px;">
+                <p
+                    style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
+                    로그인
+                </p>
+            </div>
+            <div
+                style="width: 1px; height: 16px; background-color: rgb(201, 205, 210); margin-right: 10px; margin-left: 20px;">
+            </div>
+            <div onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'search');toggle_search_container()"
+                class="h_center" style="width: 44px; height: 44px; cursor: pointer;"><img
+                    src="https://s3.hourplace.co.kr/web/images/icon/search_b.svg" style="width: 24px; height: 24px;">
+            </div>
+        </div>
+    </div>
+    <div id="main_vue" class="h_column_center" style="min-height: 1000px;">
+        <div style="width: 1160px;">
+            <div style="margin-top: 20px; position: relative; left: 200px;">
+                <p
+                    style="font-size: 32px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.31; letter-spacing: -0.3px; text-align: center; color: rgb(27, 29, 31);">
+                    게스트 프로필
+                </p>
+            </div>
+        </div>
+        <div style="margin-top: 50px; width: 100%; height: 1px; background-color: rgb(231, 234, 238);"></div>
+        <div class="h_row" style="margin-top: 60px; margin-bottom: 200px;">
+            <div class="h_column_center" style="width: 360px;">
+                <div
+                    style="width: 360px; border-radius: 10px; border: 1px solid rgb(223, 226, 231); background-color: rgb(255, 255, 255);">
+                    <div class="h_column_center">
+                        <div onclick=""
+                            style="position: relative; margin-top: 50px; width: 120px; height: 120px; border-radius: 60px; overflow: hidden;">
+                            <img src="https://s3.hourplace.co.kr/web/images/icon/elements_image_empty_guest.png"
+                                style="width: 100%; height: 100%; position: absolute;"></div>
+                        <p
+                            style="padding: 0px 20px; margin-top: 20px; font-size: 16px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.38; letter-spacing: -0.1px; text-align: center; color: rgb(27, 29, 31);">
+                            이름입니다.
+                        </p>
+                        <p
+                            style="margin-top: 2px; font-size: 14px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.43; letter-spacing: normal; text-align: center; color: rgb(36, 111, 248);">
+                            진행 횟수 n
+                        </p>
+                    </div>
+                    <div style="margin: 30px 30px 40px;">
+                        <div class="h_row_center" style="height: 34px;">
+                            <p
+                                style="font-size: 16px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.38; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
+                                상세 정보
+                            </p>
+                        </div>
+                        <div class="h_row_center" style="position: relative; height: 48px;">
+                            <p
+                                style="font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.43; letter-spacing: normal; color: var(--grey-050);">
+                                이름
+                            </p>
+                            <p class="h_ellipsis_1"
+                                style="position: absolute; right: 0px; left: 110px; text-align: right; font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.29; letter-spacing: normal; color: var(--grey-080);">
+                                이름입니다.
+                            </p>
+                        </div>
+                        <div class="h_row_center" style="position: relative; height: 48px;">
+                            <p
+                                style="font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.43; letter-spacing: normal; color: var(--grey-050);">
+                                회사 또는 단체명
+                            </p>
+                            <p class="h_ellipsis_1"
+                                style="position: absolute; right: 0px; left: 110px; text-align: right; font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.29; letter-spacing: normal; color: var(--grey-080);">
+                                무슨 촬영했는지
+                            </p>
+                        </div>
+                        <div class="h_row_center" style="position: relative; height: 48px;">
+                            <p
+                                style="font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.43; letter-spacing: normal; color: var(--grey-050);">
+                                직책
+                            </p>
+                            <p class="h_ellipsis_1"
+                                style="position: absolute; right: 0px; left: 110px; text-align: right; font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.29; letter-spacing: normal; color: var(--grey-080);">
+                                개인
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="window.location.href='/guest/edit'" class="h_center h_hover_button"
+                    style="margin-top: 30px; width: 141px; height: 52px; border-radius: 8px; border: 1px solid rgb(223, 226, 231); : pointer;">
+                    <p
+                        style="font-size: 16px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.38; text-align: center; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
+                        프로필 편집
+                    </p>
+                </div>
+                <p onclick="leave_vue.show()" class="h_hover_text"
+                    style="margin-top: 30px; text-decoration: underline; font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31); cursor: pointer;">
+                    회원 탈퇴
+                </p>
+            </div>
+            <div style="margin-left: 60px; width: 580px; position: relative; left: 400px; bottom: 600px;">
+                <p
+                    style="font-size: 24px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: -0.3px; color: rgb(27, 29, 31);">
+                    소개
+                </p>
+                <p
+                    style="margin-top: 20px; font-size: 16px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.38; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
+                    안녕하세요. ㅇㅇㅇ 입니다. 샘플
+                </p>
+                <div style="margin-top: 40px; height: 1px; background-color: rgb(231, 234, 238);"></div>
+                <div style="margin-top: 40px;">
+                    <div
+                        style="position: relative; height: 34px; display: flex; flex-direction: row; align-items: center; margin-bottom: 10px;">
+                        <p
+                            style="font-size: 24px; font-weight: 500; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: -0.3px; color: rgb(27, 29, 31);">
+                            호스트에게 받은 리뷰
+                            <label
+                                style="font-size: 20px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 0.7; letter-spacing: -0.67px; text-align: center; color: rgb(36, 111, 248);">
+                                1
+                            </label>
+                        </p>
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; position: absolute; right: 0px;">
+                            <img src="https://s3.hourplace.co.kr/web/images/icon/review_star.svg"
+                                style="width: 24px; height: 24px;">
+                            <p
+                                style="font-size: 15px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.6; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
+                                5.0
+                            </p>
+                        </div>
+                    </div>
+                    <div style="padding-top: 16px; padding-bottom: 28px;">
+                        <div style="margin-top: 18px; display: flex; flex-direction: row; align-items: center;"><img
+                                src="https://s3.hourplace.co.kr/web/images/icon/review_star.svg"
+                                style="width: 24px; height: 24px;">
+                            <p
+                                style="font-size: 15px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: 1.6; letter-spacing: -0.1px; color: rgb(27, 29, 31);">
+                                5
+                            </p>
+                        </div>
+                        <p
+                            style="font-size: 16px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.38; letter-spacing: -0.1px; color: rgb(114, 120, 127);">
+                            좋은 촬영 되셨길 바랍니다 :)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--푸터-->
+<div style="flex-direction: row;display: flex;justify-content: center;background-color: #fafbfb; position: relative; left: 200px;">
+    <div class="h_row_center" style="width: 1160px; height: 310px">
+
+        <div style="position:relative; min-width: 300px; padding-top: 40px; height: 100%">
+            <p style="font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'policy', 'business');window.open('http://www.ftc.go.kr/www/bizCommView.do?key=232&amp;apv_perm_no=2018322016230204057&amp;pageUnit=10&amp;searchCnd=wrkr_no&amp;searchKrwd=4948100558&amp;pageIndex=1')">
+                사업자정보확인
+            </p>
+            <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'policy', 'personal');window.location.href='/policy/personal'">
+                개인정보처리방침
+            </p>
+            <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'policy', 'service');window.location.href='/policy/service'">
+                이용약관
+            </p>
+            <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'service');window.location.href='/service'">
+                고객센터
+            </p>
+            <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'policy', 'hr');window.open('https://www.notion.so/hourplace/fae9ceaf4a174479bf52a44305283045')">
+                인재채용
+            </p>
+
+            <div style="position:absolute; bottom: 50px;">
+                <p style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.47;letter-spacing: -0.1px;color: #454b50;">team@hourplace.co.kr</p>
+            </div>
+        </div>
+
+        <div style="position:relative; width: 860px;padding-top: 40px; height: 100%">
+
+            <p style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;color: #9ea4aa;">
+                (주)먼치팩토리 사업자 정보
+            </p>
+            <p style="margin-top: 16px;font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.67;letter-spacing: normal;color: #9ea4aa;">
+                대표 서영석<br>
+                주소 서울특별시 강남구 압구정로2길 62 대성빌딩 202호<br>
+                사업자 등록번호 494-81-00558<br>
+                통신판매업신고번호 2018-서울강남-04057<br>
+                (주)먼치팩토리는 통신판매중개자로서, 통신판매의 당사자가 아니라는 사실을 고지하며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.
+            </p>
+
+            <p style="position:absolute; bottom: 50px;font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #9ea4aa;">
+                © munchfactory Inc.
+            </p>
+
+            <div class="h_row_center" style="position:absolute; bottom: 50px; right: 0;">
+                <div class="h_column_center" style="width: 32px;height: 32px;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'sns', 'instagram');window.open('http://instagram.com/hourplace/?hl=ko')">
+                    <div class="h_center" style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_instagram_dark.svg" style="width: 20px;height: 20px">
+                    </div>
+                </div>
+                <div class="h_column_center" style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'sns', 'blog');window.open('https://blog.naver.com/hourplace')">
+                    <div class="h_center" style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_blog_dark.svg" style="width: 20px;height: 20px">
+                    </div>
+                </div>
+                <div class="h_column_center" style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'sns', 'brunch');window.open('https://brunch.co.kr/@hourplace#articles')">
+                    <div class="h_center" style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_brunch_dark.svg" style="width: 20px;height: 20px">
+                    </div>
+                </div>
+                <div class="h_column_center" style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'sns', 'facebook');window.open('http://facebook.com/Hourplace-1170061373140648')">
+                    <div class="h_center" style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_facebook_dark.svg" style="width: 20px;height: 20px">
+                    </div>
+                </div>
+                <div class="h_column_center" style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'app', 'ios');window.open('https://itunes.apple.com/kr/app/id1481552760?mt=8')">
+                    <div class="h_center" style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_apple_dark.svg" style="width: 20px;height: 20px">
+                    </div>
+                </div>
+                <div class="h_column_center" style="width: 32px;height: 32px;margin-left: 12px;cursor: pointer;" onclick="hourplace_v2.userLog('W', '/info/host', 'click', 'app', 'android');window.open('https://play.google.com/store/apps/details?id=com.munchfactory.hourplace')">
+                    <div class="h_center" style="margin-top: 2px; width: 32px;height: 32px;border-radius: 16px;background-color: #eff3f5;">
+                        <img src="//s3.hourplace.co.kr/web/images/icon/sns_google_dark.svg" style="width: 20px;height: 20px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

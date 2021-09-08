@@ -1,0 +1,225 @@
+:root{-webkit-font-smoothing: antialiased;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: middle;
+-webkit-box-sizing: border-box;
+-webkit-text-size-adjust: 100%;
+position: relative;
+width: 768px;
+margin: 0 auto;
+padding: 146px 50px 100px;
+padding-top: 30px;
+padding: 0;
+font-size: 100%;
+vertical-align: middle;
+-webkit-box-sizing: border-box;
+-webkit-text-size-adjust: 100%;
+}
+.pc .space_info_wrap {
+    padding: 30px 30px 39px;
+    background-color: #fff;
+    border-bottom: 1px solid #ebebeb;
+}
+.space_info_wrap {
+    padding: 15px 10px 13px;
+    background-color: #fff;
+    border-bottom: 1px solid #ebebeb;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    -webkit-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+#all_menu .menu_top .link_reservationlist, a, abbr, address, article, aside, audio, b, blockquote, body, br, button, canvas, caption, cite, code, col, data, datalist, dd, del, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, html, i, iframe, img, input, ins, kbd, label, legend, li, main, mark, meter, nav, object, ol, output, p, pre, progress, q, s, samp, section, select, small, span, strong, sub, sup, table, td, textarea, th, time, u, ul, var, video {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: middle;
+}
+.pc .box_form {
+    position: relative;
+    margin-top: 89px;
+    padding: 0;
+}
+.box_form {
+    position: relative;
+    margin-top: 40px;
+    padding: 0 15px;
+}
+.heading {
+    display: table;
+    position: relative;
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #98CBFB;
+}
+.box_form .heading {
+    padding-top: 2px;
+    
+}
+body {
+    line-height: 1.5;
+}
+ol, ul {
+    list-style: none;
+}
+.space_info_wrap .list_detail {
+    border-bottom: 1px solid #ebebeb;
+    
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.pc .space_info_wrap .sp_name {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ebebeb;
+    font-size: 24px;
+    display: none;
+}
+.meetspace-reserve-info {
+    padding: 0 30px;
+    background: #fff;
+}
+.meetspace-reserve-date:last-child {
+    border-bottom: none;
+}
+.pc .flex_box {
+    padding: 0;
+}
+.pc .flex_box {
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 5px 0;
+}
+
+element.style {
+    transition: transform 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
+    border-bottom: 0px;
+    transform: translateY(0px);
+}
+.pc .box_form.reserve_price {
+    border-top: 0;
+}
+.reserve_price {
+    margin-top: 42px;
+}
+.pc .box_notice {
+    margin-top: 40px;
+    margin-left: 0;
+    margin-right: 0;
+}
+.meetspace-reserve-date {
+    padding: 20px 0;
+    color: #000;
+    position: relative;
+    font-size: 16px;
+    border-bottom: 1px solid #ebebeb;
+}
+.pc .reserve_person_wrap {
+    margin-top: 30px;
+}
+.pc .reserve_person_wrap .flex_box+.flex_box {
+    margin-top: 15px;
+}
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+
+    vertical-align: middle;
+}
+.pc .reserve_person_wrap+.p_guide {
+    margin-top: 21px;
+}
+.pc .p_guide.normal {
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 23px;
+    color: #656565;
+}
+.box_form.reserve_price .scroll_box {
+    background-color: #fff;
+}
+.scroll_box {
+    position: relative;
+    overflow-y: auto;
+}
+.pc .reserve_price_wrap .total_box .txt_price {
+    font-size: 28px;
+}
+.pc .box_notice .col_wrap, .pc .box_notice .list_wrap {
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+.pc .box_notice .list_wrap {
+    padding: 16px 30px;
+    line-height: 1.5;
+}
+.box_notice {
+    margin-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+.pc .box_notice .col_wrap, .pc .box_notice .list_wrap {
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+.pc .box_notice .list_wrap {
+    padding: 16px 30px;
+    line-height: 1.5;
+}
+.pc .p_guide.warn {
+    display: none;
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 23px;
+    color: #ff3a48;
+}
+.h_column_center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+element.style {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    z-index: 1000;
+    transform: translateZ(0px);
+}
+.h_row_center {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.pc .list_detail li .tit {
+    color: #656565;
+    left: 15px;
+}
