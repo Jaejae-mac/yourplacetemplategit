@@ -99,10 +99,30 @@
                     style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
                     <p
                         style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
-                        로그인
+                        게스트 로그인
                     </p>
                 </div>
                 <!-- 로그인 기능 끝 -->
+
+                <!-- Toggle test 용 마이 페이지 -->
+                <div id="nav">
+                <div class="h_center h_header_button"
+                    style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
+                    <ul class="menu"
+                        style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
+                        <li>My page</a>
+                            <ul class="sub"> 
+                                
+                                <li><a href="#" onclick="window.location.href='guest/userNum.html'">프로필</a></li> <!-- guest/user번호로 -->
+                                <li><a href="#" onclick="window.location.href='booking.html'">예약 조회</a></li> <!-- booking -->
+                                <li><a href="#" onclick="window.location.href='coupon.html'">쿠폰</a></li> <!-- coupon -->
+                                <li><a href="#" onclick="window.location.href='coupon.html'">설정</a></li> <!-- user edit -->
+                                <li><a href="#">로그아웃</a></li> <!-- Logout -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
                 <div
                     style="width: 1px; height: 30px; background-color: rgb(201, 205, 210); margin-right: 10px; margin-left: 20px;">
@@ -327,6 +347,17 @@
         <!--footer 끝-->
 
         <!-- script 시작 -->
+
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#nav ul.sub").hide();
+                $("#nav ul.menu li").click(function(){
+                    $("ul",this).slideToggle("fast");
+                });
+            });
+        </script>
+
         <script>
             var message_id = ''
 
