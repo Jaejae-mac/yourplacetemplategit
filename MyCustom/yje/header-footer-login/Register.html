@@ -1,0 +1,353 @@
+    <!DOCTYPE html>
+    <lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="chrome">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>YourPlace LoginPage</title>
+            <link rel="stylesheet" type="text/css" href="sample.css">
+
+            <script src="https://cdn.jsdelivr.net/npm/vue"> </script>
+            
+        </head>
+
+
+    <!-- 회원가입 시작 -->
+    <div class="h_column_center" style="margin-top: 20px;">
+            <p style="font-size: 32px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.31;letter-spacing: -0.3px;text-align: center;color: #1b1d1f;">
+                회원가입
+            </p>
+    </div>
+
+        <!-- main vue : 레이아웃 정렬 -->
+        <div id="main_vue" class="h_column_center" style="width: 100%; margin-top: 50px; margin-bottom: 200px;" v-cloak>
+            <div style="width: 580px;border-radius: 10px;border: solid 1px #dfe2e7;background-color: #ffffff;padding: 40px 50px;">
+                <div class="h_row" style="margin-top: 20px;">
+
+                    <!-- 1. 본인인증 -> NICE 로 이동 -->
+                    <p style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                        본인 인증
+                    </p>
+                    <img src="//s3.hourplace.co.kr/web/images/icon/invalid.svg" style="margin-left: 4px; width: 6px; height: 6px; margin-top: 15px;"> <!-- 필수* 표시 맞춘 margin -->
+                </div>
+
+                <div class="input_container disabled" style="margin-top: 8px;cursor: pointer;"
+                    onclick="window.open('/user/nice')">
+                    <input type="phone" placeholder="본인인증을 진행해 주세요" v-model="nice_auth"
+                        required readonly>
+                    <div class="h_center" style="position: absolute; right: 7px; padding-right: 18px; padding-left: 18px; height: 38px;border-radius: 4px;background-color: var(--grey-070);">
+                        <p style="font-size: 14px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.29;letter-spacing: normal;text-align: center;color: #ffffff;">
+                            휴대폰 인증
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 인증 에러시, 에러 문구 -->
+                <!-- <div style="height: 36px;display: flex;flex-direction: row;align-items: center;" v-show="nice_error.length > 0">
+                    <p style="font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: normal;color: var(--red);">
+                        {{ nice_error }}
+                    </p>
+                </div> -->
+
+                <div class="h_row_center" style="position: relative; margin-top: 10px; cursor:pointer;"
+                    onclick="toggle_auth_info()">
+                    <img src="//s3.hourplace.co.kr/web/images/icon/more_info.svg" style="width: 14px; height: 14px;" />
+                    <p style="margin-left: 4px; font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;text-align: right;color: var(--blue-030);">
+                        본인 인증 안내
+                    </p>
+
+                    <div class="auth_info" style="display: none; position: absolute; top: 18px; left: -10px; z-index: 1;">
+                        <div class="triangle-with-shadow" style="margin-left: 30px"></div>
+                        <div style="width: 320px; margin-top: -1px; padding: 12px; border-radius: 6px;box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);border: solid 1px #eff3f5;background-color: #ffffff;">
+                            <div class="h_row">
+                                <div style="margin-top: 6px; max-width: 3px;max-height: 3px;min-width: 3px;min-height: 3px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #72787f; border-radius: 1.5px">
+
+                                </div>
+                                <p style="margin-left: 7px; font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #72787f;">
+                                    입력하신 정보는 본인 확인을 위해 NICE평가정보(주)에 제공됩니다.
+                                </p>
+                            </div>
+                            <div class="h_row" style="margin-top: 4px">
+                                <div style="margin-top: 6px;max-width: 3px;max-height: 3px;min-width: 3px;min-height: 3px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #72787f; border-radius: 1.5px">
+
+                                </div>
+                                <p style="margin-left: 7px; font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #72787f;">
+                                    투명한 예약 및 결제 과정을 위하여 본인인증을 통해 성명 및 휴대전화번호를 수집합니다.
+                                </p>
+                            </div>
+                            <div class="h_row" style="margin-top: 4px">
+                                <div style="margin-top: 6px;max-width: 3px;max-height: 3px;min-width: 3px;min-height: 3px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #72787f; border-radius: 1.5px">
+
+                                </div>
+                                <p style="margin-left: 7px; font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #72787f;">
+                                    만 19세 미만의 미성년자는 회원가입 신청이 어렵습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-show="nice_name">
+                    <div class="h_row" style="margin-top: 20px;">
+        <p style="font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+            이름
+        </p>
+                <img src="//s3.hourplace.co.kr/web/images/icon/invalid.svg" style="margin-left: 4px; width: 6px; height: 6px; margin-top: 15px;">
+        </div>
+
+                    <div class="input_container disabled" style="margin-top: 8px;">
+                        <input type="email" placeholder="" v-model="nice_name"
+                        required readonly>
+                    </div>
+                </div>
+
+                <div class="h_row" style="margin-top: 20px;">
+        <p style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+            닉네임
+        </p>
+                <img src="//s3.hourplace.co.kr/web/images/icon/invalid.svg" style="margin-left: 4px; width: 6px; height: 6px; margin-top: 15px;">
+        </div>
+
+                <div class="input_container" style="margin-top: 8px;">
+                    <input type="text" placeholder="닉네임을 입력하세요" value="" id="name" name="name" v-model="name"
+                    required>
+                    <div class="delete"
+                    v-show="name.length > 0" v-on:click="name = ''">
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/round_delete_g.svg" style="width: 16px;height: 16px;" />
+                    </div>
+                </div>
+
+                <div style="height: 36px;display: flex;flex-direction: row;align-items: center;" v-show="name_error.length > 0">
+                    <p style="font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: normal;color: var(--red);">
+                        {{ name_error }}
+                    </p>
+                </div>
+
+                <div class="h_row" style="margin-top: 20px;">
+        <p style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+            이메일
+        </p>
+                <img src="//s3.hourplace.co.kr/web/images/icon/invalid.svg" style="margin-left: 4px; width: 6px; height: 6px; margin-top: 15px;">
+        </div>
+
+                <div class="input_container" style="margin-top: 8px;">
+                    <input type="email" placeholder="이메일을 입력하세요" value="" id="email" name="email" v-model="email"
+                    required>
+                    <div class="delete"
+                    v-show="email.length > 0" v-on:click="email = ''">
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/round_delete_g.svg" style="width: 16px;height: 16px;" />
+                    </div>
+                </div>
+
+                <div style="height: 36px;display: flex;flex-direction: row;align-items: center;" v-show="email_error.length > 0">
+                    <p style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: normal;color: var(--red);">
+                        {{ email_error }}
+                    </p>
+                </div>
+
+                <div class="h_row" style="margin-top: 20px;">
+        <p style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+            비밀번호
+        </p>
+                <img src="//s3.hourplace.co.kr/web/images/icon/invalid.svg" style="margin-left: 4px; width: 6px; height: 6px; margin-top: 15px;">
+        </div>
+
+                <div class="input_container" style="margin-top: 8px;">
+                    <input type="password" maxlength="20" placeholder="영문/숫자 조합 8-20자로 입력하세요" value="" id="password" name="password" v-model="password"
+                    required>
+                    <div class="delete"
+                    v-show="password.length > 0" v-on:click="password = ''">
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/round_delete_g.svg" style="width: 16px;height: 16px;" />
+                    </div>
+                </div>
+
+                <div style="height: 36px;display: flex;flex-direction: row;align-items: center;" v-show="password_error.length > 0">
+                    <p style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: normal;color: var(--red);">
+                        {{ password_error }}
+                    </p>
+                </div>
+
+                <div class="h_row" style="margin-top: 20px;">
+        <p style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+            비밀번호 확인
+        </p>
+                <img src="//s3.hourplace.co.kr/web/images/icon/invalid.svg" style="margin-left: 4px; width: 6px; height: 6px; margin-top: 15px;">
+        </div>
+
+                <div class="input_container" style="margin-top: 8px;">
+                    <input type="password" maxlength="20" placeholder="영문/숫자 조합 8-20자로 입력하세요" value="" id="confirm_password" name="confirm_password" v-model="confirm_password"
+                    required>
+                    <div class="delete"
+                    v-show="confirm_password.length > 0" v-on:click="confirm_password = ''">
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/round_delete_g.svg" style="width: 16px;height: 16px;" />
+                    </div>
+                </div>
+
+                <div style="height: 36px;display: flex;flex-direction: row;align-items: center;" v-show="confirm_password_error.length > 0">
+                    <p style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: normal;color: var(--red);">
+                        {{ confirm_password_error }}
+                    </p>
+                </div>
+
+                <div class="h_row" style="margin-top: 20px;">
+        <p style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+            가입 경로
+        </p>
+                <img src="//s3.hourplace.co.kr/web/images/icon/invalid.svg" style="margin-left: 4px; width: 6px; height: 6px; margin-top: 15px;">
+        </div>
+
+                <div class="input_container" style="margin-top: 8px;"
+                    onclick="show_register_path_select()">
+                    <input type="text" placeholder="가입 경로를 선택하세요" v-model="register_path_title" readonly>
+                    <div class="delete">
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/arrow_down_black.svg" style="width: 24px;height: 24px;" />
+                    </div>
+                </div>
+
+                <div class="input_container" style="margin-top: 8px;" v-show="register_path === 99">
+                    <input type="text" placeholder="기타 가입 경로를 입력하세요" v-model="register_path_etc">
+                    <div class="delete"
+                        v-show="register_path_etc.length > 0" v-on:click="register_path_etc = ''">
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/round_delete_g.svg" style="width: 16px;height: 16px;" />
+                    </div>
+                </div>
+
+                
+                <div class="h_row" style="margin-top: 20px;">
+        <p style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+            서비스 동의
+        </p>
+                <img src="//s3.hourplace.co.kr/web/images/icon/invalid.svg" style="margin-left: 4px; width: 6px; height: 6px; margin-top: 15px;">
+        </div>
+
+
+                <div class="h_row_center h_round_check" style="margin-top: 21px; height: 32px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #ffffff;"
+                    v-bind:class="{'on': agree_service && agree_personal}">
+                    <img src="https://s3.hourplace.co.kr/web/images/icon/controls_round_check.svg" style="margin-left: 6px; margin-right: 12px; width: 24px; height: 24px" v-on:click="agree_service = true, agree_personal = true" />
+                    <p style="font-size: 18px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: var(--grey-040);"
+                    v-on:click="agree_service = true, agree_personal = true">
+                        전체 동의하기
+                    </p>
+                </div>
+
+                <div class="h_row_center h_check" style="margin-top: 10px; height: 32px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #ffffff;"
+                    v-bind:class="{'on': agree_service}">
+                    <img src="https://s3.hourplace.co.kr/web/images/icon/check_g.svg" style="margin-left: 8px; margin-right: 10px; width: 18px; height: 18px" v-on:click="agree_service = !agree_service" />
+                    <p style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);"
+                    v-on:click="agree_service = !agree_service">
+                        아워플레이스 서비스 이용약관 동의
+                    </p>
+                    <p style="position: absolute; right: 0;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-050); cursor: pointer;"
+                    onclick="window.open('/policy/service')">
+                        보기
+                    </p>
+                </div>
+
+                <div class="h_row_center h_check" style="height: 32px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #ffffff;"
+                    v-bind:class="{'on': agree_personal}">
+                    <img src="https://s3.hourplace.co.kr/web/images/icon/check_g.svg" style="margin-left: 8px; margin-right: 10px; width: 18px; height: 18px" v-on:click="agree_personal = !agree_personal" />
+                    <p style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);"
+                    v-on:click="agree_personal = !agree_personal">
+                        아워플레이스 개인정보 처리방침 동의
+                    </p>
+                    <p style="position: absolute; right: 0;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-050); cursor: pointer;"
+                    onclick="window.open('/policy/personal')">
+                        보기
+                    </p>
+                </div>
+
+                <div class="request" v-bind:class="{'on': is_register()}" style="margin-top: 30px;"
+                    v-on:click="register()">
+                    <p>
+                        가입 완료
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="register_path_select h_center"
+                style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;display: none;z-index: 9999;background-color: var(--opacity-black-60);"
+                onclick="close_register_path_select()">
+
+                <div style="width: 420px;border-radius: 12px;box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);border: solid 1px #eff3f5;background-color: #ffffff;">
+                    <p style="margin-top: 30px;font-size: 18px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.44;letter-spacing: -0.1px;color: #1b1d1f; width: 100%; text-align: center">
+                        가입 경로
+                    </p>
+                    <div class="h_row_center h_hover_button" style="position:relative; margin-left: 40px; width: calc(100% - 80px); height: 40px; margin-top: 30px; cursor: pointer;"
+                        v-on:click="register_path = 8, register_path_title = '구글 검색'" v-bind:class="{'on': register_path === 8}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 8 ? '#246ff8' : '#454b50'}">
+                            구글 검색
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 8" />
+                    </div>
+                    <div class="h_row_center h_hover_button" style="position:relative;margin-left: 40px; width: calc(100% - 80px); height: 40px; cursor: pointer;"
+                        v-on:click="register_path = 9, register_path_title = '네이버 검색'" v-bind:class="{'on': register_path === 9}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 9 ? '#246ff8' : '#454b50'}">
+                            네이버 검색
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 9" />
+                    </div>
+                    <div class="h_row_center h_hover_button" style="position:relative;margin-left: 40px; width: calc(100% - 80px); height: 40px; cursor: pointer;"
+                        v-on:click="register_path = 3, register_path_title = '네이버 블로그'" v-bind:class="{'on': register_path === 3}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 3 ? '#246ff8' : '#454b50'}">
+                            네이버 블로그
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 3" />
+                    </div>
+                    <div class="h_row_center h_hover_button" style="position:relative;margin-left: 40px; width: calc(100% - 80px); height: 40px; cursor: pointer;"
+                        v-on:click="register_path = 2, register_path_title = '지인 추천/소개'" v-bind:class="{'on': register_path === 2}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 2 ? '#246ff8' : '#454b50'}">
+                            지인 추천/소개
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 2" />
+                    </div>
+                    <div class="h_row_center h_hover_button" style="position:relative;margin-left: 40px; width: calc(100% - 80px); height: 40px; cursor: pointer;"
+                        v-on:click="register_path = 6, register_path_title = '브런치'" v-bind:class="{'on': register_path === 6}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 6 ? '#246ff8' : '#454b50'}">
+                            브런치
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 6" />
+                    </div>
+                    <div class="h_row_center h_hover_button" style="position:relative;margin-left: 40px; width: calc(100% - 80px); height: 40px; cursor: pointer;"
+                        v-on:click="register_path = 4, register_path_title = '인스타그램'" v-bind:class="{'on': register_path === 4}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 4 ? '#246ff8' : '#454b50'}">
+                            인스타그램
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 4" />
+                    </div>
+                    <div class="h_row_center h_hover_button" style="position:relative;margin-left: 40px; width: calc(100% - 80px); height: 40px; cursor: pointer;"
+                        v-on:click="register_path = 7, register_path_title = 'App 검색'" v-bind:class="{'on': register_path === 7}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 7 ? '#246ff8' : '#454b50'}">
+                            App 검색
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 7" />
+                    </div>
+                    <div class="h_row_center h_hover_button" style="position:relative;margin-left: 40px; width: calc(100% - 80px); height: 40px; cursor: pointer;"
+                        v-on:click="register_path = 5, register_path_title = '페이스북'" v-bind:class="{'on': register_path === 5}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 5 ? '#246ff8' : '#454b50'}">
+                            페이스북
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 5" />
+                    </div>
+                    <div class="h_row_center h_hover_button" style="position:relative;margin-left: 40px; width: calc(100% - 80px); height: 40px; margin-bottom: 30px; cursor: pointer;"
+                        v-on:click="register_path = 99, register_path_title = '기타 (직접입력)'" v-bind:class="{'on': register_path === 99}">
+                        <p style="padding: 0 20px;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;"
+                        v-bind:style="{'color': register_path === 99 ? '#246ff8' : '#454b50'}">
+                            기타 (직접입력)
+                        </p>
+                        <img src="https://s3.hourplace.co.kr/web/images/icon/check.svg" style="width: 24px;height: 24px;position:absolute;right: 0" v-if="register_path === 99" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </html>

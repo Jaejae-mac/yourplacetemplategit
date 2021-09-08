@@ -5,18 +5,20 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="chrome">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>YourPlace</title>
         <link rel="stylesheet" type="text/css" href="sample.css">
 
     </head>
 
 
+    <body>
     <!-- Header -->
-    <!-- position fixed 또는 absolute 주고 상단헤더값(height: 100px) 만큼 vue 에서 빼주기 -->
+    <!-- position fixed 또는 absolute 주고 상단헤더값(height: 100px) 만큼  main 에서 빼주기 -->
     <div class="h_column_center" id="header"
         style="position: fixed; width: 100% ;top:0 ; background:white; z-index: 1000;-webkit-transform: translateZ(0);"
         xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
+        <!-- 실제 header 에 포함되는 내용들 -->
         <div class="h_row_center" style="position: relative;width: 1160px; height: 100px;">
 
             <!-- 로고 클릭시, 메인 페이지로 이동. hourplace_v2.userLog('W', '/', 'click', 'tab', 'home');window.location.href='/' -->
@@ -25,7 +27,7 @@
 
             <!-- 모든 장소 보여주기 hourplace_v2.userLog('W', '/', 'click', 'tab', 'all');toggle_category_all() -->
             <div class="h_row_center" style="position: absolute; right: 0px; cursor: pointer;">
-                <div onclick="window.toggle_category_all()" class="h_center h_header_button"
+                <div onclick="toggle_category_all()" class="h_center h_header_button"
                     style="padding: 0px 13px; height: 50px;">
                     <p
                         style="font-size: 15px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.33; letter-spacing: normal; text-align: center; color: rgb(27, 29, 31);">
@@ -119,20 +121,22 @@
 
         </div>
 
-    </div>
+        <!-- all toggle -->
 
-    <div class="category_all"
+        <div class="category_all"
         style="position: fixed;top: 100px;left: 0;width: 100%;height: 100%;display: none;z-index: 9999;background-color: rgba(0, 0, 0, 0.2);"
         onclick="toggle_category_all()">
         <div class="h_column_center" style="background-color: #FFFFFF; width: 100%; position:relative;">
             <div style="padding-top: 10px; padding-bottom: 40px;width: 1160px;display: flex; flex-direction: row;">
 
-                <div v-for="category in categories" style="flex: 1">
+                <!-- 메인 카테고리 시작 -->
+                <div v-for="category in categories" style="flex: 1 1 0%;">
                     <p class="h_hover_button"
                         style="font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;color: #454b50; padding: 7px 12px 5px 8px; margin-bottom: 10px;"
                         v-on:click="click_category_main(category.id)">
-                        {{ category.title }}
+                        가정집
                     </p>
+                    <!-- 상세 카테고리 시작 -->
                     <div class="h_hover_button h_row_center"
                         style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
                         v-on:click="click_category_main(category.id)">
@@ -141,25 +145,73 @@
                             전체
                         </p>
                     </div>
+                    <!-- 상세 카테고리 끝 -->
+                    <!-- 상세 카테고리 시작 -->
                     <div class="h_hover_button h_row_center" v-for="sub in category.subs"
                         style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
                         v-on:click="click_category_sub(category.id, sub.id)">
                         <p
                             style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
-                            {{ sub.title }}
+                            아파트
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            주택
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            빌라
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            원룸
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            한옥
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_row_center" v-for="sub in category.subs"
+                        style="padding-left: 8px; height: 32px; width: 100%;border-radius: 2px;"
+                        v-on:click="click_category_sub(category.id, sub.id)">
+                        <p
+                            style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: #454b50;">
+                            홈오피스
                         </p>
                     </div>
                 </div>
+                <!-- 메인 카테고리 끝 -->
 
             </div>
         </div>
     </div>
     </div>
 
+    </div>
+
+    
 
 
 
-    <div id="main_vue">
+
+    <!-- Banner -->
+    <div id="main">
         <div
             style="position: absolute; height: 100px; top: 0px; left: 0; right: 0; background-color: #fafbfb; z-index: -1;">
         </div>
@@ -183,7 +235,7 @@
 
                     <div style="position: absolute; top: 100px; right: 0; width: 100%; height: 100%;">
                         <div class="h_column_center" style="width: 100%; height: 100%;">
-                            <div style="position: relative; width: 1050px;height: 100%; cursor: pointer; z-index: 3; "
+                            <div style="position: relative; width: 1050px; height: 100%; cursor: pointer; z-index: 3; "
                                 onclick="hourplace_v2.userLog('W', '/', 'click', 'banner', 'main', 0, 9);window.location.href='/event/9';">
                             </div>
                         </div>
@@ -193,21 +245,23 @@
             </div>
         </div>
     </div>
+    <!-- Banner 끝 -->
+
+    <!-- 모든 카테고리-->
 
 
 
-
-    <!-- test body -->
-    <div style="flex-direction: row; display: flex; justify-content: center; background-color: wheat;">
-        <div class="h_row_center" id="test_body" style="width: 1160px; height: 2400px;">
-            <div style="position:relative;min-width: 300px;padding-top: 40px;height: 100%;"></div>
+    <!-- Main body -->
+    <div style="flex-direction: row; display: flex; justify-content: center; background-color: wheat; margin-top: 100px">
+        <div class="h_center" id="test_body" style="width: 1160px; height: 2400px; padding-top: 100px;">
+            <div style="position: absolute; min-width: 300px; padding-top: 40px; height: 100%;"></div>
             <p
                 style="font-size: 13px; font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;">
                 테스트 바디 생성
             </p>
         </div>
     </div>
-    </div>
+
 
     <!--footer-->
     <div style="flex-direction: row;display: flex;justify-content: center;background-color: #fafbfb;">
@@ -270,12 +324,59 @@
                 </div>
             </div>
         </div>
-        <!--푸터 끝-->
+        <!--footer 끝-->
 
+        <!-- script 시작 -->
         <script>
+            var message_id = ''
+
+            function toggle_category_all() {
+            if ($('.category_all').css('display') === 'none') {
+                close_search_container()
+
+                $('.category_all').show()
+                $('body').addClass('modal-open')
+            } else {
+                close_category_all()
+            }
+            }
+
+            function close_category_all() {
+            $('.category_all').hide()
+            $('body').removeClass('modal-open')
+            }
+
+            function toggle_search_container() {
+            if ($('.search_container').css('display') === 'none') {
+                close_category_all()
+                $('.search_container').show()
+                $('body').addClass('modal-open')
+                search_vue.get_recommend()
+            } else {
+                close_search_container()
+            }
+            }
+
+            function close_search_container() {
+            $('.search_container').hide()
+            $('body').removeClass('modal-open')
+            }
+
+            function toggle_h_noti() {
+            if ($('.h_noti').css('display') === 'none') {
+                h_show_popup('.h_noti')
+                // $('.h_noti').show()
+                close_search_container()
+                close_category_all()
+            } else {
+                h_hide_popup('h_noti')
+                // $('.h_noti').hide()
+            }
+            }
 
 
         </script>
+        <!-- script 끝 -->
 
 
         </body>
