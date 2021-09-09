@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Register - SB Admin</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      main,
+      #layoutAuthentication_content {
+        background-color: rgb(34, 37, 40);
+      }
+    </style>
+  </head>
+  <body class="bg-primary">
+    <div id="layoutAuthentication">
+      <div id="layoutAuthentication_content">
+        <main>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                  <div class="card-header">
+                    <h3 class="text-center font-weight-light my-4">
+                      Create Account
+                    </h3>
+                  </div>
+                  <div class="card-body">
+                    <form>
+                      <div class="form-floating mb-3">
+                        <input
+                          class="form-control"
+                          id="inputId"
+                          name="inputId"
+                          type="text"
+                          placeholder="ID"
+                        />
+                        <label for="inputId">ID</label>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3 mb-md-0">
+                            <input
+                              class="form-control"
+                              id="inputPassword"
+                              type="password"
+                              placeholder="Create a password"
+                            />
+                            <label for="inputPassword">Password</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3 mb-md-0">
+                            <input
+                              class="form-control"
+                              id="inputPasswordConfirm"
+                              type="password"
+                              placeholder="Confirm password"
+                            />
+                            <label for="inputPasswordConfirm"
+                              >Confirm Password</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="form-floating mb-3"
+                        style="justify-content: center"
+                      >
+                        <input
+                          class="form-control btn btn-outline-info"
+                          id="inputTel"
+                          name="inputTel"
+                          type="button"
+                          placeholder="010"
+                        />
+                        <label for="inputTel">전화 번호 인증 하기</label>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3 mb-md-0">
+                            <input
+                              class="form-control"
+                              id="inputName"
+                              name="inputName"
+                              type="text"
+                              placeholder="Enter your first name"
+                            />
+                            <label for="inputName">이름</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating">
+                            <input
+                              class="form-control"
+                              id="inputNickName"
+                              name="inputNickName"
+                              type="text"
+                              placeholder="Enter your last name"
+                            />
+                            <label for="inputNickName">닉네임</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input
+                          class="form-control"
+                          id="inputEmail"
+                          type="email"
+                          placeholder="name@example.com"
+                        />
+                        <label for="inputEmail">Email address</label>
+                      </div>
+
+                      <div class="mt-4 mb-0">
+                        <div class="d-grid">
+                          <a class="btn btn-primary btn-block" href="login.html"
+                            >Create Account</a
+                          >
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="card-footer text-center py-3">
+                    <div class="small">
+                      <a href="login.html">Have an account? Go to login</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div id="layoutAuthentication_footer">
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div
+              class="d-flex align-items-center justify-content-between small"
+            >
+              <div class="text-muted">Copyright &copy; Your Website 2021</div>
+              <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script>
+      //전화번호 정규식.
+      var regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+
+      function chkPW() {
+        var pw = $("#password").val();
+        var id = $("#id").val();
+
+        var reg =
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+        var hangulcheck = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+
+        if (false === reg.test(pw)) {
+          alert(
+            "비밀번호는 8자 이상이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다."
+          );
+        } else if (/(\w)\1\1\1/.test(pw)) {
+          alert("같은 문자를 4번 이상 사용하실 수 없습니다.");
+          return false;
+        } else if (pw.search(id) > -1) {
+          alert("비밀번호에 아이디가 포함되었습니다.");
+          return false;
+        } else if (pw.search(/\s/) != -1) {
+          alert("비밀번호는 공백 없이 입력해주세요.");
+          return false;
+        } else if (hangulcheck.test(pw)) {
+          alert("비밀번호에 한글을 사용 할 수 없습니다.");
+        } else {
+          console.log("통과");
+        }
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
