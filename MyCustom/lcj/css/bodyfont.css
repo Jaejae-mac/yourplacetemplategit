@@ -59,3 +59,40 @@
   color: rgb(114, 120, 127);
 }
 /*신규 추천 소제목*/
+
+.rating_reco_m_title {
+  font-size: 32px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: -0.3px;
+  color: rgb(27, 29, 31);
+}
+
+.rating_reco_s_title {
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: -0.1px;
+  color: rgb(114, 120, 127);
+}
+/* 별점 추천 소제목*/
+
+/* swiper slide 를 사용하게 될 시 사용하는 css 영역 */
+.swiper-container {
+  height: 420px;
+  border: 5px solid silver;
+  border-radius: 7px;
+}
+.swiper-slide {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.swiper-slide img {
+  max-width: 100%;
+}

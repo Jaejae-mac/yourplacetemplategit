@@ -10,7 +10,11 @@
 <link rel="stylesheet" href="css/card.css">
 <link rel="stylesheet" type="text/css" href="css/banner.css"> 
 <link rel="stylesheet" type="text/css" href="css/mainHome.css">
-<link rel="stylesheet" type="text/css" href="css/bodyfont.css">
+<link rel="stylesheet" href="css/bodyfont.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+swiper slide 사용시 필요한 링크
+-->
 </head>
 
 
@@ -853,30 +857,488 @@
   <!--신규 등록 장소 추천 끝 -->
 
 
+<!--이 주의 추천 장소 시작-->
+<div style="flex-direction: row; display: flex; justify-content: center; background-color: rgb(250, 251, 251);">
+  <div style="margin-top: 80px; margin-bottom: 80px; width: 1176px;">
+    <div class="h_row_center rating_reco_m_title" style="position: relative;">
 
-          <script>
-            new Swiper('.swiper_re_container', {
+      <!--onclick event 이주의 인기 장소 리스트로 -->
+      <div onclick=" " style="padding-left: 10px; cursor: pointer;">
+        <p>이 주의 인기 장소</p> 
+        <div class="h_row_center rating_reco_s_title" style="margin-top: -32px;">
+          <p>인기 장소 더보기</p> 
+        </div>
+      </div> 
+    <div class="h_row_center" style="position: absolute; right: 12px;">
+      <div class="h_center" style="width: 40px; height: 40px; border: 1px solid rgb(239, 243, 245); background-color: rgb(255, 255, 255); border-radius: 20px; margin-right: 10px; cursor: pointer;"> 
+          <!-- onclick event 이전페이지로-->
+        <img onclick=" " src="icon/chevron_left_b.svg"  style="width: 16px; height: 16px;">
+      </div> 
+      <div class="h_center" style="width: 40px; height: 40px; border: 1px solid rgb(239, 243, 245); background-color: rgb(255, 255, 255); border-radius: 20px; cursor: pointer;">
+          <!-- onclick event 다음페이지로-->
+        <img onclick=" " src="icon/chevron_left_b.svg"  style="width: 16px; height: 16px; transform: rotate(180deg);">
+      </div>
+    </div>
+  </div>
 
-              slidesPerView : 4, // 동시에 보여줄 슬라이드 갯수
-              spaceBetween : 30, // 슬라이드간 간격
-              slidesPerGroup : 4, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
 
-                                  // 그룹수가 맞지 않을 경우 빈칸으로 메우기
-                                  // 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
-              loopFillGroupWithBlank : true,
+   <div class="total_card_layout" >
+<!-- 1번 추천 카드 레이아웃 -->
+  <div class="card_layout" style="padding: 0px 7.5px 0px 0px;">
+      <div class="card" >
+          <div class="card_header" >
+              <img src="image/recommand/recommand-1.jfif"  alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+          </div>
+          <div class="card_body">
+              <div class="card_body_header">
+                  <p>
+                      주택 · 인천
+                      <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+                  </p>
+                  <div class="card_body_header_right">
+                      <div>
+                          <img src="icon/person.png">
+                          <p>
+                              4
+                              <!-- {{ place.people }} -->
+                          </p>
+                      </div>
+                      <div>
+                          <img src="icon/parking.png">
+                          <p>
+                              2
+                              <!-- {{ place.parking }} -->
+                          </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="card_body_title">
+                  작은 수영장과 중정이 있는 내추럴 무드의 단독주택 "떼까사"
+                  <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+              </div>
+          </div>
+          <div id="line">
 
-              loop : true, // 무한 반복
+          </div>
+          <div class="card_body_footer">
+              <img src="icon/gold_star.png">
+              <p class="card_body_footer_star">
+                  5.0
+                  <!-- {{ place.feedback_rating }} -->
+              </p>
+              <p class="card_body_footer_review">
+                  리뷰 12
+                  <!-- 리뷰 {{ place.feedback_count }} -->
+              </p>
+              <p class="card_body_footer_price">
+                  64,000원
+                  <!-- {{ place.price_guest }}원 -->
+              </p>
+              <img class="card_body_footer_booking" src="icon/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+          </div>
+      </div>
+  </div>
 
-              pagination : { // 페이징
-                el : '.swiper-pagination',
-                clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
-              },
-              navigation : { // 네비게이션
-                nextEl : '.flipsnap_user_recommend_next', // 다음 버튼 클래스명
-                prevEl : '.flipsnap_user_recommend_prev', // 이번 버튼 클래스명
-              },
-        });
-          </script>
+<!-- 2번 추천 카드 레이아웃-->
+  <div class="card_layout" style="padding: 0px 7.5px 0px 0px;">
+    <div class="card" >
+        <div class="card_header">
+            <img src="image/recommand/recommand-2.jpg"  alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+        </div>
+        <div class="card_body">
+            <div class="card_body_header">
+                <p>
+                    주택 · 서울
+                    <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+                </p>
+                <div class="card_body_header_right">
+                    <div>
+                        <img src="icon/person.png">
+                        <p>
+                            7
+                            <!-- {{ place.people }} -->
+                        </p>
+                    </div>
+                    <div>
+                        <img src="icon/parking.png">
+                        <p>
+                            3
+                            <!-- {{ place.parking }} -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card_body_title">
+                마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F
+                <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+            </div>
+        </div>
+        <div id="line">
+
+        </div>
+        <div class="card_body_footer">
+            <img src="icon/gold_star.png">
+            <p class="card_body_footer_star">
+                5.0
+                <!-- {{ place.feedback_rating }} -->
+            </p>
+            <p class="card_body_footer_review">
+                리뷰 195
+                <!-- 리뷰 {{ place.feedback_count }} -->
+            </p>
+            <p class="card_body_footer_price">
+                111,000원
+                <!-- {{ place.price_guest }}원 -->
+            </p>
+            <img class="card_body_footer_booking" src="icon/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+        </div>
+    </div>
+</div>
+
+<!-- 3번 추천 카드 레이아웃-->
+<div class="card_layout" style="padding: 0px 7.5px 0px 0px;">
+  <div class="card" >
+      <div class="card_header" >
+          <img src="image/recommand/recommand-3.jfif"  alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+      </div>
+      <div class="card_body">
+          <div class="card_body_header">
+              <p>
+                  빈티지 · 서울
+                  <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+              </p>
+              <div class="card_body_header_right">
+                  <div>
+                      <img src="icon/person.png">
+                      <p>
+                          3
+                          <!-- {{ place.people }} -->
+                      </p>
+                  </div>
+                  <div>
+                      <img src="icon/parking.png">
+                      <p>
+                          1
+                          <!-- {{ place.parking }} -->
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="card_body_title">
+              스튜디오 보리네
+              <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+          </div>
+      </div>
+      <div id="line">
+
+      </div>
+      <div class="card_body_footer">
+          <img src="icon/gold_star.png">
+          <p class="card_body_footer_star">
+              4.9
+              <!-- {{ place.feedback_rating }} -->
+          </p>
+          <p class="card_body_footer_review">
+              리뷰 46
+              <!-- 리뷰 {{ place.feedback_count }} -->
+          </p>
+          <p class="card_body_footer_price">
+              50,000원
+              <!-- {{ place.price_guest }}원 -->
+          </p>
+          <img class="card_body_footer_booking" src="icon/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+      </div>
+  </div>
+</div>
+
+
+<!-- 4번 추천 카드 레이아웃-->
+<div class="card_layout" style="padding: 0px 7.5px 0px 0px;">
+  <div class="card" >
+      <div class="card_header" >
+          <img src="image/recommand/recommand-4.jfif"  alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+      </div>
+      <div class="card_body">
+          <div class="card_body_header">
+              <p>
+                  빌라 · 서울
+                  <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+              </p>
+              <div class="card_body_header_right">
+                  <div>
+                      <img src="icon/person.png">
+                      <p>
+                          2
+                          <!-- {{ place.people }} -->
+                      </p>
+                  </div>
+                  <div>
+                      <img src="icon/parking.png">
+                      <p>
+                          1
+                          <!-- {{ place.parking }} -->
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="card_body_title">
+              오래된 원목 빌라 분위기있는 집
+              <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+          </div>
+      </div>
+      <div id="line">
+
+      </div>
+      <div class="card_body_footer">
+          <img src="icon/gold_star.png">
+          <p class="card_body_footer_star">
+              5.0
+              <!-- {{ place.feedback_rating }} -->
+          </p>
+          <p class="card_body_footer_review">
+              리뷰 154
+              <!-- 리뷰 {{ place.feedback_count }} -->
+          </p>
+          <p class="card_body_footer_price">
+              38,000원
+              <!-- {{ place.price_guest }}원 -->
+          </p>
+          <img class="card_body_footer_booking" src="icon/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+      </div>
+  </div>
+</div>
+
+<!-- 5번 추천 카드 레이아웃-->
+<div class="card_layout" style="padding: 0px 7.5px 0px 0px;">
+  <div class="card" >
+      <div class="card_header" >
+          <img src="image/recommand/recommand-5.jfif"  alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+      </div>
+      <div class="card_body">
+          <div class="card_body_header">
+              <p>
+                  호리존 · 서울
+                  <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+              </p>
+              <div class="card_body_header_right">
+                  <div>
+                      <img src="icon/person.png">
+                      <p>
+                          3
+                          <!-- {{ place.people }} -->
+                      </p>
+                  </div>
+                  <div>
+                      <img src="icon/parking.png">
+                      <p>
+                          0
+                          <!-- {{ place.parking }} -->
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="card_body_title">
+              스튜디오 칠(studio chill)
+              <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+          </div>
+      </div>
+      <div id="line">
+
+      </div>
+      <div class="card_body_footer">
+          <img src="icon/gold_star.png">
+          <p class="card_body_footer_star">
+              5.0
+              <!-- {{ place.feedback_rating }} -->
+          </p>
+          <p class="card_body_footer_review">
+              리뷰 154
+              <!-- 리뷰 {{ place.feedback_count }} -->
+          </p>
+          <p class="card_body_footer_price">
+              11,000원
+              <!-- {{ place.price_guest }}원 -->
+          </p>
+          <img class="card_body_footer_booking" src="icon/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+      </div>
+  </div>
+</div>
+
+<!-- 6번 추천 카드 레이아웃-->
+<div class="card_layout" style="padding: 0px 7.5px 0px 0px;">
+  <div class="card" >
+      <div class="card_header" >
+          <img src="image/recommand/recommand-6.jfif"  alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+      </div>
+      <div class="card_body">
+          <div class="card_body_header">
+              <p>
+                  주택 · 서울
+                  <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+              </p>
+              <div class="card_body_header_right">
+                  <div>
+                      <img src="icon/person.png">
+                      <p>
+                          2
+                          <!-- {{ place.people }} -->
+                      </p>
+                  </div>
+                  <div>
+                      <img src="icon/parking.png">
+                      <p>
+                          0
+                          <!-- {{ place.parking }} -->
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="card_body_title">
+              [녹사평] 비키홈스튜디오
+              <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+          </div>
+      </div>
+      <div id="line">
+
+      </div>
+      <div class="card_body_footer">
+          <img src="icon/gold_star.png">
+          <p class="card_body_footer_star">
+              5.0
+              <!-- {{ place.feedback_rating }} -->
+          </p>
+          <p class="card_body_footer_review">
+              리뷰 25
+              <!-- 리뷰 {{ place.feedback_count }} -->
+          </p>
+          <p class="card_body_footer_price">
+              68,000원
+              <!-- {{ place.price_guest }}원 -->
+          </p>
+          <img class="card_body_footer_booking" src="icon/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+      </div>
+  </div>
+</div>
+
+<!-- 7번 추천 카드 레이아웃-->
+<div class="card_layout" style="padding: 0px 7.5px 0px 0px;">
+  <div class="card" >
+      <div class="card_header" >
+          <img src="image/recommand/recommand-7.jfif"  alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+      </div>
+      <div class="card_body">
+          <div class="card_body_header">
+              <p>
+                  주택 · 인천
+                  <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+              </p>
+              <div class="card_body_header_right">
+                  <div>
+                      <img src="icon/person.png">
+                      <p>
+                          4
+                          <!-- {{ place.people }} -->
+                      </p>
+                  </div>
+                  <div>
+                      <img src="icon/parking.png">
+                      <p>
+                          3
+                          <!-- {{ place.parking }} -->
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="card_body_title">
+              우드로 꾸민 프라이빗 공간, 햇살 머리금 주택, 혜담헌
+              <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+          </div>
+      </div>
+      <div id="line">
+
+      </div>
+      <div class="card_body_footer">
+          <img src="icon/gold_star.png">
+          <p class="card_body_footer_star">
+              5.0
+              <!-- {{ place.feedback_rating }} -->
+          </p>
+          <p class="card_body_footer_review">
+              리뷰 44
+              <!-- 리뷰 {{ place.feedback_count }} -->
+          </p>
+          <p class="card_body_footer_price">
+              65,000원
+              <!-- {{ place.price_guest }}원 -->
+          </p>
+          <img class="card_body_footer_booking" src="icon/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+      </div>
+  </div>
+</div>
+
+<!-- 8번 추천 카드 레이아웃-->
+<div class="card_layout" style="padding: 0px 7.5px 0px 0px;">
+  <div class="card" >
+      <div class="card_header" >
+          <img src="image/신규4.jpg"  alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+      </div>
+      <div class="card_body">
+          <div class="card_body_header">
+              <p>
+                  빈티지 · 서울
+                  <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+              </p>
+              <div class="card_body_header_right">
+                  <div>
+                      <img src="icon/person.png">
+                      <p>
+                          5
+                          <!-- {{ place.people }} -->
+                      </p>
+                  </div>
+                  <div>
+                      <img src="icon/parking.png">
+                      <p>
+                          1
+                          <!-- {{ place.parking }} -->
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="card_body_title">
+              [강남/선릉] 1980년대 쿄토 여작가 J의 낡은 작업실(쇼와 레트로)
+              <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+          </div>
+      </div>
+      <div id="line">
+
+      </div>
+      <div class="card_body_footer">
+          <img src="icon/gold_star.png">
+          <p class="card_body_footer_star">
+              4.7
+              <!-- {{ place.feedback_rating }} -->
+          </p>
+          <p class="card_body_footer_review">
+              리뷰 36
+              <!-- 리뷰 {{ place.feedback_count }} -->
+          </p>
+          <p class="card_body_footer_price">
+              34,900원
+              <!-- {{ place.price_guest }}원 -->
+          </p>
+          <img class="card_body_footer_booking" src="icon/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+      </div>
+  </div>
+</div>
+
+
+  </div> <!--total_card_layout END-->
+</div>
+</div>
+<!--이 주의 추천 장소 끝-->
+                
+
 
 	<!--footer-->
 	<div
