@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- JQuery Lib -->
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- 다음 주소 API -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="style-regist.css">
     <!--부트스트랩 추가 -->
@@ -17,7 +19,9 @@
   </head>
   <body>
       <div class="regist-div">
-    <div class="add-extra-room">
+        <!-- 전송 폼태그. -->
+      <form method="POST" enctype="multipart/form-data">
+      <div class="add-extra-room">
         <table class="table table-added-item">
           <colgroup>
             <col width="50" scope="col" />
@@ -59,36 +63,27 @@
           </tbody>
         </table>
       </div>
-      <hr>
     <!-- 파일전송 시작. -->
-    <form method="POST" enctype="multipart/form-data">
-      <table>
-        <tr>
-          <td>
-            <div class="file-name-div">
-              <ul id="file-name"></ul>
-            </div>
-          </td>
-          <td>
-            <div class="form-group">
-              <label for="input-file" class="input-file-button">업로드</label>
-              <input
-                type="file"
-                class="form-control-file"
-                id="input-file"
-                accept="image/*"
-                multiple
-                onchange="processSelectedFiles(this)"
-                style="display: none"
-              />
-            </div>
-          </td>
-        </tr>
-      </table>
-    </form>
-    <hr>
+    <div class="file">
+      <div class="file-name-div">
+        <ul id="file-name" class="file-name"></ul>
+      </div>
+      <div class="form-group2">
+      <label for="input-file" class="input-file-button">업로드</label>
+        <input
+          type="file"
+          class="form-control-file"
+          id="input-file"
+          accept="image/*"
+          multiple
+          onchange="processSelectedFiles(this)"
+          style="display: none"
+        />
+      </div>
+    </div>
        <!--인원할증유형-->
-       <form class="extra-fee" id="extra-fee">
+       <div class="extra-fee" id="extra-fee">
+       
         <div class="extra-fee-title">인원 할증 유형</div>
         <div class="form-check default-fee">
           <input
@@ -156,8 +151,7 @@
          설정 인원 초과 시 : 1인 추가 시 시간당 11,000원 할증 자동 적용(부가세 포함)
         </label>
         </div>
-      </form>
-      <hr>
+    </div>
     <!-- 다음 API 시작. -->
     <div class="find-address">
       <input
@@ -168,16 +162,14 @@
         size="50"
         readonly
       />
-      <!-- <input type="text" id="sample4_postcode" placeholder="우편번호" /> -->
       <input
         type="button"
         onclick="execDaumPostcode()"
-        class="btn btn-primary"
+        class="btn btn-primary btn-find-address"
         value="우편번호 찾기"
-        style="width: 100px; height: 35px"
+        
       />
     </div>
-    <hr>
     <!-- 해시태그 시작 -->
     <div class="tr_hashTag_area">
       <p><strong>HashTag</strong></p>
@@ -196,6 +188,7 @@
       <ul id="tag-list"></ul>
       <div class="clear"></div>
     </div>
-</div>
+    </form>
+  </div>
   </body>
 </html>
