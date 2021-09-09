@@ -1,0 +1,28 @@
+.admin-btn {
+  margin-top: 10px;
+}
+.admin-btn > .btn-primary {
+  float: left;
+  width: 100px;
+}
+.admin-btn > .btn-danger {
+  float: right;
+  margin-right: 10px;
+  width: 150px;
+}
+.promotion-coupon-regist > .btn-primary {
+  float: right;
+  margin-right: 10px;
+  width: 100px;
+}
+.promotion-coupon-regist > .btn-danger {
+  float: right;
+  margin-right: 10px;
+  width: 100px;
+}
+.table {
+  margin-top: 10px;
+}
+.clear {
+  float: none;
+}

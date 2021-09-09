@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>YourPlace LoginPage</title>
+        <link rel="stylesheet" type="text/css" href="sample.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"> </script>
+        
+</head>
+
+<body>
+<div class="h_my_menu"
+                style=" z-index: 9999; position: absolute;top: 80px;right: 0;width: 220px;border-radius: 8px;box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);border: solid 1px #eff3f5;background-color: #ffffff;">
+                <!-- display: none; 속성 제외했음 -->
+
+                <div class="h_row_center h_my_menu_switch_button" v-bind:class="{'h_hover_button' : user_permission === 3}"
+                    style="margin-top: 10px; height: 40px; width: 100%; padding-top: 8px; padding-left: 30px; padding-right: 30px;">
+                    <p class="h_ellipsis_1" style="font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                        {{ guest_name }}
+                    </p>
+                    <div style="height: 100%; width: 8px; position:relative;" v-if="user_permission === 3 && booking_guest_badge + booking_host_badge > 0">
+                        <div style="position:absolute; top: 6px; right: 0; width: 5px;height: 5px;background-color: #ff4b3e;border-radius: 2.5px;overflow: hidden;">
+                        </div>
+                    </div>
+                    <img src="https://s3.hourplace.co.kr/web/images/icon/chevron_right_b.svg" style="width: 16px; height: 16px; position: absolute; right: 30px;" v-if="user_permission === 3" />
+
+                    
+                            <div class="h_row_center">
+                                <div class="h_row_center" style="padding: 10px 50px 2px 30px;">
+                                    
+                                    
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="h_hover_button" style="width: 100%; height: 54px;"
+                            onclick="hourplace_v2.userLog('W', '/guest/edit', 'click', 'account', 'host');user_switch(1)">
+                            <div class="h_row_center"></div>
+                                <div class="h_row_center" style="padding: 10px 50px 2px 30px;">
+                                    
+                                   
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height: 1px; width: 160px; margin: 10px 30px; background-color: #e7eaee;">
+
+                </div>
+
+                <div class="h_my_menu_button h_hover_button"
+                    onclick="hourplace_v2.userLog('W', '/guest/edit', 'click', 'profile');window.location.href='/my'">
+                    <p>
+                        프로필
+                    </p>
+                </div>
+
+                <div class="h_my_menu_button h_hover_button"
+                    onclick="hourplace_v2.userLog('W', '/guest/edit', 'click', 'message');window.location.href='/message'">
+                    <div class="h_row_center">
+                        <p>
+                            메시지
+                        </p>
+                        <div class="h_center" style="margin-left: 6px; width: 16px;height: 16px;background-color: #ff4b3e;border-radius: 8px;overflow: hidden;" v-if="message_badge > 0">
+                            <p style="font: bold 10px Arial, sans-serif;color: #ffffff;">
+                                {{ message_badge }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <div style="height: 1px; width: 160px; margin: 10px 30px; background-color: #e7eaee;">
+
+                </div>
+
+                
+
+                
+
+                
+
+                <div class="h_my_menu_button h_hover_button"
+                    onclick="hourplace_v2.userLog('W', '/guest/edit', 'click', 'coupon');window.location.href='/coupon'">
+                    <p>
+                        쿠폰
+                    </p>
+                </div>
+
+                
+
+                <div style="height: 1px; width: 160px; margin: 10px 30px; background-color: #e7eaee;">
+
+                </div>
+
+                <div class="h_my_menu_button h_hover_button h_row_center h_my_menu_setting_button">
+                    <p>
+                        설정
+                    </p>
+                    <img src="https://s3.hourplace.co.kr/web/images/icon/chevron_right_b.svg" style="width: 16px; height: 16px; position: absolute; right: 30px;" />
+
+                    <div class="h_my_menu_setting"
+                        style="position: absolute; top: 0px; right: 218px; z-index: 10000; width: 220px;border-top-left-radius: 8px;border-bottom-left-radius: 8px; box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);border: solid 1px #eff3f5;background-color: #ffffff;">
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="h_my_menu_button h_hover_button" style="margin-top: 10px;"
+                            onclick="window.location.href='/user/edit/private'">
+                            <p>
+                                개인정보 변경
+                            </p>
+                        </div>
+                        <div class="h_my_menu_button h_hover_button" style="margin-bottom: 10px;"
+                            onclick="window.location.href='/user/edit/password'">
+                            <p>
+                                비밀번호 변경
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h_my_menu_button h_hover_button" style="margin-bottom: 10px;"
+                    onclick="hourplace_v2.userLog('W', '/guest/edit', 'click', 'logout');logout()">
+                    <p>
+                        로그아웃
+                    </p>
+                </div>
+
+            </div>
+            </div>
+
+    </body>
+</html>

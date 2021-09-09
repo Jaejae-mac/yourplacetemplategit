@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/scroller/2.0.5/js/dataTables.scroller.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/scroller/2.0.5/css/scroller.bootstrap5.min.css"
+    />
+    <title>Document</title>
+    <script>
+      $(document).ready(function () {
+        $("#example").DataTable({
+          ajax: "2500.json",
+          deferRender: true,
+          //   scrollY: 200,
+          //   scrollCollapse: true,
+          //   scroller: true,
+          bPagenate: true,
+          //   pagingType: "full_numbers",
+          pageLength: 10,
+          bLengthChange: false,
+          searchSide: false,
+          searching: false,
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table id="example" class="table table-striped nowrap" style="width: 100%">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>ZIP / Post code</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+    </table>
+  </body>
+</html>
