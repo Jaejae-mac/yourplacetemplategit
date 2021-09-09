@@ -207,8 +207,10 @@
 		</div>
 	</div>
 
-	</div>
+	
 
+
+  <!--배너 스크립트-->
   <script>
     let banner = {
         rollId: null,
@@ -263,23 +265,23 @@
     </script>
 	<!-- Banner -->
 <!--슬라이드 배너 테스트-->
-<div id="banner">
+<div id="banner" style="position: relative; top: 100px;">
   <div style="position: relative; width: 1280px; height: 100%;  left: -220px; margin: auto;">
-    <div class="wrap_center ">
-        <div class="container">
+    <div class="wrap_center">
+        <div class="container h_column_center">
             <div class="img_wrap">
                 <ul class="rollimgs">
                     <li>
                       <!--이미지 클릭시 url mapping-->
                       <a href="#">
-                      <img src="image/banner1.jpg">
+                      <img src="image/banner1.png">
                     </a>
                   </li>
                     
                     <li>
                       <a href="#">
 
-                      <img src="image/banner2.jpg">
+                      <img src="image/banner2.png">
                     </a>
                   </li>
 
@@ -294,7 +296,7 @@
 	<!-- 모든 카테고리-->
 <!-- Main body 시작 -->
 <!--메인 바디 카드 레이아웃-->
-  <div class="main_card">
+  <div class="main_card"  style="position: relative; top: 100px;">
   <div style="flex-direction: row; display: flex; justify-content: center; position: relative; ">
     <div style="display: flex; flex-flow: row wrap; min-width: 1160px; max-width: 1160px;">
       <div style="margin-top: 60px; width: 274px; margin-right: 21px;">
@@ -574,7 +576,7 @@
 
 <!--card_footer_button 시작-->
 <!--onclick 이벤트가 동작안함-->
-<div class="card_footer_button">
+<div class="card_footer_button"  style="position: relative; top: 100px;">
 <div style="flex-direction: row; display: flex; justify-content: center;">
   <div style="position: relative; width: 1160px; margin-top: 40px;">
     
@@ -598,9 +600,9 @@
 
 <!--신규 등록 추천 장소 시작-->
 
-<div style="flex-direction: row; display: flex; justify-content: center; background-color: rgb(250, 251, 251);">
+<div style="flex-direction: row; display: flex; justify-content: center; background-color: rgb(250, 251, 251); ">
   <div style="margin-top: 80px; margin-bottom: 80px; width: 1176px;">
-    <div class="h_row_center" style="position: relative;">
+    <div class="h_row_center">
       <!--onclick="" 신규 등록 장소 목록-->
       <div onclick=" " style="padding-left: 10px; cursor: pointer;">
         <div class="h_row_center new_reco_m_title" style="padding: 0px 0px 0px 0px;">
@@ -849,6 +851,8 @@
      </div>
     </div>
   <!--신규 등록 장소 추천 끝 -->
+
+
 
           <script>
             new Swiper('.swiper_re_container', {
