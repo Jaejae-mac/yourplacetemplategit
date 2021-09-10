@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 로그인 버튼 -->
+							<!-- Login v-on:click="login()" -->
+							<div
+								style="margin-top: 40px; height: 52px; border-radius: 8px; background-color: var(- -blue-020); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; background: paleturquoise;">
+								<label for="login_guest" class="login_guest_lb">로그인</label> <input
+									type="button" id="login_guest" onclick="login_guest_do()">
+							</div>
+
+							<div
+								style="margin-top: 20px; height: 52px; border-radius: 8px; background-color: var(- -blue-020); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; background: paleturquoise;">
+								<label for="login_host" class="login_host_lb">호스트로 로그인</label> <input
+									type="button" id="login_host" onclick="loginHostHdo()">
+
+							</div>
+
+							<div
+								style="margin-top: 20px; height: 52px; border-radius: 8px; background-color: var(- -blue-020); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; background: yellow">
+								<label for="login_kakao" class="login_kakao">카카오 로그인</label> <input
+									type="button" id="login_kakao" onclick="loginGuestKakaoDo()">
+								<!-- <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%; height: 100%;" /> -->
+							</div>
+
+						</form>
+
+
+                <div class="h_center h_header_button"
+                    style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
+                    <label for="host_page" class="host_page" style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
+                        호스트 페이지
+                    </label>
+                    <input type="button" id="host_page" onclick="hostpage()" display="none"/>
+                    <!-- <p
+                        style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
+                        호스트 페이지
+                    </p> -->
+                </div>
+
+                <!-- 로그인 기능 show_login() -->
+                <div class="h_center h_header_button"
+                    style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
+                    <p
+                        style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
+                        게스트 로그인
+                    </p>
+                </div>
+
+
+                
+                <div class="h_row_center" style="margin-top: 78px; height: 240px; margin-bottom: 120px;">
+                    <div class="h_column_center" style="width: 400px;height: 240px;border-radius: 16px;box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.06);background-color: #ffffff;">
+                        <img src="https://s3.hourplace.co.kr/web/images/emoji/service_guest.png" style="margin-top: 50px; width: 44px; height: 44px;" />
+                        <div class="h_center" style="margin-top: 13px; height: 24px; width: 86px; border-radius: 12px; background-color: var(--grey-080);">
+                            <p style="font-size: 14px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: normal;text-align: center;color: #ffffff;">
+                                게스트
+                            </p>
+                        </div>
+                        <div class="h_center" style="margin-top: 30px; width: 280px;height: 56px;border-radius: 8px;background-color: #fafbfb;cursor: pointer;">
+                            <div class="h_row_center">
+                                <label id="guest_using" style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;text-align: center;color: #1b1d1f;">
+                                    게스트 이용방법
+                                </label>
+                                <input type="button" class="guest_using" onclick="window.location.href='/info/guest'" style="display: none"/>
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/before.svg" style="margin-left: 8px; width: 20px; height: 20px; -webkit-transform: rotate(180deg)">
+                            </div>
+                        </div>
+                    </div>
+</body>
+</html>
