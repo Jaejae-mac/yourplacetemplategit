@@ -37,7 +37,11 @@
       rel="stylesheet"
       href="https://cdn.datatables.net/scroller/2.0.5/css/scroller.bootstrap5.min.css"
     />
-
+    <link
+      href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- <link
       href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"
       type="text/css"
@@ -83,18 +87,17 @@
           },
         };
         var col_kor = [
-          { title: "장소명" },
           { title: "예약번호" },
-          { title: "예약자" },
-          { title: "예약일" },
-          { title: "입실" },
-          { title: "퇴실" },
-          { title: "인원" },
-          { title: "금액" },
+          { title: "장소번호" },
+          { title: "장소명" },
+          { title: "회원아이디" },
+          { title: "별점" },
+          { title: "등록날짜" },
+          { title: "리뷰보기" },
         ];
         $("#mainPageTable").dataTable({
           // data: dataSet,
-          ajax: "data/textdata.json",
+          ajax: "data/testReview.json",
           deferRender: true,
           columns: col_kor, //or col_eng
           language: lang_kor, //or lang_eng
@@ -102,7 +105,7 @@
       });
     </script>
   </head>
-  <body class="sb-nav-fixed">
+  <body class="sb-nav-fixed ">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
       <!-- Navbar Brand-->
       <a class="navbar-brand ps-3" href="admin.html">Yourplace Host</a>
@@ -388,9 +391,15 @@
               <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 최근 예약 현황
+                <input
+                  type="checkbox"
+                  id="toggle-one"
+                  checked
+                  name="toggleReview"
+                />
               </div>
+
               <div class="card-body">
-                <!-- <table id="datatablesSimple" class="table table-bordered"> -->
                 <table
                   id="mainPageTable"
                   class="table table-bordered display"
@@ -398,50 +407,27 @@
                 >
                   <thead>
                     <tr>
-                      <th>장소명</th>
                       <th>예약번호</th>
-                      <th>예약자</th>
-                      <th>예약일</th>
-                      <th>입실</th>
-                      <th>퇴실</th>
-                      <th>인원</th>
-                      <th>금액</th>
+                      <th>장소번호</th>
+                      <th>장소명</th>
+                      <th>회원아이디</th>
+                      <th>별점</th>
+                      <th>등록날짜</th>
+                      <th>리뷰 보기</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>장소명</th>
                       <th>예약번호</th>
-                      <th>예약자</th>
-                      <th>예약일</th>
-                      <th>입실</th>
-                      <th>퇴실</th>
-                      <th>인원</th>
-                      <th>금액</th>
+                      <th>장소번호</th>
+                      <th>장소명</th>
+                      <th>회원아이디</th>
+                      <th>별점</th>
+                      <th>등록날짜</th>
+                      <th>리뷰 보기</th>
                     </tr>
                   </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>카페</td>
-                      <td>123412</td>
-                      <td>이승재</td>
-                      <td>2021-09-10</td>
-                      <td>13:00</td>
-                      <td>15:00</td>
-                      <td>10</td>
-                      <td>100,000₩</td>
-                    </tr>
-                    <tr>
-                      <td>카페</td>
-                      <td>214123</td>
-                      <td>Tommy</td>
-                      <td>2021-09-14</td>
-                      <td>16:00</td>
-                      <td>19:00</td>
-                      <td>2</td>
-                      <td>20,000₩</td>
-                    </tr>
-                  </tbody>
+                  <tbody></tbody>
                 </table>
               </div>
             </div>
@@ -479,5 +465,13 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/datatables-simple-demo.js"></script>
+    <script>
+      $(function () {
+        $("#toggle-one").bootstrapToggle({
+          on: "게스트 리뷰",
+          off: "호스트 리뷰",
+        });
+      });
+    </script>
   </body>
 </html>
