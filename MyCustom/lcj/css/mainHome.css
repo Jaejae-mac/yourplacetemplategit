@@ -1,0 +1,19 @@
+.h_column_center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+element.style {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  z-index: 1000;
+  transform: translateZ(0px);
+}
+.h_row_center {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

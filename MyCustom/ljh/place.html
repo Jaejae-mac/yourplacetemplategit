@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>place</title>
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div id="warp">
+        <header>
+
+        </header>
+        <div id="category">
+            <ul>
+                <li>
+                    <p onclick="window.location.href='/category'">
+                        모든 장소
+                    </p>
+                </li>
+                <li>
+                    <p onclick="window.location.href='/category/1'">
+                        가정집
+                    </p>
+                </li>
+                <li>
+                    <p onclick="window.location.href='/category/2'">
+                        스튜디오
+                    </p>
+                </li>
+                <li>
+                    <p onclick="window.location.href='/category/3'">
+                        상업 공간
+                    </p>
+                </li>
+                <li>
+                    <p onclick="window.location.href='/category/4'">
+                        편의 시설
+                    </p>
+                </li>
+                <li>
+                    <p onclick="window.location.href='/category/5'">
+                        문화 공간
+                    </p>
+                </li>
+                <li>
+                    <p onclick="window.location.href='/category/6'">
+                        특수 공간
+                    </p>
+                </li>
+                <li>
+                    <p onclick="window.location.href='/category/8'">
+                        대형 공간
+                    </p>
+                </li>
+                <li>
+                    <p onclick="window.location.href='/category/7'">
+                        야외
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div id="sub_category">
+            <!-- 선택된 메인 카테고리와 연동해서 서브카테고리가 나열되게 하는 기능 필요(데이터베이스와 연동필요) -->
+        </div>
+        <div id="option">
+            <div class="h_row_center">
+                <div class="h_left_button" onclick="">
+                    <p>
+                        날짜
+                    </p>
+                </div>
+                <div class="h_left_button" onclick="">
+                    <p>
+                        인원
+                    </p>
+                </div>
+                <div class="h_left_button" onclick="">
+                    <p>
+                        가격
+                    </p>
+                </div>
+                <div class="h_left_button" onclick="">
+                    <p>
+                        지역
+                    </p>
+                </div>
+                <div class="h_right_button" onclick="">
+
+                    <p>
+                        <img src="image/sort.png"> 추천순
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="total_card_layout">
+            <div class="card_layout">
+                <div class="card">
+                    <div class="card_header">
+                        <img src="image/포천 갤러리-1.png" alt="이미지 넣는 곳" /><!-- 데이터 베이스의 해당 image 가져오기-->
+                    </div>
+                    <div class="card_body">
+                        <div class="card_body_header">
+                            <p>
+                                카테 · 장소
+                                <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+                            </p>
+                            <div class="card_body_header_right">
+                                <div>
+                                    <img src="image/person.png">
+                                    <p>
+                                        12
+                                        <!-- {{ place.people }} -->
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="image/parking.png">
+                                    <p>
+                                        5
+                                        <!-- {{ place.parking }} -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_body_title">
+                            (한강로 48평)남산타워뷰의 용산 타워형 아파트
+                            <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+                        </div>
+                    </div>
+                    <div id="line">
+
+                    </div>
+                    <div class="card_body_footer">
+                        <img src="image/gold_star.png">
+                        <p class="card_body_footer_star">
+                            5.0
+                            <!-- {{ place.feedback_rating }} -->
+                        </p>
+                        <p class="card_body_footer_review">
+                            리뷰 1
+                            <!-- 리뷰 {{ place.feedback_count }} -->
+                        </p>
+                        <p class="card_body_footer_price">
+                            76.000원
+                            <!-- {{ place.price_guest }}원 -->
+                        </p>
+                        <img class="card_body_footer_booking" src="image/bookmark_g.png"><!-- 관심 장소로 선택시 이미지 변경 구현필요-->
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 데이터 베이스 연동이 안된 상태이므로 확인차 여러개 생성 해당 기능에 대한 function()구현-->
+            <div class="card_layout">
+                <div class="card">
+                    <div class="card_header">
+                        <img src="image/포천 갤러리-1.png" alt="이미지 넣는 곳" />
+                    </div>
+                    <div class="card_body">
+                        <div class="card_body_header">
+                            <p>
+                                카테 · 장소
+                                <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+                            </p>
+                            <div class="card_body_header_right">
+                                <div>
+                                    <img src="image/person.png">
+                                    <p>
+                                        12
+                                        <!-- {{ place.people }} -->
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="image/parking.png">
+                                    <p>
+                                        5
+                                        <!-- {{ place.parking }} -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_body_title">
+                            (한강로 48평)남산타워뷰의 용산 타워형 아파트
+                            <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+                        </div>
+                    </div>
+                    <div id="line">
+
+                    </div>
+                    <div class="card_body_footer">
+                        <img src="image/gold_star.png">
+                        <p class="card_body_footer_star">
+                            5.0
+                        </p>
+                        <p class="card_body_footer_review">
+                            리뷰 1
+                        </p>
+                        <p class="card_body_footer_price">
+                            76.000원
+                        </p>
+                        <img class="card_body_footer_booking" src="image/bookmark_g.png">
+                    </div>
+                </div>
+            </div>
+            <div class="card_layout">
+                <div class="card">
+                    <div class="card_header">
+                        <img src="image/포천 갤러리-1.png" alt="이미지 넣는 곳" />
+                    </div>
+                    <div class="card_body">
+                        <div class="card_body_header">
+                            <p>
+                                카테 · 장소
+                                <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+                            </p>
+                            <div class="card_body_header_right">
+                                <div>
+                                    <img src="image/person.png">
+                                    <p>
+                                        12
+                                        <!-- {{ place.people }} -->
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="image/parking.png">
+                                    <p>
+                                        5
+                                        <!-- {{ place.parking }} -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_body_title">
+                            (한강로 48평)남산타워뷰의 용산 타워형 아파트
+                            <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+                        </div>
+                    </div>
+                    <div id="line">
+
+                    </div>
+                    <div class="card_body_footer">
+                        <img src="image/gold_star.png">
+                        <p class="card_body_footer_star">
+                            5.0
+                        </p>
+                        <p class="card_body_footer_review">
+                            리뷰 1
+                        </p>
+                        <p class="card_body_footer_price">
+                            76.000원
+                        </p>
+                        <img class="card_body_footer_booking" src="image/bookmark_g.png">
+                    </div>
+                </div>
+            </div>
+            <div class="card_layout">
+                <div class="card">
+                    <div class="card_header">
+                        <img src="image/포천 갤러리-1.png" alt="이미지 넣는 곳" />
+                    </div>
+                    <div class="card_body">
+                        <div class="card_body_header">
+                            <p>
+                                카테 · 장소
+                                <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+                            </p>
+                            <div class="card_body_header_right">
+                                <div>
+                                    <img src="image/person.png">
+                                    <p>
+                                        12
+                                        <!-- {{ place.people }} -->
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="image/parking.png">
+                                    <p>
+                                        5
+                                        <!-- {{ place.parking }} -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_body_title">
+                            (한강로 48평)남산타워뷰의 용산 타워형 아파트
+                            <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+                        </div>
+                    </div>
+                    <div id="line">
+
+                    </div>
+                    <div class="card_body_footer">
+                        <img src="image/gold_star.png">
+                        <p class="card_body_footer_star">
+                            5.0
+                        </p>
+                        <p class="card_body_footer_review">
+                            리뷰 1
+                        </p>
+                        <p class="card_body_footer_price">
+                            76.000원
+                        </p>
+                        <img class="card_body_footer_booking" src="image/bookmark_g.png">
+                    </div>
+                </div>
+            </div>
+            <div class="card_layout">
+                <div class="card">
+                    <div class="card_header">
+                        <img src="image/포천 갤러리-1.png" alt="이미지 넣는 곳" />
+                    </div>
+                    <div class="card_body">
+                        <div class="card_body_header">
+                            <p>
+                                카테 · 장소
+                                <!-- 데이터 베이스 연동시 예 {{ place.category_sub }} · {{ place.local }} -->
+                            </p>
+                            <div class="card_body_header_right">
+                                <div>
+                                    <img src="image/person.png">
+                                    <p>
+                                        12
+                                        <!-- {{ place.people }} -->
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="image/parking.png">
+                                    <p>
+                                        5
+                                        <!-- {{ place.parking }} -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_body_title">
+                            (한강로 48평)남산타워뷰의 용산 타워형 아파트
+                            <!-- 데이터 베이스 연동시 예 {{ place.title }} -->
+                        </div>
+                    </div>
+                    <div id="line">
+
+                    </div>
+                    <div class="card_body_footer">
+                        <img src="image/gold_star.png">
+                        <p class="card_body_footer_star">
+                            5.0
+                        </p>
+                        <p class="card_body_footer_review">
+                            리뷰 1
+                        </p>
+                        <p class="card_body_footer_price">
+                            76.000원
+                        </p>
+                        <img class="card_body_footer_booking" src="image/bookmark_g.png">
+                    </div>
+                </div>
+            </div>
+            <!-- 여기까지 -->
+        </div>
+    </div>
+</body>
+
+</html>

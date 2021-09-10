@@ -818,6 +818,16 @@
 .swiper-container:hover .swiper-navigation {
   display: flex;
 }
+
+.swiper-container_big_banner_container .swiper-container_big_banner_button {
+  display: none;
+}
+
+.swiper-container_big_banner_container:hover
+  .swiper-container_big_banner_button {
+  display: block;
+}
+
 .scroll_hidden::-webkit-scrollbar {
   display: none;
 }
@@ -971,74 +981,6 @@
   -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
-
-#nav {
-  font-size: 15px;
-}
-#nav ul {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-#nav ul.menu li {
-  position: absolutes;
-
-  width: 110%;
-  list-style-type: none;
-  font-size: 15px;
-}
-#nav ul.menu li a {
-  display: block;
-  width: 100%;
-  height: 70%;
-  line-height: 50px;
-  text-indent: 0px;
-  color: #000;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-}
-#nav ul.menu li a:hover {
-  background: #eee;
-}
-#nav ul.menu li .sub a {
-  position: relative;
-  float: left;
-  display: block;
-  width: 110%;
-  z-index: 999;
-  background: #eee;
-}
-#nav ul.menu li .sub a:hover {
-  background: #75adff;
-  color: #fff;
-}
-
-.h_my_menu_switch_button .h_my_menu_switch {
-  display: none;
-}
-
-.h_my_menu_switch_button:hover .h_my_menu_switch {
-  display: block;
-}
-
-.h_my_menu_switch:hover {
-  display: block;
-}
-
-.h_my_menu_setting_button .h_my_menu_setting {
-  display: none;
-}
-
-.h_my_menu_setting_button:hover .h_my_menu_setting {
-  display: block;
-}
-
-.h_my_menu_setting:hover {
-  display: block;
-}
-
 @-webkit-keyframes opaque {
   0%,
   100%,

@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding-top: 20vh;
+  }
+  #slider {
+    height: 200px;
+    width: 100%;
+  }
+  
+  
+  .button-box {
+    text-align:center;
+    padding: 20px 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    background-color: #585858;
+    width: 5px;
+    height: 6px;
+    border-radius: 50%;
+    line-height:40px;
+    text-align:center;
+    font-weight:bold;
+    margin-right: 10px;
+  }
+  
+  a:last-child {
+    margin-right: 0px;
+  }
