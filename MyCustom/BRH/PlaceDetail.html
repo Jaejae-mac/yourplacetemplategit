@@ -357,9 +357,13 @@
                             
                             <br><br>
                             <!--시간 선택-->
-                            
-                          <input type="text" id="time1" name="time1" class="form-control" style="width:200px;">
-                          <label for="time1" style="font-size: small;">(시간 선택)</label>
+                            <!--시작시간-->
+                          <input type="text" id="startTime" name="startTime" class="form-control" style="width:100px;">
+                          
+                          ~
+<!--끝나는 시간-->
+                          <input type="text" id="endTime" name="endTime" class="form-control" style="width:100px;">
+                          <label for="endTime" style="font-size: small;">(시간 선택)</label>
     
 
                             <!--테스트-->
@@ -424,7 +428,7 @@
  
 <script>
 $(function() {
-    $("#time1").timepicker({
+    $("#startTime").timepicker({
         timeFormat: 'h:mm p',
         interval: 60,
         minTime: '12:00am',
@@ -436,6 +440,24 @@ $(function() {
         scrollbar: true        
     });
 });
+
+$(function() {
+    $("#endTime").timepicker({
+        timeFormat: 'h:mm p',
+        interval: 60,
+        minTime: '12:00am',
+        maxTime: '11:00pm',
+        defaultTime: '09',
+        startTime: '12:00am',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true        
+    });
+});
+
+
+
+
 </script>
 
 
@@ -505,6 +527,7 @@ $(function() {
                             <div class="meetspace-radio-item">
                                 <label>시간 단위 예약하기(최소 1시간 부터)</label>
                             </div>
+                            
 
 <br>
 
@@ -512,7 +535,7 @@ $(function() {
  
 <script>
     $(function() {
-        $("#time2").timepicker({
+        $("#startTime2").timepicker({
             timeFormat: 'h:mm p',
             interval: 60,
             minTime: '12:00am',
@@ -522,8 +545,35 @@ $(function() {
             dynamic: false,
             dropdown: true,
             scrollbar: true        
+
+
         });
     });
+
+
+    $(function() {
+        $("#endTime2").timepicker({
+            timeFormat: 'h:mm p',
+            interval: 60,
+            minTime: '12:00am',
+            maxTime: '11:00pm',
+            defaultTime: '09',
+            startTime: '12:00am',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true        
+
+
+
+
+        });
+    });
+
+
+
+
+
+
     </script>
     
                             <!--테스트-->
@@ -578,11 +628,14 @@ $(function() {
                             
                             <br><br>
                             <!--시간 선택-->
-                            
-                          <input type="text" id="time2" name="time2"  style="width:200px;">
-                          <label for="time2" style="font-size: small;">(시간 선택)</label>
-    
-
+                         <!--시작시간-->
+                         <input type="text" id="startTime2" name="startTime2" class="form-control" style="width:100px;">
+                          
+                         ~
+<!--끝나는 시간-->
+                         <input type="text" id="endTime2" name="endTime2" class="form-control" style="width:100px;">
+                         <label for="endTime2" style="font-size: small;">(시간 선택)</label>
+   
                             
 
 
