@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="sample.css">
 
         <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        
 
     </head>
 
@@ -193,18 +194,17 @@
     <div class="h_column_center" style="width: 100%;">
         <div class="h_column_center" id="buttons" style="width: 100%; max-width: 500px; margin-top: 40px; margin-bottom: 40px;">
             <div class="h_row_center">
-                <div class="request on" style="margin-top: 0px; padding: 0 34px; background-color: #FFF;border: solid 1px #dfe2e7; pointer-events: auto;">
-                    <label for="print" class="print">
+                <div class="request on" style="margin-top: 0px; padding: 0 34px;"
+                     onclick="_print()">
+                    <p>
                         프린트
-                    </label>
-                    <input type="button" id="print" onclick="print()" style="display: none;">
+                    </p>
                 </div>
                 <div class="request" style="margin-top: 0px; margin-left: 12px; padding: 0 34px; background-color: #FFF;border: solid 1px #dfe2e7; pointer-events: auto;"
-                     >
-                    <label for="confirm" class="confirm" style="color: #1b1d1f;">
+                     onclick="window.close()">
+                    <p style="color: #1b1d1f;">
                         확인
-                    </label>
-                    <input type="button" id="confirm" onclick="window.close()" style="display: none;">
+                    </p>
                 </div>
             </div>
         </div>

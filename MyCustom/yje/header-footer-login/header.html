@@ -98,24 +98,21 @@
                 </div>
 
                 <!-- 호스트 페이지로 이동, 장소등록 hourplace_v2.userLog('W', '/place/29464', 'click', 'tab', 'hosting');window.location.href='/info/hosting -->
-                <div class="h_center h_header_button"
+                <div onclick="window.location.href='hostLogin.html'" class="h_center h_header_button"
                     style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
-                    <label for="host_page" class="host_page" style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
-                        호스트 페이지
-                    </label>
-                    <input type="button" id="host_page" onclick="window.location.href='login.html'" style="display: none; cursor: pointer;" />
-                    <!-- <p
+                    <p
                         style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
                         호스트 페이지
-                    </p> -->
+                    </p>
                 </div>
 
                 <!-- 로그인 기능 show_login() -->
-                <div class="h_center h_header_button" style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
-                    <label for="guest_page" class="guest_page" style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
+                <div onclick="window.location.href='login.html'" class="h_center h_header_button"
+                    style="padding: 0px 13px; height: 50px; margin-left: 8px; cursor: pointer;">
+                    <p
+                        style="font-style: normal; font-weight: normal; font-size: 15px; line-height: 20px; text-align: center; color: rgb(114, 120, 127);">
                         게스트 로그인
-                    </label>
-                    <input type="button" id="guest_page" onclick="window.location.href='login.html'" style="display: none; cursor: pointer;" />
+                    </p>
                 </div>
                 <!-- 로그인 기능 끝 -->
 
