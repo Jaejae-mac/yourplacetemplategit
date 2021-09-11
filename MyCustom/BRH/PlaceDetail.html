@@ -17,7 +17,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
  
 
-
 <body>
 
 
@@ -281,14 +280,29 @@
                     
 
                     <!--라디오 버튼 (세부 방 선택 시작)-->
-      
-                   
-
+                    
                     <div>
                         <input type="radio" id="room1" name="room" value="1" onchange="setDisplay()"> n번룸 <br>
                         <br>
                     </div>
                     <input type="radio" id="room2" name="room" value="2" onchange="setDisplay()"> n번룸2
+
+
+                    
+
+<!--radiobutton 값 넘기기-->
+<script>
+    $(document).change(function(){
+        var checked = $('input:radio[name=room]').is(':checked');
+        var value =$('input:radio[name=room]:checked').val();
+        console.log(value);
+        console.log(checked);
+        });
+    </script>
+    
+      
+                   
+
 
                     <!--라디오버튼 눌러야만 값 보이게끔 하기 위해서 style-->
 
@@ -358,13 +372,31 @@
                             <br><br>
                             <!--시간 선택-->
                             <!--시작시간-->
-                          <input type="text" id="startTime" name="startTime" class="form-control" style="width:100px;">
+                          <input type="text" id="startTime" name="startTime" style="width:100px;">
                           
                           ~
 <!--끝나는 시간-->
-                          <input type="text" id="endTime" name="endTime" class="form-control" style="width:100px;">
+                          <input type="text" id="endTime" name="endTime"  style="width:100px;">
                           <label for="endTime" style="font-size: small;">(시간 선택)</label>
-    
+  
+                          <br>
+                          <input type="number" name="person" id="person" min="1" value="1"/>
+                        <label for="person" style="font-size: small;">(인원수 선택)</label>
+
+
+                        <!--인원수 값 넘기기-->
+                        <script>
+                        $(document).change(function(){
+                        var personNum = $("#person").val();
+                        console.log(personNum);
+
+                        })
+
+                        </script>
+                        <!---->
+
+
+
 
                             <!--테스트-->
                             <script>
@@ -376,8 +408,7 @@
                              monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
         
                              onSelect:function(d){
-                             alert(d+"선택");
-            
+   
                              var arr=d.split("-"); // /삭제하고
                              var year=arr[0]; //연도
                              var month=arr[1]; //월
@@ -391,24 +422,24 @@
                             //데이터를 먼저 가져오고 (숫자로 넘어옴)
                             var date=new Date($("#date").datepicker({dateFormat:"yy-mm-dd"}).val());
                             //일요일 0, 월요일 1, 화요일 2, 수요일 3, 목요일 4, 금요일 5, 토요일,6
-                            alert("date:"+date.getDay()); //테스트
+                         
                             
                             //숫자로 넘어온 일자 다시 텍스트로 바꾸기
                             week=new Array("일","월","화","수","목","금","토");
                              $("#mydate").text(week[date.getDay()]);
-                            alert("year:" +date.getFullYear()); //테스트
+                            
                             
 
                             //테스트 끝
                             var reservYear = date.getFullYear(); //년도
-                            alert(reservYear.toString());
+                           
 
 
                             var reservMonth = date.getMonth()+1; //월
-                            alert(reservMonth.toString());
+                          
 
                             var reservDate = date.getDate(); //날짜
-                            alert(reservDate.toString());
+                           
 
                             
                           
@@ -420,6 +451,10 @@
 
 
 
+    
+
+
+
 </script>
 
 <!--테스트 끝-->
@@ -427,6 +462,7 @@
 <!--time picker -->
  
 <script>
+$(document).ready(function(){
 $(function() {
     $("#startTime").timepicker({
         timeFormat: 'h:mm p',
@@ -437,9 +473,24 @@ $(function() {
         startTime: '12:00am',
         dynamic: false,
         dropdown: true,
-        scrollbar: true        
+        scrollbar: true,
+        
+        change: function(startTime) {
+            var time = $("#startTime").val();
+            console.log(time);
+          
+          
+        }
+      } );
+    
+
     });
 });
+ 
+    
+  
+
+
 
 $(function() {
     $("#endTime").timepicker({
@@ -447,12 +498,24 @@ $(function() {
         interval: 60,
         minTime: '12:00am',
         maxTime: '11:00pm',
-        defaultTime: '09',
+        defaultTime: '10',
         startTime: '12:00am',
         dynamic: false,
         dropdown: true,
-        scrollbar: true        
+        scrollbar: true,       
+   
+        change: function(endTime) {
+            var time2 = $("#endTime").val();
+            console.log(time2);
+        }
+
+   
     });
+
+
+
+  
+    
 });
 
 
@@ -544,11 +607,21 @@ $(function() {
             startTime: '12:00am',
             dynamic: false,
             dropdown: true,
-            scrollbar: true        
-
+            scrollbar: true,
+          
+        
+            change: function(startTime2) {
+            var time3 = $("#startTime2").val();
+            console.log(time3);
+          
+            }
 
         });
+        
     });
+
+
+
 
 
     $(function() {
@@ -557,18 +630,21 @@ $(function() {
             interval: 60,
             minTime: '12:00am',
             maxTime: '11:00pm',
-            defaultTime: '09',
+            defaultTime: '10',
             startTime: '12:00am',
             dynamic: false,
             dropdown: true,
-            scrollbar: true        
+            scrollbar: true,   
 
 
-
+            change: function(endTime2) {
+            var time4 = $("#endTime2").val();
+            console.log(time4);
+            }
+          
 
         });
     });
-
 
 
 
@@ -586,7 +662,6 @@ $(function() {
                                 monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
            
                                 onSelect:function(d2){
-                                alert(d2+"선택");
                
                                 var arr2=d2.split("-"); // /삭제하고
                                 var year2=arr2[0]; //연도
@@ -607,10 +682,7 @@ $(function() {
                                //숫자로 넘어온 일자 다시 텍스트로 바꾸기
                                week2=new Array("일","월","화","수","목","금","토");
                                 $("#mydate2").text(week2[date2.getDay()]);
-                               alert("year:" +date2.getFullYear()); //테스트
-
-                               
-            
+                            
                               
                            }
                        });
@@ -635,8 +707,13 @@ $(function() {
 <!--끝나는 시간-->
                          <input type="text" id="endTime2" name="endTime2" class="form-control" style="width:100px;">
                          <label for="endTime2" style="font-size: small;">(시간 선택)</label>
+
+                         
    
                             
+                         <br>
+                         <input type="number" id="person2" min="1" value="1"/>
+                       <label for="person2" style="font-size: small;">(인원수 선택)</label>
 
 
 
