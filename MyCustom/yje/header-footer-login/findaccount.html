@@ -8,7 +8,10 @@
         <title>YourPlace FindAccount</title>
         <link rel="stylesheet" type="text/css" href="sample.css">
 
+        <!-- script -->
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     </head>
+
 
     <body>
 
@@ -53,14 +56,15 @@
                                 <!-- NICE 아이핀 인증 -->
                                 <div class="h_center" style="margin-top: 10px;">
                                     <div class="request on" style="margin-top: 30px; width: 124px; border: solid 1px #dfe2e7; cursor: pointer;"
-                                        onclick="window.open('/user/nice')"> 
+                                        > <!-- onclick="window.open('/user/nice')" -->
                                 
                                     <!-- <div class="request on" style="margin-top: 30px; width: 124px; border: solid 1px #dfe2e7; cursor: pointer;"
                                         onclick='또는 입력한 이메일, 핸드폰 번호가 같으면 id 값 return 해주는 method')"> -->
                                     
-                                        <p style="font-size: 13px; color: darkslategray; ">
+                                        <label for="certificate" class="certificate" style="font-size: 13px; color: darkslategray; ">
                                             인증하기
-                                        </p>
+                                        </label>
+                                        <input type="button" id="certificate" onclick="telNumCertificate()" style="display: none"/>
                                     </div>
                                 </div>
                             </form>
