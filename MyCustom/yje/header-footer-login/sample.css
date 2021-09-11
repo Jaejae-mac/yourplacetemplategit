@@ -1,3 +1,24 @@
+html{
+  height: 100%;
+  font-size: 16px;
+  -webkit-text-size-adjust: none;
+}
+body {
+  height: calc(100% - 140px);
+  position: relative;
+  margin: 0;
+  /*font-family: "NotoSansKR", "NotoSansJP", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "맑은 고딕", "Yu Gothic", "Segoe UI", "Roboto", "system-ui", "sans-serif";*/
+  background-color: #FFF;
+}
+body.blockScroll {
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+input, textarea {
+  /*font-family: "NotoSansKR", "NotoSansJP", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "맑은 고딕", "Yu Gothic", "Segoe UI", "Roboto", "system-ui", "sans-serif";*/
+}
+
 .element.style {
   position: relative;
   width: 1160px;
@@ -618,6 +639,7 @@
   background-color: #fafbfb;
   border-radius: 4px;
   cursor: pointer;
+  list-style: none;
 }
 .h_hover_text:hover {
   text-decoration: underline;

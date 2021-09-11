@@ -36,12 +36,12 @@
                         게스트
                     </p>
                 </div>
-                <div class="h_center" style="margin-top: 30px; width: 280px;height: 56px;border-radius: 8px;background-color: #fafbfb;cursor: pointer;"
-                    onclick="window.location.href='/info/guest'">
+                <div class="h_center" style="margin-top: 30px; width: 280px;height: 56px;border-radius: 8px;background-color: #fafbfb;cursor: pointer;">
                     <div class="h_row_center">
-                        <p style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;text-align: center;color: #1b1d1f;">
+                        <label for="guest_using" class="guest_using" style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;text-align: center;color: #1b1d1f;">
                             게스트 이용방법
-                        </p>
+                        </label>
+                        <input type="button" id="guest_using" onclick="window.location.href='login.html'" style="display: none; cursor: pointer;">
                         <img src="https://s3.hourplace.co.kr/web/images/icon/before.svg" style="margin-left: 8px; width: 20px; height: 20px; -webkit-transform: rotate(180deg)">
                     </div>
                 </div>
@@ -59,9 +59,10 @@
                 <div class="h_center" style="margin-top: 30px; width: 280px;height: 56px;border-radius: 8px;background-color: #fafbfb;cursor: pointer;"
                     onclick="window.location.href='/info/host'">
                     <div class="h_row_center">
-                        <p style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;text-align: center;color: #1b1d1f;">
+                        <label for="host_using" class="host_using" style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;text-align: center;color: #1b1d1f;">
                             호스트 이용방법
-                        </p>
+                        </label>
+                        <input type="button" id="host_using" onclick="window.location.href='login.html'" style="display: none; cursor: pointer;">
                         <img src="https://s3.hourplace.co.kr/web/images/icon/before.svg" style="margin-left: 8px; width: 20px; height: 20px; -webkit-transform: rotate(180deg)">
                     </div>
                 </div>
@@ -93,16 +94,17 @@
             <!-- 문의하기 팝업 -->
             <div class="h_row_center" style="margin-top: 40px;">
                 <div style="width: 132px;height: 40px;border-radius: 4px;border: solid 1px var(--grey-025);display: flex; flex-direction: row; align-items: center; justify-content: center; cursor: pointer;"
-                    onclick="show_direct()">
-                    <p style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;text-align: center;color: var(--grey-070);">
+                    >
+                    <label class="info" id="info" onclick="show_direct()" style="width: 100%; height: 40px; font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;text-align: center; line-height: 40px; color: var(--grey-070); cursor: pointer;">
                         1:1 고객 문의
-                    </p>
+                    </label> <!-- onclick="show_direct()" width: 100%; height: 40px; line-height: 40px; -->
+                    
                 </div>
                 <div style="margin-left: 14px; width: 132px;height: 40px;border-radius: 4px;border: solid 1px var(--grey-025);display: flex; flex-direction: row; align-items: center; justify-content: center; cursor: pointer;"
-                    onclick="show_direct_two()">
-                    <p style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;text-align: center;color: var(--grey-070);">
+                    >
+                    <label class="reportuser" id="reportuser" onclick="show_direct_two()" style="width: 100%; height: 40px; font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;text-align: center; line-height: 40px;  color: var(--grey-070);cursor: pointer;">
                         이용자 신고하기
-                    </p>
+                    </label>
                 </div>
                 
             </div>
@@ -125,8 +127,8 @@
                 <img src="https://s3.hourplace.co.kr/web/images/icon/close.svg" style="width: 24px;height: 24px;" />
             </div>
 
-            <form id="form_direct" style="margin-top: 30px; padding: 0 40px; margin-bottom: 40px">
-                <input type="hidden" name="type" value="direct">
+            <form id="form_direct" style="margin-top: 30px; padding: 0 40px; margin-bottom: 40px" action=""> <!-- Action -->
+                <!--<input type="hidden" name="type" value="direct"> -->
                 <div style="padding: 12px 14px; border-radius: 8px;background-color: var(--grey-010);">
                     <p style="font-size: 14px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.43;letter-spacing: normal;color: var(--grey-060); text-align: center;">
                         아워플레이스 서비스 이용 중 <br/> 불편하신 점이나 궁금하신 점이 있으셨나요? <br/> 최대한 빠른 시일 내에 답변 드릴게요.
@@ -145,9 +147,10 @@
 
                 <div class="request direct_request" id="direct_request" v-bind:class="{'on': content.length > 10}"
                     style="margin-top: 30px;">
-                    <p style="margin-top: 30px;font-size: 18px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.44;letter-spacing: -0.1px;color: #1b1d1f; width: 100%; text-align: center">
-                        문의하기
-                    </p> <!-- FYI, onclick 구현해야함 -->
+                    
+                <input type="submit" id="direct" value="direct"
+                    style="margin-top: 30px;font-size: 18px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.44;letter-spacing: -0.1px;color: #1b1d1f; width: 100%; text-align: center; cursor: pointer;">
+
                 </div>
             </form>
         </div>
@@ -170,8 +173,8 @@
                 <img src="https://s3.hourplace.co.kr/web/images/icon/close.svg" style="width: 24px;height: 24px;" />
             </div>
 
-            <form id="form_direct_two" style="margin-top: 30px; padding: 0 40px; margin-bottom: 40px">
-                <input type="hidden" name="type" value="direct_two">
+            <form id="form_direct_two" style="margin-top: 30px; padding: 0 40px; margin-bottom: 40px" action=""> <!--Action-->
+                <!--<input type="hidden" name="type" value="direct_two">-->
                 <div style="padding: 12px 14px; border-radius: 8px;background-color: var(--grey-010);">
                     <p style="font-size: 14px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.43;letter-spacing: normal;color: var(--grey-060); text-align: center;">
                         아워플레이스 서비스 이용 중 <br/> 불편하신 경험 또는 게스트/호스트가 있으셨나요? <br/> 최대한 빠른 시일 내에 답변 드릴게요.
@@ -181,7 +184,7 @@
                 <p style="margin-top: 20px; font-size: 14px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
                     예약번호
                 </p>
-                <input type="text" placeholder="예약번호" value="" id="rsv_num" name="rsv_num" v-model="rsv_num" style="width: 50%; margin: 2px; border: solid 1px slategray; font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-080);"
+                <input type="text" placeholder="예약번호" value="" id="rsvNum" name="rsvNum" v-model="rsvNum" style="width: 50%; margin: 2px; border: solid 1px slategray; font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-080);"
                 required>
 
                 <p style="margin-top: 20px; font-size: 14px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
@@ -191,14 +194,16 @@
                 <div style="margin-top: 8px;height: 192px; border-radius: 4px;border: solid 1px var(--grey-025); margin: 3px;">
                 <textarea class=""
                 style="width: 100%; height: 100%; border: solid 1px slategray; font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-080);"
-                placeholder="문의 내용을 입력해주세요" id="content" name="content" v-model="content"> </textarea>
+                placeholder="문의 내용을 입력해주세요" id="reportCon" name="reportCon" v-model="reportCon"> </textarea>
                 </div>
 
                 <div class="request direct_request" id="direct_request" v-bind:class="{'on': content.length > 10}"
                     style="margin-top: 30px;">
-                    <p style="margin-top: 30px;font-size: 18px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.44;letter-spacing: -0.1px;color: #1b1d1f; width: 100%; text-align: center">
+                    <!-- <p style="margin-top: 30px;font-size: 18px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.44;letter-spacing: -0.1px;color: #1b1d1f; width: 100%; text-align: center">
                         문의하기
-                    </p> <!-- FYI, onclick 구현해야함 -->
+                    </p> -->
+                    <input type="submit" id="direct_two" value="direct_two"
+                    style="margin-top: 30px;font-size: 18px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.44;letter-spacing: -0.1px;color: #1b1d1f; width: 100%; text-align: center; cursor: pointer;">
                 </div>
             </form>
         </div>
@@ -210,28 +215,28 @@
     <script>
         function show_direct () {
         $('body').addClass('modal-open')
-          $('.direct').show()
+        $('.direct').show()
         }
 
         function close_direct () {
-          $('body').removeClass('modal-open')
-          $('.direct').hide()
+        $('body').removeClass('modal-open')
+        $('.direct').hide()
         }
 
         function show_direct_two () {
         $('body').addClass('modal-open')
-          $('.direct_two').show()
+        $('.direct_two').show()
         }
 
         function close_direct_two () {
-          $('body').removeClass('modal-open')
-          $('.direct_two').hide()
+        $('body').removeClass('modal-open')
+        $('.direct_two').hide()
         }
 
-      </script>
+    </script>
 
 
-      
+    
 
     <!-- script 끝 -->
 

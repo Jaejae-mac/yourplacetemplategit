@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Card Layout Detail</title>
+        <link rel="stylesheet" type="text/css" href="sample.css">
+
+        <!-- script -->
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <h1 class="infinityScroll" style="display: none;"></h1>
+
+    </head>
+
+    <body>
+
+        <!-- Header -->
+
+        <div class="header" style="height: 120px; border: 1px solid violet;">
+            <p style="text-align: center; line-height: 100px; vertical-align: middle;"> HEADER </p>
+
+        </div>
+
+        <!-- Header End -->
+
+        <!-- Main Body -->
+
+        <!-- 상위 카테고리 -->
+
+
+
+        <div id="main_vue" style="min-height: 700px;">
+
+            <div class="h_column_center" style="height: 60px; width: 100%; border-bottom: 1px solid #e7eaee;">
+                <div class="h_row_center" style="width: 1160px; height: 50px;">
+                    <div class="category" style="position:relative; margin-top: 0; height: 44px; ">
+                        <ul style="height: 100px;">
+                            <li class="h_hover_button " style="margin-left: 0px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'all');window.location.href='/category'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    모든 장소
+                                </p>
+                            </li>
+                            <li i class="h_hover_button" style="margin-left: 16px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 1);window.location.href='/category/1'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    가정집
+                                </p>
+                            </li>
+                            <li class="h_hover_button " style="margin-left: 16px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 2);window.location.href='/category/2'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    스튜디오
+                                </p>
+                            </li>
+                            <li class="h_hover_button " style="margin-left: 16px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 5);window.location.href='/category/5'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    상업 공간
+                                </p>
+                            </li>
+                            <li class="h_hover_button " style="margin-left: 16px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 4);window.location.href='/category/4'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    편의 시설
+                                </p>
+                            </li>
+                            <li class="h_hover_button " style="margin-left: 16px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 3);window.location.href='/category/3'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    문화 공간
+                                </p>
+                            </li>
+                            <li class="h_hover_button" style="margin-left: 16px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 6);window.location.href='/category/6'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    특수 공간
+                                </p>
+                            </li>
+                            <li class="h_hover_button" style="margin-left: 16px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 8);window.location.href='/category/8'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    대형 공간
+                                </p>
+                            </li>
+                            <li class="h_hover_button" style="margin-left: 16px; height: 44px; list-style: none;"
+                                onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 7);window.location.href='/category/7'">
+                                <p class="main" style=" height: 36px; margin-top: 0; padding: 0 4px;">
+                                    야외
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 상위 카테고리 끝 -->
+
+            <!-- 하위 카테고리 -->
+
+            <div class="h_column_center" style="height: 61px; width: 100%; border-bottom: 1px solid #e7eaee;">
+                <div class="h_row_center" style="width: 1160px; height: 40px; margin-top: 20px">
+                    <div class="h_hover_button h_center"
+                        style="margin-bottom: 20px; height: 40px; border-radius: 4px;background-color: #f5f7f8;"
+                        onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub_all');window.location.href='/category/1'">
+                        <p
+                            style="padding: 0 13px; font-size: 15px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: normal;text-align: center;color: #1b1d1f;">
+                            전체
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_center" style=" margin-bottom:20px; height: 40px; margin-left: 8px; "
+                        onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 0, 1);window.location.href='/category/1/1'">
+                        <p
+                            style="padding: 0 13px; font-size: 15px;font-weight: normal;;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                            아파트
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_center" style="margin-bottom:20px; height: 40px; margin-left: 8px; "
+                        onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 1, 2);window.location.href='/category/1/2'">
+                        <p
+                            style="padding: 0 13px; font-size: 15px;font-weight: normal;;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                            주택
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_center" style="margin-bottom:20px; height: 40px; margin-left: 8px; "
+                        onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 2, 3);window.location.href='/category/1/3'">
+                        <p
+                            style="padding: 0 13px; font-size: 15px;font-weight: normal;;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                            빌라
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_center" style="margin-bottom:20px; height: 40px; margin-left: 8px; "
+                        onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 3, 4);window.location.href='/category/1/4'">
+                        <p
+                            style="padding: 0 13px; font-size: 15px;font-weight: normal;;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                            원룸
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_center" style="margin-bottom:20px; height: 40px; margin-left: 8px; "
+                        onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 4, 5);window.location.href='/category/1/5'">
+                        <p
+                            style="padding: 0 13px; font-size: 15px;font-weight: normal;;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                            한옥
+                        </p>
+                    </div>
+                    <div class="h_hover_button h_center" style="margin-bottom:20px; height: 40px; margin-left: 8px; "
+                        onclick="hourplace_v2.userLog('W', '/category/1', 'click', 'category', 'sub', 5, 54);window.location.href='/category/1/54'">
+                        <p
+                            style="padding: 0 13px; font-size: 15px;font-weight: normal;;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                            홈오피스
+                        </p>
+                    </div>
+                </div>
+
+
+                <div style="width: 1px;height: 100px;padding-right: 120px">
+                </div>
+
+            </div>
+
+            <!-- 상단 탭과 80 픽셀 정도 거리 -->
+            
+            <div style="height: 80px;">
+                <p style="font-size: 20px; font-weight: 800; text-align: center;">
+                    YOURPLACE 에 등록된 장소 리스트에요!
+                </p> 
+            </div>
+
+            
+            
+            <!-- 첫번째 가로 start -->
+            <div class="h_center" style="width: 100%; height: 330px; margin-bottom: 30px; background-color: lightpink; ">
+                <!-- 첫번째 카드: margin-left: 30px -->
+                <div id="division" style="width: 275px; height: 320px; border: 1px solid black; border-radius: 8px;">
+                    <div
+                        style="position:relative;height: 190px;border-top-right-radius: 8px;border-top-left-radius: 8px;overflow: hidden">
+                        <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%;height: 100%;object-fit: cover; cursor: pointer;"
+                        onclick="window.location.href='login.html'" >
+                        <div class="h_center" style="position:absolute;top: 10px;left: 10px;">
+                        </div>
+                    </div>
+
+                    <div
+                        style="position: relative;min-height: 96px;margin-top: 14px;margin-left: 14px;margin-right: 14px;margin-bottom: 14px">
+                        <p
+                            style="margin-top: 2px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-070);">
+                            세부 카테고리 · 지역명
+                            <!-- {{ place.category_sub}} · {{ place.local}}-->
+                        </p>
+                        <div
+                            style="display: flex;flex-direction: row;align-items: center;height: 19px;position: absolute;top: 0;right: 0;">
+                            <div
+                                style="display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/person.svg"
+                                    style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                <p
+                                    style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                    3
+                                    <!-- {{ place.people }} 수용가능인원수 -->
+                                </p>
+                            </div>
+                            <div
+                                style="margin-left: 4px;display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/parking.svg"
+                                    style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                <p
+                                    style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                    1
+                                    <!-- {{ plaece.parking }} 주차가능대수-->
+                                </p>
+                            </div>
+                        </div>
+                        <div style="height: 48px;margin-top: 8px;">
+                            <p class="h_ellipsis_2"
+                                style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: #1b1d1f;">
+                                장소명1
+                                <!-- {{ place.title }}-->
+                            </p>
+                        </div>
+                        <div class="h_row_center" style="height: 24px">
+                            <div class="h_row_center" v-show="place.feedback_count > 0">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/gold_star.svg"
+                                    style="width: 16px;height: 16px" />
+                                <p
+                                    style="margin-left: 1px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-070);">
+                                    4.3
+                                    <!-- {{ place.feedback_rating }} -->
+                                </p>
+                                <p
+                                    style="margin-left: 6px; margin-right: 10px; font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-050);">
+                                    리뷰 100
+                                    <!-- 리뷰 {{ place.feedback_count }} -->
+                                </p>
+                            </div>
+                            <p
+                                style="font-size: 15px;font-weight: 800;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                                38,000원
+                                <!-- {{ place.price_guest }} 원 -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 첫번째 카드 end -->
+
+                <!-- 두번째 카드: margin-left: 30px -->
+                <div id="division" style="width: 275px; height: 320px; margin-left: 30px; border: 1px solid black; border-radius: 8px;">
+                    <div
+                        style="position:relative;height: 190px;border-top-right-radius: 8px;border-top-left-radius: 8px;overflow: hidden">
+                        <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%;height: 100%;object-fit: cover; cursor: pointer;"
+                        onclick="window.location.href='login.html'" >
+                        <div class="h_center" style="position:absolute;top: 10px;left: 10px;"
+                            v-show="place.super === 1 || place.cal === 1">
+                            
+                        </div>
+                    </div>
+                    <div
+                        style="position: relative;min-height: 96px;margin-top: 14px;margin-left: 14px;margin-right: 14px;margin-bottom: 14px">
+                        <p
+                            style="margin-top: 2px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-070);">
+                            세부 카테고리 · 지역명
+                            <!-- {{ place.category_sub}} · {{ place.local}}-->
+                        </p>
+                        <div
+                            style="display: flex;flex-direction: row;align-items: center;height: 19px;position: absolute;top: 0;right: 0;">
+                            <div
+                                style="display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/person.svg"
+                                    style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                <p
+                                    style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                    3
+                                    <!-- {{ place.people }} 수용가능인원수 -->
+                                </p>
+                            </div>
+                            <div
+                                style="margin-left: 4px;display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/parking.svg"
+                                    style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                <p
+                                    style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                    1
+                                    <!-- {{ plaece.parking }} 주차가능대수-->
+                                </p>
+                            </div>
+                        </div>
+                        <div style="height: 48px;margin-top: 8px;">
+                            <p class="h_ellipsis_2"
+                                style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: #1b1d1f;">
+                                장소명2
+                                <!-- {{ place.title }}-->
+                            </p>
+                        </div>
+                        <div class="h_row_center" style="height: 24px">
+                            <div class="h_row_center" v-show="place.feedback_count > 0">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/gold_star.svg"
+                                    style="width: 16px;height: 16px" />
+                                <p
+                                    style="margin-left: 1px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-070);">
+                                    4.3
+                                    <!-- {{ place.feedback_rating }} -->
+                                </p>
+                                <p
+                                    style="margin-left: 6px; margin-right: 10px; font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-050);">
+                                    리뷰 100
+                                    <!-- 리뷰 {{ place.feedback_count }} -->
+                                </p>
+                            </div>
+                            <p
+                                style="font-size: 15px;font-weight: 800;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                                38,000원
+                                <!-- {{ place.price_guest }} 원 -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 세번째 카드: margin-left: 30px -->
+                <div id="division" style="width: 275px; height: 320px; margin-left: 30px; border: 1px solid black; border-radius: 8px;">
+                    <div
+                        style="position:relative;height: 190px;border-top-right-radius: 8px;border-top-left-radius: 8px;overflow: hidden">
+                        <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%;height: 100%;object-fit: cover; cursor: pointer;"
+                        onclick="window.location.href='login.html'" >
+                        <div class="h_center" style="position:absolute;top: 10px;left: 10px;"
+                            v-show="place.super === 1 || place.cal === 1">
+                            
+                        </div>
+                    </div>
+                    <div
+                        style="position: relative;min-height: 96px;margin-top: 14px;margin-left: 14px;margin-right: 14px;margin-bottom: 14px">
+                        <p
+                            style="margin-top: 2px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-070);">
+                            세부 카테고리 · 지역명
+                            <!-- {{ place.category_sub}} · {{ place.local}}-->
+                        </p>
+                        <div
+                            style="display: flex;flex-direction: row;align-items: center;height: 19px;position: absolute;top: 0;right: 0;">
+                            <div
+                                style="display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/person.svg"
+                                    style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                <p
+                                    style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                    3
+                                    <!-- {{ place.people }} 수용가능인원수 -->
+                                </p>
+                            </div>
+                            <div
+                                style="margin-left: 4px;display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/parking.svg"
+                                    style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                <p
+                                    style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                    1
+                                    <!-- {{ plaece.parking }} 주차가능대수-->
+                                </p>
+                            </div>
+                        </div>
+                        <div style="height: 48px;margin-top: 8px;">
+                            <p class="h_ellipsis_2"
+                                style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: #1b1d1f;">
+                                장소명3
+                                <!-- {{ place.title }}-->
+                            </p>
+                        </div>
+                        <div class="h_row_center" style="height: 24px">
+                            <div class="h_row_center" v-show="place.feedback_count > 0">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/gold_star.svg"
+                                    style="width: 16px;height: 16px" />
+                                <p
+                                    style="margin-left: 1px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-070);">
+                                    4.3
+                                    <!-- {{ place.feedback_rating }} -->
+                                </p>
+                                <p
+                                    style="margin-left: 6px; margin-right: 10px; font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-050);">
+                                    리뷰 100
+                                    <!-- 리뷰 {{ place.feedback_count }} -->
+                                </p>
+                            </div>
+                            <p
+                                style="font-size: 15px;font-weight: 800;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                                38,000원
+                                <!-- {{ place.price_guest }} 원 -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 네번째 카드: margin-left: 30px -->
+                <div id="division" style="width: 275px; height: 320px; margin-left: 30px; border: 1px solid black; border-radius: 8px;">
+                    <div
+                        style="position:relative;height: 190px;border-top-right-radius: 8px;border-top-left-radius: 8px;overflow: hidden">
+                        <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%;height: 100%;object-fit: cover; cursor: pointer;"
+                        onclick="window.location.href='login.html'" >
+                        <div class="h_center" style="position:absolute;top: 10px;left: 10px;"
+                            v-show="place.super === 1 || place.cal === 1">
+                            
+                        </div>
+                    </div>
+                    <div
+                        style="position: relative;min-height: 96px;margin-top: 14px;margin-left: 14px;margin-right: 14px;margin-bottom: 14px">
+                        <p
+                            style="margin-top: 2px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-070);">
+                            세부 카테고리 · 지역명
+                            <!-- {{ place.category_sub}} · {{ place.local}}-->
+                        </p>
+                        <div
+                            style="display: flex;flex-direction: row;align-items: center;height: 19px;position: absolute;top: 0;right: 0;">
+                            <div
+                                style="display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/person.svg"
+                                    style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                <p
+                                    style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                    3
+                                    <!-- {{ place.people }} 수용가능인원수 -->
+                                </p>
+                            </div>
+                            <div
+                                style="margin-left: 4px;display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/parking.svg"
+                                    style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                <p
+                                    style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                    1
+                                    <!-- {{ plaece.parking }} 주차가능대수-->
+                                </p>
+                            </div>
+                        </div>
+                        <div style="height: 48px;margin-top: 8px;">
+                            <p class="h_ellipsis_2"
+                                style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: #1b1d1f;">
+                                장소명4
+                                <!-- {{ place.title }}-->
+                            </p>
+                        </div>
+                        <div class="h_row_center" style="height: 24px">
+                            <div class="h_row_center" v-show="place.feedback_count > 0">
+                                <img src="https://s3.hourplace.co.kr/web/images/icon/gold_star.svg"
+                                    style="width: 16px;height: 16px" />
+                                <p
+                                    style="margin-left: 1px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-070);">
+                                    4.3
+                                    <!-- {{ place.feedback_rating }} -->
+                                </p>
+                                <p
+                                    style="margin-left: 6px; margin-right: 10px; font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-050);">
+                                    리뷰 100
+                                    <!-- 리뷰 {{ place.feedback_count }} -->
+                                </p>
+                            </div>
+                            <p
+                                style="font-size: 15px;font-weight: 800;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                                38,000원
+                                <!-- {{ place.price_guest }} 원 -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <!-- 첫번째 가로 end -->    
+            </div>
+
+            <!-- 2번째 가로 start -->
+            <div class="h_center" style="width: 100%; height: 330px; margin-bottom: 10px; background-color: lightskyblue;">
+                            <!-- 첫번째 카드: margin-left: 30px -->
+                            <div id="division" style="width: 275px; height: 320px; border: 1px solid black; border-radius: 8px;">
+                                <div
+                                    style="position:relative;height: 190px;border-top-right-radius: 8px;border-top-left-radius: 8px;overflow: hidden">
+                                    <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%;height: 100%;object-fit: cover; cursor: pointer;"
+                                    onclick="window.location.href='login.html'" >
+                                    <div class="h_center" style="position:absolute;top: 10px;left: 10px;">
+                                    </div>
+                                </div>
+            
+                                <div
+                                    style="position: relative;min-height: 96px;margin-top: 14px;margin-left: 14px;margin-right: 14px;margin-bottom: 14px">
+                                    <p
+                                        style="margin-top: 2px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-070);">
+                                        세부 카테고리 · 지역명
+                                        <!-- {{ place.category_sub}} · {{ place.local}}-->
+                                    </p>
+                                    <div
+                                        style="display: flex;flex-direction: row;align-items: center;height: 19px;position: absolute;top: 0;right: 0;">
+                                        <div
+                                            style="display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/person.svg"
+                                                style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                            <p
+                                                style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                                3
+                                                <!-- {{ place.people }} 수용가능인원수 -->
+                                            </p>
+                                        </div>
+                                        <div
+                                            style="margin-left: 4px;display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/parking.svg"
+                                                style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                            <p
+                                                style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                                1
+                                                <!-- {{ plaece.parking }} 주차가능대수-->
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div style="height: 48px;margin-top: 8px;">
+                                        <p class="h_ellipsis_2"
+                                            style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: #1b1d1f;">
+                                            장소명1
+                                            <!-- {{ place.title }}-->
+                                        </p>
+                                    </div>
+                                    <div class="h_row_center" style="height: 24px">
+                                        <div class="h_row_center" v-show="place.feedback_count > 0">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/gold_star.svg"
+                                                style="width: 16px;height: 16px" />
+                                            <p
+                                                style="margin-left: 1px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-070);">
+                                                4.3
+                                                <!-- {{ place.feedback_rating }} -->
+                                            </p>
+                                            <p
+                                                style="margin-left: 6px; margin-right: 10px; font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-050);">
+                                                리뷰 100
+                                                <!-- 리뷰 {{ place.feedback_count }} -->
+                                            </p>
+                                        </div>
+                                        <p
+                                            style="font-size: 15px;font-weight: 800;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                                            38,000원
+                                            <!-- {{ place.price_guest }} 원 -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 첫번째 카드 end -->
+            
+                            <!-- 두번째 카드: margin-left: 30px -->
+                            <div id="division" style="width: 275px; height: 320px; margin-left: 30px; border: 1px solid black; border-radius: 8px;">
+                                <div
+                                    style="position:relative;height: 190px;border-top-right-radius: 8px;border-top-left-radius: 8px;overflow: hidden">
+                                    <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%;height: 100%;object-fit: cover; cursor: pointer;"
+                                    onclick="window.location.href='login.html'" >
+                                    <div class="h_center" style="position:absolute;top: 10px;left: 10px;"
+                                        v-show="place.super === 1 || place.cal === 1">
+                                        
+                                    </div>
+                                </div>
+                                <div
+                                    style="position: relative;min-height: 96px;margin-top: 14px;margin-left: 14px;margin-right: 14px;margin-bottom: 14px">
+                                    <p
+                                        style="margin-top: 2px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-070);">
+                                        세부 카테고리 · 지역명
+                                        <!-- {{ place.category_sub}} · {{ place.local}}-->
+                                    </p>
+                                    <div
+                                        style="display: flex;flex-direction: row;align-items: center;height: 19px;position: absolute;top: 0;right: 0;">
+                                        <div
+                                            style="display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/person.svg"
+                                                style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                            <p
+                                                style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                                3
+                                                <!-- {{ place.people }} 수용가능인원수 -->
+                                            </p>
+                                        </div>
+                                        <div
+                                            style="margin-left: 4px;display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/parking.svg"
+                                                style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                            <p
+                                                style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                                1
+                                                <!-- {{ plaece.parking }} 주차가능대수-->
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div style="height: 48px;margin-top: 8px;">
+                                        <p class="h_ellipsis_2"
+                                            style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: #1b1d1f;">
+                                            장소명2
+                                            <!-- {{ place.title }}-->
+                                        </p>
+                                    </div>
+                                    <div class="h_row_center" style="height: 24px">
+                                        <div class="h_row_center" v-show="place.feedback_count > 0">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/gold_star.svg"
+                                                style="width: 16px;height: 16px" />
+                                            <p
+                                                style="margin-left: 1px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-070);">
+                                                4.3
+                                                <!-- {{ place.feedback_rating }} -->
+                                            </p>
+                                            <p
+                                                style="margin-left: 6px; margin-right: 10px; font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-050);">
+                                                리뷰 100
+                                                <!-- 리뷰 {{ place.feedback_count }} -->
+                                            </p>
+                                        </div>
+                                        <p
+                                            style="font-size: 15px;font-weight: 800;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                                            38,000원
+                                            <!-- {{ place.price_guest }} 원 -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <!-- 세번째 카드: margin-left: 30px -->
+                            <div id="division" style="width: 275px; height: 320px; margin-left: 30px; border: 1px solid black; border-radius: 8px;">
+                                <div
+                                    style="position:relative;height: 190px;border-top-right-radius: 8px;border-top-left-radius: 8px;overflow: hidden">
+                                    <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%;height: 100%;object-fit: cover; cursor: pointer;"
+                                    onclick="window.location.href='login.html'" >
+                                    <div class="h_center" style="position:absolute;top: 10px;left: 10px;"
+                                        v-show="place.super === 1 || place.cal === 1">
+                                        
+                                    </div>
+                                </div>
+                                <div
+                                    style="position: relative;min-height: 96px;margin-top: 14px;margin-left: 14px;margin-right: 14px;margin-bottom: 14px">
+                                    <p
+                                        style="margin-top: 2px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-070);">
+                                        세부 카테고리 · 지역명
+                                        <!-- {{ place.category_sub}} · {{ place.local}}-->
+                                    </p>
+                                    <div
+                                        style="display: flex;flex-direction: row;align-items: center;height: 19px;position: absolute;top: 0;right: 0;">
+                                        <div
+                                            style="display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/person.svg"
+                                                style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                            <p
+                                                style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                                3
+                                                <!-- {{ place.people }} 수용가능인원수 -->
+                                            </p>
+                                        </div>
+                                        <div
+                                            style="margin-left: 4px;display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/parking.svg"
+                                                style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                            <p
+                                                style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                                1
+                                                <!-- {{ plaece.parking }} 주차가능대수-->
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div style="height: 48px;margin-top: 8px;">
+                                        <p class="h_ellipsis_2"
+                                            style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: #1b1d1f;">
+                                            장소명3
+                                            <!-- {{ place.title }}-->
+                                        </p>
+                                    </div>
+                                    <div class="h_row_center" style="height: 24px">
+                                        <div class="h_row_center" v-show="place.feedback_count > 0">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/gold_star.svg"
+                                                style="width: 16px;height: 16px" />
+                                            <p
+                                                style="margin-left: 1px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-070);">
+                                                4.3
+                                                <!-- {{ place.feedback_rating }} -->
+                                            </p>
+                                            <p
+                                                style="margin-left: 6px; margin-right: 10px; font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-050);">
+                                                리뷰 100
+                                                <!-- 리뷰 {{ place.feedback_count }} -->
+                                            </p>
+                                        </div>
+                                        <p
+                                            style="font-size: 15px;font-weight: 800;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                                            38,000원
+                                            <!-- {{ place.price_guest }} 원 -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 네번째 카드: margin-left: 30px -->
+                            <div id="division" style="width: 275px; height: 320px; margin-left: 30px; border: 1px solid black; border-radius: 8px;">
+                                <div
+                                    style="position:relative;height: 190px;border-top-right-radius: 8px;border-top-left-radius: 8px;overflow: hidden">
+                                    <img src="img/logo/kakao_login_medium_narrow copy.png" style="width: 100%;height: 100%;object-fit: cover; cursor: pointer;"
+                                    onclick="window.location.href='login.html'" >
+                                    <div class="h_center" style="position:absolute;top: 10px;left: 10px;"
+                                        v-show="place.super === 1 || place.cal === 1">
+                                        
+                                    </div>
+                                </div>
+                                <div
+                                    style="position: relative;min-height: 96px;margin-top: 14px;margin-left: 14px;margin-right: 14px;margin-bottom: 14px">
+                                    <p
+                                        style="margin-top: 2px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-070);">
+                                        세부 카테고리 · 지역명
+                                        <!-- {{ place.category_sub}} · {{ place.local}}-->
+                                    </p>
+                                    <div
+                                        style="display: flex;flex-direction: row;align-items: center;height: 19px;position: absolute;top: 0;right: 0;">
+                                        <div
+                                            style="display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/person.svg"
+                                                style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                            <p
+                                                style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                                3
+                                                <!-- {{ place.people }} 수용가능인원수 -->
+                                            </p>
+                                        </div>
+                                        <div
+                                            style="margin-left: 4px;display: flex;flex-direction: row;align-items: center;justify-content: center;width: 30px;height: 19px;border-radius: 2px;border: solid 1px lightgrey;">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/parking.svg"
+                                                style="width: 14px;height: 14px ;line-height:14px; vertical-align:middle;" />
+                                            <p
+                                                style="font-size: 11px;font-stretch: normal;font-style: normal;line-height: 1.17; vertical-align: middle; letter-spacing: normal;color: var(--grey-070);">
+                                                1
+                                                <!-- {{ plaece.parking }} 주차가능대수-->
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div style="height: 48px;margin-top: 8px;">
+                                        <p class="h_ellipsis_2"
+                                            style="font-size: 16px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: #1b1d1f;">
+                                            장소명4
+                                            <!-- {{ place.title }}-->
+                                        </p>
+                                    </div>
+                                    <div class="h_row_center" style="height: 24px">
+                                        <div class="h_row_center" v-show="place.feedback_count > 0">
+                                            <img src="https://s3.hourplace.co.kr/web/images/icon/gold_star.svg"
+                                                style="width: 16px;height: 16px" />
+                                            <p
+                                                style="margin-left: 1px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-070);">
+                                                4.3
+                                                <!-- {{ place.feedback_rating }} -->
+                                            </p>
+                                            <p
+                                                style="margin-left: 6px; margin-right: 10px; font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-050);">
+                                                리뷰 100
+                                                <!-- 리뷰 {{ place.feedback_count }} -->
+                                            </p>
+                                        </div>
+                                        <p
+                                            style="font-size: 15px;font-weight: 800;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: -0.1px;color: #1b1d1f;">
+                                            38,000원
+                                            <!-- {{ place.price_guest }} 원 -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+            
+            </div>
+            <!-- 2번째 가로 end -->
+                        <div style="min-height: 700px; margin-bottom: 120px;">
+                        
+                            
+                        
+                        </div>
+
+                        
+
+                        <!--
+                <div v-if="isFirstSearchEnd === true && places.length === 0">
+                    <div class="search_empty h_center" style="height: 600px;z-index: -1">
+                        <div class="h_column_center">
+                            <img src="https://s3.hourplace.co.kr/web/images/emoji/search.png"
+                                style="width: 80px;height: 80px">
+                            <p
+                                style="margin-top: 20px;font-size: 24px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.4;letter-spacing: -0.2px;text-align: center;color: var(--grey-080);">
+                                일치하는 결과가 없어요
+                            </p>
+                            <p
+                                style="margin-top: 4px;font-size: 18px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.43;letter-spacing: normal;text-align: center;color: var(--grey-040);">
+                                검색 범위를 넓혀 보세요
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+
+                    </div>
+
+                    <!-- Main Body End -->
+
+                    <!-- Footer -->
+                    <!-- Footer End -->
+
+
+                    <!-- Script -->
+
+                    <script>
+
+                        get_places: function() {
+                            if (this.busy === false) {
+                                this.busy = true
+                                var ls = []
+                                if (this.search_local.length > 0) {
+                                    this.search_local.forEach(local => {
+                                        ls.push(local.id)
+                                    })
+                                }
+
+                                window.axios.post(api2_url + '/search/category',
+                                    {
+                                        page: (this.page + 1),
+                                        category_main_id: 1, category_sub_id: 0,
+                                        sort: this.sort, locals: ls.join(','),
+                                        search_date: this.search_date, search_people: this.search_people,
+                                        search_price_s: this.search_price_s.replace(/,/g, ''), search_price_e: this.search_price_e.replace(/,/g, ''),
+                                    }).then(function (response) {
+                                        hourplace_v2.log(api2_url + '/search/category', response.data)
+                                        if (response.data.result && response.data.result !== '') {
+                                            main_vue.last_places = response.data.result.data
+                                            main_vue.last_places.forEach(function (place) {
+                                                place.image_url = '//img.hourplace.co.kr/' + place.main_image_path + '?s=550x364&t=cover&q=80'
+                                                let place_image_path = []
+                                                place.place_image_path_arr.forEach(function (image) {
+                                                    place_image_path.push('//img.hourplace.co.kr/' + image + '?s=550x364&t=cover&q=80')
+                                                })
+                                                place.images = place_image_path
+                                                main_vue.places.push(place)
+                                            })
+                                            main_vue.total = response.data.result.total
+                                            main_vue.isFirstSearchEnd = true
+                                            if (main_vue.total === 0) {
+                                                main_vue.recommended()
+                                            } else if (response.data.result.last_page > response.data.result.current_page) {
+                                                main_vue.page = response.data.result.current_page
+                                                main_vue.busy = false
+                                            } else {
+                                                // query_selector_all();
+                                            }
+
+                                            // setTimeout(() => {
+                                            // place_images()
+                                            // }, 500)
+                                        } else {
+                                            main_vue.isFirstSearchEnd = true
+                                        }
+                                    })
+                            }
+                        },
+                        scroll: function() {
+                            window.onscroll = function () {
+                                localStorage.search_scrollTop = $(document).scrollTop()
+                                if ($(document).height() < $(document).scrollTop() + ($(window).height() * 2)) { main_vue.get_places() }
+                                scrollFunction()
+                            }
+                        }, interest: function(place_id, interested) {
+                            main_vue.picks.forEach(function (place) {
+                                if
+                                    (place.id === place_id) { place.interested = interested ? 1 : 0 return }
+                            }) main_vue.places.forEach(function (place) { if (place.id === place_id) { place.interested = interested ? 1 : 0 return } })
+                        }, people_plus: function() {
+                            this.select_search_people++ if (this.select_search_people > 99) this.select_search_people = 99
+                        },
+                        people_minus: function() {
+                            this.select_search_people--
+                            if (this.select_search_people < 1) this.select_search_people = 1
+                        }, select_category_sort: function(sort) {
+                            this.sort = sort if (this.sort === '') { this.sort_title = '추천순' } else if (this.sort === 'new') {
+                                this.sort_title = '최신순'
+                            } else if (this.sort === 'old') { this.sort_title = '오래된순' } else if
+                                (this.sort === 'review') { this.sort_title = '리뷰많은순' } else if (this.sort === 'rating') {
+                                    this.sort_title = '평점높은순'
+                                } this.search()
+                        }, select_search: function() {
+                            if (this.check_select_searchable()) {
+                                this.search_date = this.select_search_date this.search_people = this.select_search_people
+                                this.search_price_s = this.select_search_price_s this.search_price_e = this.select_search_price_e
+                                this.search_local = this.select_search_local.slice() this.search()
+                            } close_filter_date() close_filter_local()
+                            close_filter_people() close_filter_price()
+                        }, search: function() {
+                            this.isFirstSearchEnd = false
+                            this.places = [] this.page = 0 this.total = 0 this.busy = false this.get_places()
+                        }, selected_search_local:
+                        function(local) {
+                            if (this.search_local.includes(local)) {
+                                this.search_local.splice(this.search_local.indexOf(local), 1)
+                            } else { this.search_local.push(local) }
+                            this.select_search_local = this.search_local.slice()
+                        }, clear_select_search_date: function() {
+                            $('.day').removeClass('select') this.select_search_date = ''
+                        }, check_select_search_date: function() {
+                            if
+                                (this.select_search_date !== '') { return true } return false
+                        }, check_select_search_people: function() {
+                            if
+                                (this.select_search_people !== '' && this.select_search_people > 0) {
+                                return true
+                            }
+                            return false
+                        },
+                        check_select_search_price: function() {
+                            if (parseInt(this.select_search_price_s.replace(/,/g, '')) > 0 ||
+                                parseInt(this.select_search_price_e.replace(/,/g, '')) > 0) {
+                                return true
+                            }
+                            return false
+                        },
+                        check_select_searchable: function() {
+                            if (this.select_search_date !== '') {
+                                return true
+                            }
+                            if (this.select_search_people !== '' && this.select_search_people > 0) {
+                                return true
+                            }
+                            if (parseInt(this.select_search_price_s.replace(/,/g, '')) > 0 ||
+                                parseInt(this.select_search_price_e.replace(/,/g, '')) > 0) {
+                                return true
+                            }
+                            if (this.select_search_local.length > 0) {
+                                return true
+                            }
+                            return false
+                        },
+                        check_searchable: function() {
+                            if (this.search_date !== '') {
+                                return true
+                            }
+                            if (this.search_people !== '' && this.search_people > 0) {
+                                return true
+                            }
+                            if (parseInt(this.search_price_s.replace(/,/g, '')) > 0 || parseInt(this.search_price_e.replace(/,/g, '')) >
+                                0) {
+                                return true
+                            }
+                            if (this.search_local.length > 0) {
+                                return true
+                            }
+                            return false
+                        },
+                        reset_search_filter: function() {
+                            this.select_search_date = ''
+                            $('.day').removeClass('select')
+                            this.select_search_people = ''
+                            this.select_search_price_s = ''
+                            this.select_search_price_e = ''
+                            this.select_search_local = []
+                        },
+                        flip_place_images: function(place) {
+                            if (place.swipe !== true) {
+                                place.swipe = true
+                                setTimeout(function () {
+                                    swiper_container(place.id, place.images.length)
+                                }, 500)
+                            }
+                        },
+                        get_keyword: function() {
+                            if (this.prev_keyword !== this.keyword.trim() && this.keyword.trim().length > 0) {
+                                if (this.cancelToken !== null) {
+                                    this.cancelToken.cancel()
+                                }
+                                this.cancelToken = window.axios.CancelToken.source()
+                                this.prev_keyword = this.keyword.trim()
+
+                                window.axios.get(api2_url + '/local/search/filter?keyword=' + this.keyword, {
+                                    cancelToken:
+                                        this.cancelToken.token
+                                }).then(function (response) {
+                                    hourplace_v2.log('', response.data)
+                                    if (response.data.error === '' && response.data.result.keyword === main_vue.keyword) {
+                                        main_vue.locals = []
+                                        response.data.result.data.forEach(local => {
+                                            let title = local.address.split(' ')
+                                            local.title = title[title.length - 1]
+                                            main_vue.locals.push(local)
+                                        })
+                                        main_vue.cancelToken = null
+                                    }
+                                }).catch(function (error) {
+                                    main_vue.cancelToken = null
+                                })
+                            }
+                        },
+                        select_local_address: function(local) {
+                            if (!this.select_search_local.includes(local)) {
+                                if (this.select_search_local.length < 10) { this.select_search_local.push(local) } else {
+                                    hourplace_v2.toast('최대 10개까지 선택 가능합니다.')
+                                }
+                            }
+                        }, delete_local_address: function(local) {
+                            if
+                                (this.select_search_local.includes(local)) {
+                                this.select_search_local.splice(this.select_search_local.indexOf(local), 1)
+                            }
+                        }, click_interest:
+                        function(place) { interest(place.id) }, }, watch: {
+                            search_people: function(val, oldVal) { }, //
+                            select_search_people: function (val, oldVal) { // var input=(val + ' ' ).replace(/[\D\s\._\-]+/g, '' )
+                                // input=input ? parseInt(input, 10) : 0 // if (input < 1) { // this.select_search_people=1 // } // },
+                                search_price_s: function(val, oldVal) {
+                                    var input = (val + ' ').replace(/[\D\s\._\-]+/g, '') input = input
+                                        ? parseInt(input, 10) : 0 this.select_search_price_s = (input === 0) ? '' : input.toLocaleString('en-US')
+                                },
+                                search_price_e: function(val, oldVal) {
+                                    var input = (val + ' ').replace(/[\D\s\._\-]+/g, '') input = input
+                                        ? parseInt(input, 10) : 0 this.select_search_price_e = (input === 0) ? '' : input.toLocaleString('en-US')
+                                },
+                                select_search_people: function(val, oldVal) {
+                                    var input = (val + ' ').replace(/[\D\s\._\-]+/g, '')
+                                    this.select_search_people = input ? parseInt(input, 10) : 0 if (this.select_search_people > 99) {
+                                        this.select_search_people = 99
+                                    }
+                                    if (this.select_search_people < 1) { this.select_search_people = 1 }
+                                },
+                            }, mounted: function() {
+                                this.scroll()
+                            }, beforeMount: function() { this.get_picks() this.get_places() },
+                        }) function
+                            toggle_layer() {
+                            if ($('.category_main_detail').css('display') === 'none') {
+                                $('.category_main_detail').show()
+                                $('.category_main_detail_icon').css('-webkit-transform', 'rotate(0deg)')
+                            } else {
+                                $('.category_main_detail').hide()
+                                $('.category_main_detail_icon').css('-webkit-transform', 'rotate(180deg)')
+                            }
+                        } function
+                            show_category_filter() {
+                            main_vue.select_search_date = main_vue.search_date
+                            main_vue.select_search_people = main_vue.search_people
+                            main_vue.select_search_price_s = main_vue.search_price_s
+                            main_vue.select_search_price_e = main_vue.search_price_e
+                            main_vue.select_search_local = main_vue.search_local.slice()
+
+                        }
+
+
+                        $(document).ready(function () {
+                            $(document).scroll(function() {
+                                var maxHeight = $(document).height();
+                                var currentScroll = $(window).scrollTop() + $(window).height();
+
+                                if (maxHeight <= currentScroll + 10) {
+                                $.ajax({
+                                    url: 'http://webisfree.com/test_api/',
+                                    success: console.log("success") {
+                                    // Append next contents
+                                    }
+                                })
+                            }
+                            })
+                        });
+
+                    </script>
+
+    </body>
+
+    </html>
