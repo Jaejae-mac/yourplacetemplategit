@@ -134,6 +134,12 @@ body, button, html, input, select, td, textarea, th {
     letter-spacing: -0.3px;
     color: #1b1d1f;
 }
+.h_info_sub_button {
+    border-radius: 4px;
+    height: 40px;
+    padding: 0 13px;
+    cursor: pointer;
+}
 p {
     display: block;
     margin-block-start: 1em;
@@ -151,15 +157,51 @@ p {
     text-align: center;
     color: #1b1d1f;
 }
-.h_info_sub_button {
-    border-radius: 4px;
-    height: 40px;
-    padding: 0 13px;
-    cursor: pointer;
-}
+
 element.style {
     flex-direction: row;
     display: flex;
     justify-content: center;
     background-color: #fafbfb;
 }
+.h_info_container div:first-child div:first-child {
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 100%;
+    width: calc(100% - 80px);
+    border-bottom: 1px solid #e7eaee;
+}
+
+a { text-decoration:none;
+} 
+a:link{
+    text-decoration-color: black;
+}
+a:visited { color:black; }
+.answer {
+    display: none;
+    padding-bottom: 30px;
+  }
+  #faq-title {
+    font-size: 25px;
+  }
+  .faq-content {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .question {
+    font-size: 19px;
+    padding: 30px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+  }
+  .question:hover {
+    color: #2962ff;
+  }
+  [id$="-toggle"] {
+    margin-right: 15px;
+  }
+ 
