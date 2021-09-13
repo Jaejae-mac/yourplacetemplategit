@@ -120,6 +120,105 @@
                 <!-- 로그인 기능 끝 -->
 
 
+                <div
+                    style="width: 1px; height: 30px; background-color: rgb(201, 205, 210); margin-right: 10px; margin-left: 20px;">
+                </div>
+
+                <!-- 검색기능 시작 -->
+                <div onclick="toggle_search_container()"
+                class="h_center" style="width: 44px; height: 44px; cursor: pointer;">
+                    <img src="https://s3.hourplace.co.kr/web/images/icon/search_b.svg"
+                    style="width: 24px; padding: 0px 13px; height: 40px; margin-left: 8px;" />
+                </div>
+                <!-- 검색기능 끝-->
+
+                <div class="search_container"
+                id="searhc_vue"
+                style="position: fixed;top: 100px;left: 0;width: 100%;height: 100%;display: none;z-index: 9999;background-color: rgba(0, 0, 0, 0.2);">
+                <div style="width: 100%;height: 100%; display: flex; flex-direction: column;">
+                    <div class="h_column_center" style="width: 100%; background-color: #FFF">
+                        <div class="h_column_center" style="background-color: #FFF; width: 964px; position:relative; margin-bottom: 40px;">
+            
+                            <div style="height: 64px; width: 100%; border-bottom: 1px solid #e7eaee;">
+                                <div class="h_row_center" style="height: 54px;">
+                                    <div class="h_center" style="width: 44px;height: 44px;">
+                                        <img src="https://s3.hourplace.co.kr/web/images/icon/search_v3.svg" style="width: 30px;height: 30px;" />
+                                    </div>
+                                    <div style="position:absolute;right: 77px;left: 57px;">
+                                        <input id="search_input"
+                                            style="width: 100%;border-width: 0;font-size: 26px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.31;letter-spacing: -0.3px;color: #1b1d1f;"
+                                            onKeypress="javascript:if(event.keyCode==13) {search_vue.search_select_keyword(search_vue.keyword)}"
+                                            :value="keyword"
+                                            on:input="keyword = $event.target.value"
+                                            v-on:keyup="getKeyword()"
+                                            autocomplete="off"
+                                            placeholder="어떤 장소에서 콘텐츠를 만들고 싶으세요?" />
+                                    </div>
+                                    <div class="h_center" style="position:absolute;right: 44px;width: 24px;height: 44px; cursor:pointer;"
+                                        v-if="keyword.length > 0" onclick="keyword = ''">
+                                        <img src="https://s3.hourplace.co.kr/web/images/icon/round_delete_g.svg" style="width: 16px;height: 16px;" />
+                                    </div>
+                                    
+                                </div>
+                            </div>
+            
+                            <div style="margin-top: 40px; width: 100%;" v-if="recommend_keywords.length > 0 && keyword.length === 0">
+                                <p style="font-size: 16px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: var(--grey-080);">
+                                    인기 검색어
+                                </p>
+            
+                                <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+                                    <div style="display: inline-block;height: 32px;margin-top: 10px;margin-right: 6px;padding-right: 18px;padding-left: 18px;border-radius: 4px;background-color: var(--grey-015); cursor:pointer;"
+                                        for="recommend_keyword in recommend_keywords" onclick="recommend_select_keyword(recommend_keyword)">
+                                        <div style="width: 100%;height: 100%;display: flex;flex-direction: row;align-items: center;justify-content: center">
+                                            <p style="font-size: 14px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.43;letter-spacing: normal;text-align: center;color: var(--grey-060);">
+                                                <!-- {{ recommend_keyword }} -->
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div id="user_keyword_list" style="width: 100%; margin-top: 40px;" show="search_input_focus === true && keyword.length === 0 && user_keywords.length > 0">
+                                <div style="position:relative;display: flex;flex-direction: row;align-items: center;height: 34px">
+                                    <p style="font-size: 16px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: var(--grey-080);">
+                                        최근 검색어
+                                    </p>
+                                    <p style="position:absolute;right: 0;font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;color: #72787f; cursor:pointer;"
+                                        onclick="delete_all_keyword()">
+                                        전체 삭제
+                                    </p>
+                                </div>
+            
+                                <div style="height: 48px;padding-left: 20px;display: flex;flex-direction: row;align-items: center;" v-if="user_keywords.length === 0">
+                                    <p style="font-size: 20px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.6;letter-spacing: normal;color: var(--grey-040);">
+                                        검색 내역이 없어요
+                                    </p>
+                                </div>
+            
+                                <div style="position:relative; width: 100%; height: 48px; margin-top: 8px; display: flex;flex-direction: row;align-items: center;" for="user_keyword in user_keywords">
+                                    <p style="width: calc(100% - 60px); padding: 12px 0; font-size: 24px;font-weight: 500; font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.3px;color: #1b1d1f; cursor:pointer;"
+                                        onclick="user_select_keyword(user_keyword)">
+                                        <!-- {{ user_keyword.keyword }} -->
+                                    </p>
+                                </div>
+                            </div>
+            
+                            <div style="padding: 28px 60px; width: 100%;" v-if="keyword.length > 0">
+                                <p style="padding: 18px 0; font-size: 24px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.3px;color: #1b1d1f; cursor:pointer;"
+                                    for="keyword in keywords" onclick="list_select_keyword(keyword)">
+                                    <!-- {{ keyword }} -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; cursor: pointer;" onclick="toggle_search_container()">
+            
+                    </div>
+                </div>
+            </div>
+
+
                 <!-- Toggle test 용 마이 페이지 -->
                 <div class="h_my_menu"
                 style="display: none; z-index: 9999; position: absolute;top: 80px;right: 0;width: 220px;border-radius: 8px;box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);border: solid 1px #eff3f5;background-color: #ffffff;">
@@ -136,17 +235,13 @@
                             게스트 계정
                         </p>
 
+                
 
                 <div
                     style="width: 1px; height: 30px; background-color: rgb(201, 205, 210); margin-right: 10px; margin-left: 20px;">
                 </div>
 
-                <!-- 검색기능 시작 -->
-                <div onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'search');toggle_search_container()"
-                    class="h_center" style="width: 44px; height: 44px; cursor: pointer;">
-                    <img src="https://s3.hourplace.co.kr/web/images/icon/search_b.svg"
-                        style="width: 24px; padding: 0px 13px; height: 40px; margin-left: 8px;" />
-                </div> <!-- 검색기능 끝-->
+               
 
 
             </div>
@@ -874,68 +969,7 @@
     </div>
 
 
-    <!--footer-->
-    <div style="flex-direction: row;display: flex;justify-content: center;background-color: #fafbfb;">
-        <div class="h_row_center" style="width: 1160px; height: 310px">
 
-            <div style="position:relative;min-width: 300px;padding-top: 40px;height: 100%;">
-                <p style="font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'business');window.open('http://www.ftc.go.kr/www/bizCommView.do?key=232&amp;apv_perm_no=2018322016230204057&amp;pageUnit=10&amp;searchCnd=wrkr_no&amp;searchKrwd=4948100558&amp;pageIndex=1')">
-                    사업자정보확인
-                </p>
-                <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'personal');window.location.href='/policy/personal'">
-                    개인정보처리방침
-                </p>
-                <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'service');window.location.href='/policy/service'">
-                    이용약관
-                </p>
-                <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                    onclick="window.location.href='/service.html'"> <!-- hourplace_v2.userLog('W', '/place/29464', 'click', 'service');window.location.href='/service' -->
-                    고객센터
-                </p>
-                <p style="margin-top: 12px; font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: #454b50;cursor: pointer;"
-                    onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'policy', 'hr');window.open('https://www.notion.so/hourplace/fae9ceaf4a174479bf52a44305283045')">
-                    인재채용
-                </p>
-
-                <div style="position:absolute; bottom: 50px;">
-                    <p
-                        style="font-size: 15px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.47;letter-spacing: -0.1px;color: #454b50;">
-                        team@hourplace.co.kr</p>
-                </div>
-            </div>
-
-            <div style="position:relative; width: 860px;padding-top: 40px; height: 100%">
-
-                <p
-                    style="font-size: 15px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.33;letter-spacing: -0.1px;color: #9ea4aa;">
-                    (주)먼치팩토리 사업자 정보
-                </p>
-                <p
-                    style="margin-top: 16px;font-size: 12px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.67;letter-spacing: normal;color: #9ea4aa;">
-                    대표 서영석<br>
-                    주소 서울특별시 강남구 압구정로2길 62 대성빌딩 202호<br>
-                    사업자 등록번호 494-81-00558<br>
-                    통신판매업신고번호 2018-서울강남-04057<br>
-                    (주)먼치팩토리는 통신판매중개자로서, 통신판매의 당사자가 아니라는 사실을 고지하며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.
-                </p>
-
-                <p
-                    style="position:absolute; bottom: 50px;font-size: 11px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #9ea4aa;">
-                    © munchfactory Inc.
-                </p>
-
-                <div class="h_row_center" style="position:absolute; bottom: 50px; right: 0;">
-                    <div class="h_column_center" style="width: 32px;height: 32px;cursor: pointer;"
-                        onclick="hourplace_v2.userLog('W', '/place/29464', 'click', 'sns', 'instagram');window.open('http://instagram.com/hourplace/?hl=ko')">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--footer 끝-->
 
         <!-- script 시작 -->
 
