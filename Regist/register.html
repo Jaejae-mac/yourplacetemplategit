@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var checkPw = false;
+            //비밀번호
+            var pwd1;
+            //비밀번호확인.
+            var pwd2;
+            var email; 
+            var nickname;
+            //패스워드가 정규식에 부합하는지 판단하는 변수. 
+            var pwdchk;
+            //동의 여부 판단 변수 3개
+            //참 : 동의 
+            //거짓 : 비동의
+            var chkAllFlag = false;
+            var chkService = false;
+            var chkPersonal = false;
+            $("#alert-success").hide();
+            $("#alert-danger").hide();
+            $("#alert-danger-email").hide();
+            $("#alert-danger-nick").hide();
+            $("#alert-danger-pw").hide();
+            
+            //전체 동의를 눌렀을때 서비스 동의 및 인적 동의에 동의가 되도록 이미지 색상 변경 및 참거짓값 변경.
+            //참 : 동의 상태 / 거짓: 동의 안한 상태.
+            $(document).on('click','.agree-all',function(){
+                if(!chkAllFlag){
+                    $(".agree-all").css({"background-color":"rgb(7,94,214)", "border-radius":"50px","border":"1px solid lightgray"});
+                    $(".agree-service").css({"filter":"opacity(1) drop-shadow(0 0 0 blue)"});
+                    $(".agree-personal").css({"filter":"opacity(1) drop-shadow(0 0 0 blue)"});
+                    chkAllFlag=true;
+                    chkService=true;
+                    chkPersonal=true;
+                }else{
+                    $(".agree-all").css({"background-color":"rgb(255,255,255)", "border-radius":"100px","border":"1px solid lightgray"});
+                    $(".agree-service").css({"filter":"opacity(1) drop-shadow(0 0 0 lightgray)"});
+                    $(".agree-personal").css({"filter":"opacity(1) drop-shadow(0 0 0 lightgray)"});
+                    chkAllFlag=false;
+                    chkService=false;
+                    chkPersonal=false;
+                }
+                
+            });
+            //수정해야함. 아직 미완성.
+            $(document).on('click','.agree-service',function(){
+                if(!chkAllFlag &&chkPersonal && !chkService){
+                    $(".agree-all").css({"background-color":"rgb(7,94,214)", "border-radius":"50px","border":"1px solid lightgray"});
+                    $(".agree-service").css({"filter":"opacity(1) drop-shadow(0 0 0 blue)"});
+                    $(".agree-personal").css({"filter":"opacity(1) drop-shadow(0 0 0 blue)"});
+                    chkAllFlag=true;
+                    chkService=true;
+                    chkPersonal=true;
+                    return;
+                }
+                if(chkAllFlag &&chkPersonal && !chkService){
+                    $(".agree-all").css({"background-color":"rgb(7,94,214)", "border-radius":"50px","border":"1px solid lightgray"});
+                    chkAllFlag=true;
+                    chkService=true;
+                    chkPersonal=true;
+                    return;
+                }
+                if(!chkService){
+                    $(".agree-service").css({"filter":"opacity(1) drop-shadow(0 0 0 blue)"});
+                    $(".agree-personal").css({"filter":"opacity(1) drop-shadow(0 0 0 blue)"});
+                    chkAllFlag=true;
+                    chkService=true;
+                    chkPersonal=true;
+                }else{
+                    $(".agree-all").css({"background-color":"rgb(255,255,255)", "border-radius":"100px","border":"1px solid lightgray"});
+                    $(".agree-service").css({"filter":"opacity(1) drop-shadow(0 0 0 lightgray)"});
+                    $(".agree-personal").css({"filter":"opacity(1) drop-shadow(0 0 0 lightgray)"});
+                    console.log("back!!");
+                    chkService=false;
+                }
+                
+            });
+        });
+        $(function () {
+            $("input").keyup(function () {
+                //비밀번호 입력란에 들어 있는 값을 각각 가져온다.
+                pwd1 = $("#password").val();
+                pwd2 = $("#confirm_password").val();
+                email = $("#email").val();
+                nickname = $("#nickname").val();
+
+                if(email === "" ){
+                    $("#alert-danger-email").hide();
+                }
+                if(nickname === "" ){
+                    $("#alert-danger-nick").hide();
+                }
+                if (pwd1 === "" && pwd2 === "") {
+                    $("#alert-success").hide();
+                    $("#alert-danger").hide();
+                    $("#alert-danger-pw").hide();
+                }
+                
+                //비밀번호 입력란이 비어있지 않다면.
+                if (pwd1 != "" || pwd2 != "") {
+                    pwdchk=chkPW();
+                    if(pwdchk){
+                        $("#alert-danger-pw").hide();
+                    }else{
+                        $("#alert-danger-pw").show();
+                    }
+                    //비밀번호와 비밀번호 확인란이 일치 한다면
+                    if (pwd1 == pwd2) {
+                        $("#alert-success").show();
+                        $("#alert-danger").hide();
+                        checkPw = true;
+                    } else {
+                        $("#alert-success").hide();
+                        $("#alert-danger").show();
+                        checkPw = false;
+                    }
+                }
+            });
+        });
+
+        function regist(){
+            var flag = true;
+            //전화번호 인증 완료 여부 판단해야 함.
+            /*
+            여기에
+            */
+            //닉네임 입력 여부.
+            if(nickname===""){ 
+                $("#alert-danger-nick").show();
+                flag = false;
+            }
+            //이메일 입력 여부
+            if(email === ""){
+                $("#alert-danger-email").show();
+                flag = false;
+            }
+            //비밀번호 입력 및 확인 여부.
+            if(!checkPw){
+                flag = false;
+            }
+        }
+     //전화번호 정규식.
+     var regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+
+     function chkPW() {
+       var pw = $("#password").val();
+       var id = $("#id").val();
+       var reg = /^(?=.*?[a-z])(?=.*?[0-9])$/;
+       if (pw.length < 8 || pw.length > 20) {
+        $(".alert-danger-pw").text("비밀번호는 8자 이상이어야 하며, 숫자/소문자를 모두 포함해야 합니다.");
+          return false;
+        }
+       if(reg.test(pw)){
+        $(".alert-danger-pw").text("비밀번호는 8자 이상이어야 하며, 숫자/소문자를 모두 포함해야 합니다.");
+       }else if (pw.search(id) > -1) {
+         $(".alert-danger-pw").text("비밀번호에 아이디가 포함되었습니다.");
+         return false;
+       }else if (/(\w)\1\1\1/.test(pw)) {
+         $(".alert-danger-pw").text("같은 문자를 4번 이상 사용하실 수 없습니다.");
+         return false;
+       }  else if (pw.search(/\s/) != -1) {
+         $(".alert-danger-pw").text("비밀번호는 공백 없이 입력해주세요.");
+         return false;
+       }else {
+        $(".alert-danger-pw").text("올바른 비밀번호 양식입니다.");
+         return true;
+       }
+     }
+
+     $(document).on('click','#id_chk',function(){
+        swal.close();
+        
+     });
+   </script>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <div class="h_column_center" style="margin-top: 20px;">
+        <p
+            style="font-size: 32px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.31;letter-spacing: -0.3px;text-align: center;color: #1b1d1f;">
+            회원가입</p>
+    </div>
+    <div id="main_vue" class="h_column_center" style="width: 100%; margin-top: 20px; margin-bottom: 200px;">
+        <div
+            style="width: 580px;border-radius: 10px;border: solid 1px #dfe2e7;background-color: #ffffff;padding: 40px 50px;">
+
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="margin-bottom:0;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    아이디
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-left: 4px; width: 6px; height: 6px">
+            </div>
+            <div class="input_container disabled" style="margin-top: 8px;cursor: pointer;" >
+                <!-- 인증기능 페이지로 이동-->
+                <input type="text" placeholder="아이디를 입력해주세요." id="id" name="userId" required />
+                <div class="h_center"
+                    style="position: absolute; right: 7px; padding-right: 18px; padding-left: 18px; height: 38px; border-radius: 4px; background-color: var(--grey-070);">
+                    <label for="id_chk"
+                        style="margin-bottom:0;font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal;line-height: 1.29; letter-spacing: normal; color: #ffffff;">
+                        중복 확인
+                    </label>
+                    <input type="button" id="id_chk" name="" style="display: none;">
+                </div>
+            </div>
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="margin-bottom:0;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    비밀번호
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-left: 4px; width: 6px; height: 6px">
+            </div>
+
+            <div class="input_container" style="margin-top: 8px;">
+                <input type="password" maxlength="20" placeholder="영문/숫자 조합 8-20자로 입력하세요" value="" id="password"
+                    name="userPw" required>
+                <div class="delete" onclick="delete_password()">
+                    <img src="images/icon/register/round_delete_g.png" style="width: 16px;height: 16px;" />
+                </div>
+            </div>
+            <div class="alert alert-danger" id="alert-danger-pw"style="margin-top: 10px;font-size:13px;">
+                <p class="alert-danger-pw"></p>
+            </div>
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="margin-bottom:0;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    비밀번호 확인
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-left: 4px; width: 6px; height: 6px">
+            </div>
+            <div class="input_container" style="margin-top: 8px;">
+                <input type="password" maxlength="20" placeholder="영문/숫자 조합 8-20자로 입력하세요" value="" id="confirm_password"
+                    name="confirm_password" required>
+                <div class="delete" show="confirm_password.length > 0" onclick="delete_confirm_password()">
+                    <img src="images/icon/register/round_delete_g.png" style="width: 16px;height: 16px;" />
+                </div>
+            </div>
+            <div class="alert alert-success" id="alert-success"style="margin-top: 10px;font-size:13px;">
+                비밀번호가 일치합니다.
+            </div>
+            <div class="alert alert-danger" id="alert-danger"style="margin-top: 10px;font-size:13px;">
+                비밀번호가 일치하지 않습니다.
+            </div>
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="margin-bottom:0;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    본인 인증
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-left: 4px; width: 6px; height: 6px">
+            </div>
+            <div class="input_container disabled" style="margin-top: 8px;cursor: pointer;" >
+                <!-- 인증기능 페이지로 이동-->
+                <input type="phone" placeholder="본인인증을 진행해 주세요" model="nice_auth" id="userPhoneNum" required />
+                <div class="h_center"
+                    style="position: absolute; right: 7px; padding-right: 18px; padding-left: 18px; height: 38px; border-radius: 4px; background-color: var(--grey-070);">
+                    <label for="tel"
+                        style="margin-bottom:0;font-size: 14px; font-weight: 500; font-stretch: normal; font-style: normal;line-height: 1.29; letter-spacing: normal; color: #ffffff;">
+                        휴대폰 인증
+                    </label>
+                    <input type="button" id="tel" name="userTel" style="display: none;">
+                </div>
+            </div>
+            <div class="h_row_center" style="position: relative; margin-top: 10px; cursor:pointer;"
+                onclick="toggle_auth_info()">
+                <img src="images/icon/register/more_info.png" style="width: 14px; height: 14px;" />
+                <p
+                    style="margin-left: 4px; margin-bottom:0;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;text-align: right;color: var(--blue-030);">
+                    본인 인증 안내
+                </p>
+
+                <div class="auth_info" style="display: none; position: absolute; top: 18px; left: -10px; z-index: 1;">
+                    <div class="triangle-with-shadow" style="margin-left: 30px"></div>
+                    <div
+                        style="width: 320px; margin-top: -1px; padding: 12px; border-radius: 6px;box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);border: solid 1px #eff3f5;background-color: #ffffff;">
+                        <div class="h_row">
+                            <div
+                                style="margin-top: 6px; max-width: 3px;max-height: 3px;min-width: 3px;min-height: 3px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #72787f; border-radius: 1.5px">
+
+                            </div>
+                            <p
+                                style="margin-left: 7px; font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #72787f;">
+                                입력하신 정보는 본인 확인을 위해 NICE평가정보(주)에 제공됩니다.
+                            </p>
+                        </div>
+                        <div class="h_row" style="margin-top: 4px">
+                            <div
+                                style="margin-top: 6px;max-width: 3px;max-height: 3px;min-width: 3px;min-height: 3px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #72787f; border-radius: 1.5px">
+
+                            </div>
+                            <p
+                                style="margin-left: 7px; font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #72787f;">
+                                투명한 예약 및 결제 과정을 위하여 본인인증을 통해 성명 및 휴대전화번호를 수집합니다.
+                            </p>
+                        </div>
+                        <div class="h_row" style="margin-top: 4px">
+                            <div
+                                style="margin-top: 6px;max-width: 3px;max-height: 3px;min-width: 3px;min-height: 3px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #72787f; border-radius: 1.5px">
+
+                            </div>
+                            <p
+                                style="margin-left: 7px; font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;color: #72787f;">
+                                만 19세 미만의 미성년자는 회원가입 신청이 어렵습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="margin-bottom:10px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    이름
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-left: 4px; width: 6px; height: 6px">
+            </div>
+
+            <div class="input_container" style="margin-top: 0px;">
+                <input type="text" placeholder="이름을 입력하세요" value="" id="name" name="userName" required>
+                <div class="delete" onclick="delete_name()">
+                    <img src="images/icon/register/round_delete_g.png" style="width: 16px;height: 16px;" />
+                </div>
+            </div>
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="font-size: 12px;margin-bottom:10px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    성별
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-left: 4px; width: 6px; height: 6px">
+            </div>
+            <div class="radio-wrap input_container" style="margin-top: 0;">
+                <input type="radio" name="userSex" id="r2" value="male" checked/>
+                <label for="r2"><span></span>남성</label>
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="userSex" id="r1" value="female" />
+                <label for="r1"><span></span>여성</label>
+            </div>
+
+
+
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="margin-bottom:0;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    닉네임
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-left: 4px; width: 6px; height: 6px">
+            </div>
+
+            <div class="input_container" style="margin-top: 8px;">
+                <input type="text" placeholder="닉네임을 입력하세요" value="" id="nickname" name="userNickName" required>
+                <div class="delete" show="name.length > 0" onclick="delete_nickname()">
+                    <img src="images/icon/register/round_delete_g.png" style="width: 16px;height: 16px;" />
+                </div>
+            </div>
+            <div class="alert alert-danger" id="alert-danger-nick" style="margin-top: 10px;font-size:13px;">
+                닉네임을 입력해주세요.
+            </div>
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="margin-bottom:0;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    이메일
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-left: 4px; width: 6px; height: 6px">
+            </div>
+
+            <div class="input_container" style="margin-top: 8px;">
+                <input type="email" placeholder="이메일을 입력하세요" value="" id="email" name="userEmail" required>
+                <div class="delete" show="email.length > 0" onclick="delete_email()">
+                    <img src="images/icon/register/round_delete_g.png" style="width: 16px;height: 16px;" />
+                </div>
+            </div>
+            <div class="alert alert-danger" id="alert-danger-email" style="margin-top: 10px;font-size:13px;">
+                이메일 형식이 올바르지 않습니다.
+            </div>
+        
+            <div class="h_row" style="margin-top: 20px;">
+                <p
+                    style="margin-bottom:0;margin-top:10px;font-size: 12px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    서비스 동의
+                </p>
+                <img src="images/icon/register/invalid.png" style="margin-top:10px;margin-left: 4px; width: 6px; height: 6px">
+            </div>
+
+            <div class="h_row_center h_round_check"
+                style="margin-top: 21px; height: 32px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #ffffff;">
+                <img src="images/icon/register/controls_round_check.png"
+                    style="margin-left: 6px; margin-right: 12px; width: 24px; height: 24px"
+                    class="agree-all"
+                    />
+                <p style="margin-bottom:5px;font-size: 16px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.38;letter-spacing: -0.1px;color: var(--grey-040);">
+                    전체 동의하기
+                </p>
+            </div>
+
+            <div class="h_row_center h_check"
+                style="margin-top: 10px; height: 32px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #ffffff;">
+                <img src="images/icon/register/check_g.png"
+                    style="margin-left: 8px; margin-right: 10px; width: 18px; height: 18px"
+                    class="agree-service" />
+                <p style="margin-bottom:0px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);">
+                    아워플레이스 서비스 이용약관 동의
+                </p>
+                <p style="position: absolute; right: 0;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-050); cursor: pointer;"
+                    onclick="window.open('policy/service.html')">
+                    보기
+                </p>
+            </div>
+
+            <div class="h_row_center h_check"
+                style="height: 32px;-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);background-color: #ffffff;">
+                <img src="images/icon/register/check_g.png"
+                    style="margin-left: 8px; margin-right: 10px; width: 18px; height: 18px; "
+                    class="agree-personal"/>
+                <p style="margin-bottom:0px;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-040);"
+                    onclick="agree_personal = true">
+                    아워플레이스 개인정보 처리방침 동의
+                </p>
+                <p style="position: absolute; right: 0;font-size: 12px;font-weight: 500;font-stretch: normal;font-style: normal;line-height: 1.17;letter-spacing: normal;color: var(--grey-050); cursor: pointer;"
+                    onclick="window.open('policy/personal.html')">
+                    보기
+                </p>
+            </div>
+            <div class="" style="margin-top: 30px;">
+                <label for="request" class="btn btn-primary" style="width: 100%;text-align: center;height: 40px;">가입 완료</label>
+                <input type="button" id="request" name="regist-btn" style="display: none;" onclick="regist()">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggle_auth_info() {
+            if ($('.auth_info').css('display') === 'none') {
+                h_show_popup('.auth_info')
+                // $('booking_type').hide()
+            } else {
+                h_hide_popup('.auth_info')
+                // $('booking_type').show()
+            }
+        }
+        function h_show_popup(id) {
+            $(id).show()
+        }
+
+        function h_hide_popup(id) {
+            $(id).hide()
+        }
+        function delete_name() {
+            $('#name').val('');
+        }
+        function delete_nickname() {
+            $('#nickname').val('');
+        }
+        function delete_email() {
+            $('#email').val('');
+        }
+        function delete_password() {
+            $('#password').val('');
+        }
+        function delete_confirm_password() {
+            $('#confirm_password').val('');
+        }
+        $(document).on('click','#tel', function(){
+            var userTel = $("#tel").val();
+            var authNum;
+            var time = 3000;
+                let timerInterval
+            Swal.fire({
+            title: '인증번호 입력',
+            html: 'I will close in <b></b> milliseconds.'+
+            '<br/><br/><input type="text" placeholder="number" id="auth_num" class="form-control">'+
+            '<br/><input type="button" class="btn btn-primary" id="auth_num_btn" style="widht:100%;" value="인증 확인">',
+            timer: time,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+            }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                
+                
+            }
+            
+            });
+            
+           
+             //인증번호 입력후 확인 버튼 클릭 시.
+             $(document).on('click','#auth_num_btn', function(){
+                swal.close();
+                Swal.fire({
+            			  icon:'error',
+            			  title:'인증번호가 일치하지 않습니다.',
+            			  text:'다시 인증해주세요.'
+            	});
+                
+            });
+          
+        });
+
+        
+        
+    </script>
+
+</body>
+
+</html>
