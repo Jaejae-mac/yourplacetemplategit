@@ -1,0 +1,112 @@
+#category ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  height: 44px;
+  
+}
+
+#category ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#category ul li {
+  float: left;
+  color: black;
+  margin-left: 16px;
+  height: 44px;
+  
+}
+
+#category p:hover:not(.active) {
+  color: #246ff8;
+  
+}
+
+.active {
+  color: #246ff8;
+}
+#category p {
+  position: relative;
+  font-size: 15px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: -0.1px;
+  color: #aeb3b8;
+}
+#sub_category {
+  height: 61px;
+}
+#option {
+  width: 1160px;
+  height: 130px;
+}
+.h_row_center {
+  
+  position: relative;
+  width: 100%;
+  margin-top: 40px; 
+  margin-bottom: 0px; 
+  height: 42px;
+}
+.h_left_button {
+  float: left;
+  background-color: #fafbfb;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  width: 57px;
+  height: 40px;
+  border: 1px solid #aeb3b8;
+  border-radius: 5px;
+}
+.h_right_button {
+    position: absolute;
+    background-color: #fafbfb;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    height: 40px;
+    border: 1px solid #aeb3b8;
+    border-radius: 5px;
+    padding: 0 15px;
+    right: 0;
+}
+.h_left_button:hover {
+  background-color: #c9cdd2;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.h_right_button:hover {
+  background-color: #c9cdd2;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.h_left_button p {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #454b50;
+}
+.h_right_button p {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #454b50;
+}
+.h_right_button img{
+  vertical-align: middle;
+}

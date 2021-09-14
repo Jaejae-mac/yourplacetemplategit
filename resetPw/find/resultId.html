@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Find My Id - yourplace</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.12.6/sweetalert2.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <style>
+    main,
+    #layoutAuthentication_content {
+      background-color: rgb(255, 255, 255);
+    }
+    .password:focus,
+    .password-confirm:focus {
+      outline: none;
+    }
+  </style>
+  <body class="bg-primary">
+    <!--body-->
+    <!-- Main Body -->
+    <div
+      style="
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        margin-top: 100px;
+      "
+    >
+      <!-- header 가 100px 이라 margin-top = header height-->
+      <div class="h_center" id="test_body" style="width: 1160px; height: 100%">
+        <div style="position: absolute; width: 100%; height: 100%"></div>
+        <div
+          id="main"
+          class="h_column_center"
+          style="width: 100%; margin-top: 50px; margin-bottom: 200px"
+        >
+          <div class="h_column_center" style="margin-top: 20px">
+            <p
+              style="
+                font-size: 32px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.31;
+                letter-spacing: -0.3px;
+                text-align: center;
+                color: #1b1d1f;
+              "
+            >
+              아이디 찾기
+            </p>
+          </div>
+
+          <div
+            id="main_vue"
+            class="h_column_center"
+            style="width: 100%; margin-top: 30px; margin-bottom: 200px"
+            v-cloak
+          >
+            <div
+              style="
+                width: 580px;
+                border-radius: 10px;
+                border: solid 1px #dfe2e7;
+                background-color: #ffffff;
+                padding: 40px 50px;
+              "
+            >
+              <div class="h_column_center" style="margin: 10px 10px">
+                <p align="center">
+                  가입하신 날짜는 ${userRegDate} 이며,<br />
+                  가입하신 아이디는 ${userId} 입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
